@@ -3,9 +3,9 @@ const router = express.Router();
 const categoryController = require('../controllers/categoryController');
 const { verifyToken, requireAdmin } = require('../middleware/authMiddleware');
 
-// Public/authenticated view of categories
-router.get('/', verifyToken, categoryController.getCategories);
-router.get('/:id', verifyToken, categoryController.getCategoryById);
+// Public view of categories
+router.get('/', categoryController.getCategories);
+router.get('/:id', categoryController.getCategoryById);
 
 // Admin-only management
 router.post('/', verifyToken, requireAdmin, categoryController.createCategory);
