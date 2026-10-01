@@ -111,9 +111,10 @@ export default function DocumentsPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredDocs.map((doc) => {
             const isReceipt = doc.doc_type === 'receipt';
+            const token = localStorage.getItem('token');
             const downloadUrl = isReceipt
-              ? `/api/documents/receipts/${doc.id}/download`
-              : `/api/documents/warranties/${doc.id}/download`;
+              ? `/api/documents/receipts/${doc.id}/download?token=${token}`
+              : `/api/documents/warranties/${doc.id}/download?token=${token}`;
 
             return (
               <div

@@ -57,7 +57,7 @@ async function getTransporter() {
  */
 async function sendWarrantyReminder(recipientEmail, recipientName, details) {
   const { productName, provider, endDate, daysRemaining, productId, warrantyId } = details;
-  const clientUrl = process.env.CLIENT_URL || 'http://localhost:5173';
+  const clientUrl = process.env.FRONTEND_URL || process.env.CLIENT_URL || 'http://localhost:5173';
   const productLink = `${clientUrl}/products/${productId}`;
 
   const subject = `⚠️ Warranty Expiry Reminder: ${productName} expires in ${daysRemaining} days`;

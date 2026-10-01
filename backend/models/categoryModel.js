@@ -3,10 +3,13 @@ const db = require('../config/db');
 async function getAll() {
   const result = await db.query(
     `SELECT c.id, c.name, c.description, c.created_at, c.updated_at,
-            COUNT(p.id) AS product_count
+            COALESCE(p_counts.product_count, 0) AS product_count
      FROM categories c
-     LEFT JOIN products p ON p.category_id = c.id
-     GROUP BY c.id
+     LEFT JOIN (
+       SELECT category_id, COUNT(id) AS product_count
+       FROM products
+       GROUP BY category_id
+     ) p_counts ON p_counts.category_id = c.id
      ORDER BY c.name ASC`
   );
   return result.rows;

@@ -439,7 +439,7 @@ export default function ProductDetailPage() {
                     </div>
                     <div className="flex items-center gap-1 flex-shrink-0">
                       <a
-                        href={`/api/documents/receipts/${r.id}/download`}
+                        href={`/api/documents/receipts/${r.id}/download?token=${localStorage.getItem('token')}`}
                         target="_blank"
                         rel="noreferrer"
                         className="p-1.5 text-slate-500 hover:text-brand-600 rounded-md hover:bg-white transition-colors"
@@ -496,7 +496,7 @@ export default function ProductDetailPage() {
                       </div>
                       <div className="flex items-center gap-1 flex-shrink-0">
                         <a
-                          href={`/api/documents/warranties/${wd.id}/download`}
+                          href={`/api/documents/warranties/${wd.id}/download?token=${localStorage.getItem('token')}`}
                           target="_blank"
                           rel="noreferrer"
                           className="p-1.5 text-slate-500 hover:text-brand-600 rounded-md hover:bg-white transition-colors"

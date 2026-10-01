@@ -10,6 +10,8 @@ export default function ProductFormPage() {
   const navigate = useNavigate();
 
   const [categories, setCategories] = useState([]);
+  const [categoriesLoading, setCategoriesLoading] = useState(true);
+  const [categoriesError, setCategoriesError] = useState('');
   const [loading, setLoading] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
@@ -45,12 +47,17 @@ export default function ProductFormPage() {
 
   const fetchCategories = async () => {
     try {
+      setCategoriesLoading(true);
+      setCategoriesError('');
       const res = await axiosClient.get('/categories');
       if (res.data.success) {
-        setCategories(res.data.data);
+        setCategories(res.data.data || []);
       }
     } catch (err) {
       console.error('Failed to load categories:', err);
+      setCategoriesError('Could not load categories');
+    } finally {
+      setCategoriesLoading(false);
     }
   };
 
@@ -242,9 +249,18 @@ export default function ProductFormPage() {
                 name="category_id"
                 value={formData.category_id}
                 onChange={handleChange}
-                className="w-full px-3 py-2 bg-white text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 text-slate-700"
+                disabled={categoriesLoading}
+                className="w-full px-3 py-2 bg-white text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 text-slate-700 disabled:bg-slate-50 disabled:cursor-wait"
               >
-                <option value="">Select Category</option>
+                <option value="">
+                  {categoriesLoading
+                    ? 'Loading categories...'
+                    : categoriesError
+                    ? 'Failed to load categories'
+                    : categories.length === 0
+                    ? 'No categories available'
+                    : 'Select Category'}
+                </option>
                 {categories.map((c) => (
                   <option key={c.id} value={c.id}>
                     {c.name}
