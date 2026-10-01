@@ -1,0 +1,27 @@
+{
+  "name": "warranty-management-system",
+  "version": "1.0.0",
+  "description": "Warranty Management System - Full-stack web application for products, warranties, receipts, and service records",
+  "scripts": {
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "start:backend": "npm --prefix backend start",
+    "start:frontend": "npm --prefix frontend run dev",
+    "test:backend": "npm --prefix backend test",
+    "build:frontend": "npm --prefix frontend run build",
+    "init:db": "npm --prefix backend run init-db"
+  },
+  "keywords": [
+    "warranty",
+    "management",
+    "system",
+    "react",
+    "express",
+    "postgresql",
+    "tailwindcss",
+    "jwt",
+    "nodemailer"
+  ],
+  "author": "University Student",
+  "license": "MIT"
+}
