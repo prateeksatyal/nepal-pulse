@@ -3,6 +3,7 @@ import { Users, Shield, UserCheck, Trash2, AlertCircle } from 'lucide-react';
 import axiosClient from '../../api/axiosClient';
 import LoadingSpinner from '../../components/common/LoadingSpinner';
 import ConfirmModal from '../../components/common/ConfirmModal';
+import EmptyState from '../../components/common/EmptyState';
 import { formatDate } from '../../utils/dateUtils';
 import { useAuth } from '../../context/AuthContext';
 
@@ -10,6 +11,7 @@ export default function AdminUsersPage() {
   const { user: currentAdmin } = useAuth();
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
   // Delete modal
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
@@ -23,12 +25,14 @@ export default function AdminUsersPage() {
   const fetchUsers = async () => {
     try {
       setLoading(true);
+      setError('');
       const res = await axiosClient.get('/admin/users');
       if (res.data.success) {
-        setUsers(res.data.data);
+        setUsers(res.data.data || []);
       }
     } catch (err) {
       console.error('Failed to load users:', err);
+      setError(err.response?.data?.message || 'Failed to load user accounts.');
     } finally {
       setLoading(false);
     }
@@ -84,8 +88,30 @@ export default function AdminUsersPage() {
         </p>
       </div>
 
+      {error && (
+        <div className="p-4 bg-rose-50 border border-rose-200 rounded-xl flex items-center justify-between text-sm text-rose-700">
+          <div className="flex items-center gap-2">
+            <AlertCircle className="w-5 h-5 flex-shrink-0 text-rose-600" />
+            <span>{error}</span>
+          </div>
+          <button
+            type="button"
+            onClick={fetchUsers}
+            className="px-3 py-1 bg-white border border-rose-200 rounded-lg text-xs font-semibold text-rose-700 hover:bg-rose-100 transition-colors"
+          >
+            Retry
+          </button>
+        </div>
+      )}
+
       {loading ? (
         <LoadingSpinner label="Loading users..." />
+      ) : users.length === 0 ? (
+        <EmptyState
+          title="No users registered"
+          description="There are currently no registered user accounts found in the database."
+          icon={Users}
+        />
       ) : (
         <div className="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
           <div className="overflow-x-auto">

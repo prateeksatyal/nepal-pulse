@@ -3,10 +3,12 @@ import { Tags, Plus, Edit2, Trash2, AlertCircle, Save, X, Package } from 'lucide
 import axiosClient from '../../api/axiosClient';
 import LoadingSpinner from '../../components/common/LoadingSpinner';
 import ConfirmModal from '../../components/common/ConfirmModal';
+import EmptyState from '../../components/common/EmptyState';
 
 export default function AdminCategoriesPage() {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [pageError, setPageError] = useState('');
 
   // Add / Edit Modal state
   const [modalOpen, setModalOpen] = useState(false);
@@ -28,12 +30,14 @@ export default function AdminCategoriesPage() {
   const fetchCategories = async () => {
     try {
       setLoading(true);
+      setPageError('');
       const res = await axiosClient.get('/categories');
       if (res.data.success) {
-        setCategories(res.data.data);
+        setCategories(res.data.data || []);
       }
     } catch (err) {
       console.error('Failed to load categories:', err);
+      setPageError(err.response?.data?.message || 'Failed to load categories.');
     } finally {
       setLoading(false);
     }
@@ -129,8 +133,40 @@ export default function AdminCategoriesPage() {
         </button>
       </div>
 
+      {pageError && (
+        <div className="p-4 bg-rose-50 border border-rose-200 rounded-xl flex items-center justify-between text-sm text-rose-700">
+          <div className="flex items-center gap-2">
+            <AlertCircle className="w-5 h-5 flex-shrink-0 text-rose-600" />
+            <span>{pageError}</span>
+          </div>
+          <button
+            type="button"
+            onClick={fetchCategories}
+            className="px-3 py-1 bg-white border border-rose-200 rounded-lg text-xs font-semibold text-rose-700 hover:bg-rose-100 transition-colors"
+          >
+            Retry
+          </button>
+        </div>
+      )}
+
       {loading ? (
         <LoadingSpinner label="Loading categories..." />
+      ) : categories.length === 0 ? (
+        <EmptyState
+          title="No categories found"
+          description="Create your first product category using the 'Add New Category' button above."
+          icon={Tags}
+          actionButton={
+            <button
+              type="button"
+              onClick={openCreateModal}
+              className="inline-flex items-center gap-1.5 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-xs font-semibold rounded-lg shadow-sm"
+            >
+              <Plus className="w-4 h-4" />
+              <span>Add Category</span>
+            </button>
+          }
+        />
       ) : (
         <div className="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
           <div className="overflow-x-auto">

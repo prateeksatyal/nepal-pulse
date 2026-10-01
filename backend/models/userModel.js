@@ -29,10 +29,13 @@ async function create({ name, email, password, role = 'user' }) {
 async function getAllUsers() {
   const result = await db.query(
     `SELECT u.id, u.name, u.email, u.role, u.created_at, u.updated_at,
-            COUNT(DISTINCT p.id) AS product_count
+            COALESCE(p_counts.product_count, 0) AS product_count
      FROM users u
-     LEFT JOIN products p ON p.user_id = u.id
-     GROUP BY u.id
+     LEFT JOIN (
+       SELECT user_id, COUNT(id) AS product_count
+       FROM products
+       GROUP BY user_id
+     ) p_counts ON p_counts.user_id = u.id
      ORDER BY u.created_at DESC`
   );
   return result.rows;
