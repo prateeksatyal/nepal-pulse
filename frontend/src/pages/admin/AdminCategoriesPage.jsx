@@ -116,7 +116,7 @@ export default function AdminCategoriesPage() {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold text-slate-900 tracking-tight">
-            Category Management (CRUD Area 4)
+            Category Management
           </h1>
           <p className="text-sm text-slate-500 mt-1">
             Organize products into asset classifications with full administrative controls.
@@ -259,7 +259,7 @@ export default function AdminCategoriesPage() {
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="e.g. Smart Wearables & Fitness"
+                  placeholder="Category name"
                   className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500/20 text-sm"
                 />
               </div>
@@ -272,7 +272,7 @@ export default function AdminCategoriesPage() {
                   rows="3"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  placeholder="Describe the types of products belonging to this category..."
+                  placeholder="Category description"
                   className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500/20 text-sm"
                 />
               </div>

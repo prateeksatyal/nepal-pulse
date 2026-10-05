@@ -93,8 +93,8 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section className="pt-16 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-xs font-semibold mb-6">
-          <span className="w-2 h-2 rounded-full bg-brand-500 animate-pulse" />
-          3rd Semester Web Development University Project
+          <span className="w-2 h-2 rounded-full bg-brand-500" />
+          Active Asset & Warranty Management
         </div>
 
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight max-w-4xl mx-auto leading-tight">
@@ -102,8 +102,8 @@ export default function LandingPage() {
         </h1>
 
         <p className="mt-6 text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-          A full-stack web application featuring automatic status calculation, receipt uploads,
-          comprehensive CRUD modules, and automated expiry email reminders.
+          A centralized platform featuring automated status calculation, receipt preservation,
+          maintenance logs, and timely expiry notifications.
         </p>
 
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -111,34 +111,15 @@ export default function LandingPage() {
             to="/register"
             className="w-full sm:w-auto px-6 py-3 text-base font-semibold text-white bg-brand-600 rounded-lg hover:bg-brand-700 shadow-md transition-all flex items-center justify-center gap-2"
           >
-            <span>Start Managing Assets</span>
+            <span>Get Started</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
           <Link
             to="/login"
             className="w-full sm:w-auto px-6 py-3 text-base font-semibold text-slate-700 bg-white border border-slate-300 rounded-lg hover:bg-slate-50 transition-colors shadow-sm"
           >
-            Demo Credentials Login
+            Sign In
           </Link>
-        </div>
-
-        {/* Demo Credentials Box */}
-        <div className="mt-10 p-4 max-w-xl mx-auto bg-white rounded-xl border border-slate-200 shadow-sm text-left">
-          <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
-            Pre-Configured Demo Accounts:
-          </h4>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-            <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-100">
-              <span className="font-semibold text-slate-800">Normal User:</span>
-              <p className="text-slate-600 mt-0.5">user@warranty.com</p>
-              <p className="text-slate-400">Password: user123</p>
-            </div>
-            <div className="p-2.5 rounded-lg bg-purple-50 border border-purple-100">
-              <span className="font-semibold text-purple-900">Administrator:</span>
-              <p className="text-purple-700 mt-0.5">admin@warranty.com</p>
-              <p className="text-purple-400">Password: admin123</p>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -147,10 +128,10 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">
-              10 Core Project Features Built to University Specifications
+              Comprehensive Asset & Protection Management
             </h2>
             <p className="mt-3 text-slate-600 text-sm">
-              Strictly implementing the 4 required CRUD operations, role-based authorization, backend validation, and clean MVC architecture.
+              Keep full control of warranty timelines, maintenance expenses, and purchase documentation.
             </p>
           </div>
 
@@ -178,8 +159,8 @@ export default function LandingPage() {
       <footer className="mt-auto bg-slate-900 text-slate-400 py-8 border-t border-slate-800 text-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div>
-            <p className="font-semibold text-slate-200">Warranty Management System</p>
-            <p className="text-slate-500 mt-0.5">3rd Semester Web Development Project &bull; React, Node.js, Express, PostgreSQL</p>
+            <p className="font-semibold text-slate-200">WarrantyFlow</p>
+            <p className="text-slate-500 mt-0.5">Asset, Warranty, and Maintenance Management</p>
           </div>
           <div className="flex items-center gap-4 text-slate-400">
             <Link to="/login" className="hover:text-white transition-colors">Sign In</Link>

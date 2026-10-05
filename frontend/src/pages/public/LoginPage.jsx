@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { ShieldCheck, Lock, Mail, AlertCircle, ArrowRight, UserCheck, ShieldAlert } from 'lucide-react';
+import { ShieldCheck, Lock, Mail, AlertCircle, ArrowRight } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
 export default function LoginPage() {
@@ -42,11 +42,6 @@ export default function LoginPage() {
     }
   };
 
-  const handleDemoFill = (demoEmail, demoPassword) => {
-    setEmail(demoEmail);
-    setPassword(demoPassword);
-    setError('');
-  };
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -139,30 +134,6 @@ export default function LoginPage() {
             </button>
           </form>
 
-          {/* Quick Demo Credentials Autofill */}
-          <div className="mt-6 pt-6 border-t border-slate-100">
-            <p className="text-xs font-semibold text-slate-500 text-center mb-3">
-              Fast Demo Accounts (Grading / Review):
-            </p>
-            <div className="grid grid-cols-2 gap-2">
-              <button
-                type="button"
-                onClick={() => handleDemoFill('user@warranty.com', 'user123')}
-                className="p-2 text-xs font-medium text-slate-700 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-lg flex items-center justify-center gap-1.5 transition-colors text-center"
-              >
-                <UserCheck className="w-3.5 h-3.5 text-brand-600" />
-                Normal User
-              </button>
-              <button
-                type="button"
-                onClick={() => handleDemoFill('admin@warranty.com', 'admin123')}
-                className="p-2 text-xs font-medium text-purple-700 bg-purple-50 hover:bg-purple-100 border border-purple-200 rounded-lg flex items-center justify-center gap-1.5 transition-colors text-center"
-              >
-                <ShieldAlert className="w-3.5 h-3.5 text-purple-600" />
-                Admin
-              </button>
-            </div>
-          </div>
         </div>
       </div>
     </div>

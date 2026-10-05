@@ -1,0 +1,525 @@
+================================================================================
+                    WARRANTY MANAGEMENT SYSTEM (WMS)
+        Comprehensive Project Documentation & Viva/Demonstration Guide
+================================================================================
+Academic Level   : 3rd-Semester University Web Development Project
+Application Type : Full-Stack Web Application (SPA + RESTful API)
+Architecture     : MVC (Model-View-Controller) / Separation of Concerns
+Repository       : Branch-based Git Development (GitFlow: main, develop, feature/*)
+================================================================================
+
+TABLE OF CONTENTS:
+--------------------------------------------------------------------------------
+1.  PROJECT OVERVIEW & PURPOSE
+2.  TECHNOLOGY STACK
+3.  PROJECT ARCHITECTURE & REPOSITORY STRUCTURE
+4.  DATABASE ARCHITECTURE & DATA SCHEMAS
+5.  AUTHENTICATION & ROLE-BASED ACCESS CONTROL (RBAC)
+6.  THE FOUR MANDATORY CRUD MODULES (END-TO-END)
+7.  THE 10 CORE FEATURES EXPLAINED
+8.  DUAL FILE UPLOAD SYSTEM & VALIDATION
+9.  AUTOMATED WARRANTY STATUS CALCULATION LOGIC
+10. SEARCH, FILTERING, SORTING & PAGINATION
+11. EMAIL NOTIFICATION & REMINDER SYSTEM
+12. ISSUES IDENTIFIED & TECHNICAL SOLUTIONS APPLIED
+13. AUTOMATED TESTING & TEST SUITES
+14. STEP-BY-STEP SETUP & DEMO GUIDE (FOR PROFESSORS/EVALUATORS)
+15. VIVA VOCE / ORAL EXAMINATION QUESTIONS & ANSWERS
+
+
+================================================================================
+1. PROJECT OVERVIEW & PURPOSE
+================================================================================
+The Warranty Management System is a full-stack web application designed to help
+consumers and system administrators track physical and digital assets, monitor
+warranty coverage, preserve purchase receipts and warranty cards, maintain
+servicing/repair histories, and receive proactive warranty expiration alerts.
+
+Primary Objectives:
+- Eliminate lost physical paper receipts and warranty claims.
+- Provide real-time automated tracking of whether an item is "Active",
+  "Expiring Soon", or "Expired".
+- Maintain complete repair/maintenance history with cost tracking per product.
+- Provide a clear separation between customer operations (individual asset
+  ownership) and administrative operations (catalog taxonomy, user management,
+  and system-wide metrics).
+
+
+================================================================================
+2. TECHNOLOGY STACK
+================================================================================
+FRONTEND:
+- React 18: Modern component-based Single Page Application (SPA).
+- Vite: High-performance frontend build tool and dev server.
+- Tailwind CSS: Utility-first CSS framework for clean, responsive design.
+- Lucide React: Standardized modern icon pack.
+- Axios: HTTP client with request interceptors for automatic JWT attachment.
+- React Router DOM (v6): Declarative client-side routing with ProtectedRoute
+  guards based on authentication and administrative roles.
+
+BACKEND:
+- Node.js & Express.js: RESTful API server following MVC architecture.
+- PostgreSQL / pg-mem: Relational database with dual-mode support (live
+  PostgreSQL connection with transparent in-memory PostgreSQL engine for
+  zero-dependency evaluation and grading).
+- JSON Web Tokens (JWT): Stateless, secure token-based user authentication.
+- bcryptjs: Industry-standard 10-round salted password hashing.
+- Multer: Multipart/form-data middleware handling secure receipt and document
+  file uploads.
+- Nodemailer: SMTP email transmission engine with dynamic Ethereal testing
+  transport for simulated reminder delivery.
+- Jest & Supertest: Automated unit, integration, and HTTP API endpoint testing.
+
+
+================================================================================
+3. PROJECT ARCHITECTURE & REPOSITORY STRUCTURE
+================================================================================
+The project strictly enforces MVC and Separation of Concerns:
+
+warranty-management/
+├── backend/
+│   ├── config/
+│   │   └── db.js                 -> Database connection pool & pg-mem engine
+│   ├── controllers/
+│   │   ├── adminController.js    -> Admin stats & user management controllers
+│   │   ├── authController.js     -> Login, register, profile controllers
+│   │   ├── categoryController.js -> Category CRUD controllers
+│   │   ├── documentController.js -> Receipt & warranty file upload/download
+│   │   ├── productController.js  -> Product CRUD, search & filter controllers
+│   │   ├── serviceController.js  -> Service & repair history controllers
+│   │   └── warrantyController.js -> Warranty lifecycle & reminder controllers
+│   ├── database/
+│   │   ├── schema.sql            -> Relational database DDL definitions
+│   │   └── initDb.js             -> Schema migration & sample seed data script
+│   ├── middleware/
+│   │   ├── authMiddleware.js     -> verifyToken (Bearer & Query) & requireAdmin
+│   │   ├── errorMiddleware.js    -> Global centralized JSON error handlers
+│   │   └── uploadMiddleware.js   -> Multer diskStorage, mimetype & size filter
+│   ├── models/
+│   │   ├── categoryModel.js      -> SQL queries for categories & counts
+│   │   ├── documentModel.js      -> SQL queries for receipts & warranty cards
+│   │   ├── productModel.js       -> SQL queries for products & joins
+│   │   ├── serviceModel.js       -> SQL queries for service/repair logs
+│   │   ├── userModel.js          -> SQL queries for users & password hashes
+│   │   └── warrantyModel.js      -> SQL queries for warranty policies
+│   ├── routes/
+│   │   ├── adminRoutes.js        -> /api/admin/*
+│   │   ├── authRoutes.js         -> /api/auth/*
+│   │   ├── categoryRoutes.js     -> /api/categories/*
+│   │   ├── documentRoutes.js     -> /api/documents/*
+│   │   ├── productRoutes.js      -> /api/products/*
+│   │   ├── serviceRoutes.js      -> /api/services/*
+│   │   └── warrantyRoutes.js     -> /api/warranties/*
+│   ├── services/
+│   │   ├── emailService.js       -> Nodemailer transport & HTML notifications
+│   │   └── warrantyService.js    -> Automatic date calculation algorithms
+│   ├── tests/                    -> 6 Jest/Supertest test suites (42 tests)
+│   ├── uploads/                  -> Physical disk storage for uploads
+│   │   ├── receipts/
+│   │   └── warranties/
+│   ├── server.js                 -> Express application bootstrap
+│   └── package.json
+│
+├── frontend/
+│   ├── src/
+│   │   ├── api/
+│   │   │   └── axiosClient.js    -> Axios instance with auth token interceptor
+│   │   ├── components/
+│   │   │   ├── common/           -> Navbar, Footer, StatusBadge, Pagination,
+│   │   │   │                        EmptyState, LoadingSpinner, ConfirmModal
+│   │   │   └── forms/            -> FileUpload, SearchBar, Input fields
+│   │   ├── context/
+│   │   │   └── AuthContext.jsx   -> Global session state, login/logout logic
+│   │   ├── pages/
+│   │   │   ├── admin/            -> AdminDashboard, AdminUsers, AdminCategories
+│   │   │   ├── auth/             -> LoginPage, RegisterPage
+│   │   │   └── user/             -> Dashboard, Products, ProductDetail,
+│   │   │                            ProductForm, Warranties, Services,
+│   │   │                            DocumentsVault
+│   │   ├── utils/
+│   │   │   └── dateUtils.js      -> Date formatting, remaining days, currency
+│   │   ├── App.jsx               -> Route declarations & route guards
+│   │   └── main.jsx
+│   └── package.json
+│
+└── PROJECT_DETAILS.txt           -> This project documentation file
+
+
+================================================================================
+4. DATABASE ARCHITECTURE & DATA SCHEMAS
+================================================================================
+The relational PostgreSQL database contains 6 distinct interconnected tables:
+
+1. "users"
+   - id (SERIAL PRIMARY KEY)
+   - name (VARCHAR(100) NOT NULL)
+   - email (VARCHAR(150) UNIQUE NOT NULL)
+   - password (VARCHAR(255) NOT NULL - bcrypt hash)
+   - role (VARCHAR(20) DEFAULT 'user' - 'user' or 'admin')
+   - created_at, updated_at (TIMESTAMP)
+
+2. "categories"
+   - id (SERIAL PRIMARY KEY)
+   - name (VARCHAR(100) UNIQUE NOT NULL)
+   - description (TEXT)
+   - created_at, updated_at (TIMESTAMP)
+
+3. "products"
+   - id (SERIAL PRIMARY KEY)
+   - user_id (INT REFERENCES users(id) ON DELETE CASCADE)
+   - category_id (INT REFERENCES categories(id) ON DELETE SET NULL)
+   - name (VARCHAR(150) NOT NULL)
+   - brand (VARCHAR(100) NOT NULL)
+   - model (VARCHAR(100))
+   - serial_number (VARCHAR(100))
+   - purchase_date (DATE NOT NULL)
+   - purchase_price (NUMERIC(10,2) DEFAULT 0.00)
+   - notes (TEXT)
+   - created_at, updated_at (TIMESTAMP)
+
+4. "warranties"
+   - id (SERIAL PRIMARY KEY)
+   - product_id (INT UNIQUE REFERENCES products(id) ON DELETE CASCADE)
+   - provider (VARCHAR(150) NOT NULL)
+   - warranty_type (VARCHAR(100) NOT NULL)
+   - start_date (DATE NOT NULL)
+   - end_date (DATE NOT NULL)
+   - coverage_details (TEXT)
+   - created_at, updated_at (TIMESTAMP)
+
+5. "service_records"
+   - id (SERIAL PRIMARY KEY)
+   - product_id (INT REFERENCES products(id) ON DELETE CASCADE)
+   - service_date (DATE NOT NULL)
+   - service_center (VARCHAR(150) NOT NULL)
+   - description (TEXT NOT NULL)
+   - cost (NUMERIC(10,2) DEFAULT 0.00)
+   - notes (TEXT)
+   - created_at, updated_at (TIMESTAMP)
+
+6. "receipts" (Upload 1)
+   - id (SERIAL PRIMARY KEY)
+   - product_id (INT REFERENCES products(id) ON DELETE CASCADE)
+   - file_name (VARCHAR(255) NOT NULL)
+   - file_path (VARCHAR(255) NOT NULL)
+   - file_type (VARCHAR(100) NOT NULL)
+   - file_size (INT NOT NULL)
+   - uploaded_at (TIMESTAMP)
+
+7. "warranty_documents" (Upload 2)
+   - id (SERIAL PRIMARY KEY)
+   - warranty_id (INT REFERENCES warranties(id) ON DELETE CASCADE)
+   - file_name (VARCHAR(255) NOT NULL)
+   - file_path (VARCHAR(255) NOT NULL)
+   - file_type (VARCHAR(100) NOT NULL)
+   - file_size (INT NOT NULL)
+   - uploaded_at (TIMESTAMP)
+
+
+================================================================================
+5. AUTHENTICATION & ROLE-BASED ACCESS CONTROL (RBAC)
+================================================================================
+- Authentication Strategy: JSON Web Tokens (JWT) signed with HMAC-SHA256.
+- Password Security: Passwords hashed with bcryptjs using salt rounds = 10.
+- Token Transmission: Sent in HTTP header as "Authorization: Bearer <token>"
+  and supported via query parameter "?token=<token>" for direct file downloads.
+
+User Roles:
+1. Normal User ('user'):
+   - Restricted strictly to their own products, warranties, repair logs,
+     and receipts via WHERE p.user_id = req.user.id SQL predicates.
+   - Cannot view or manipulate data belonging to other users.
+
+2. Administrator ('admin'):
+   - Accesses system-wide analytics (total users, products, documents, etc.).
+   - Manages global categories (Create, Update, Delete).
+   - Manages user accounts (Promote to Admin, Demote to User, Delete accounts).
+   - Can inspect all products, warranties, and uploaded receipts across users.
+
+
+================================================================================
+6. THE FOUR MANDATORY CRUD MODULES (END-TO-END)
+================================================================================
+The project implements 4 distinct, fully functional CRUD modules backed by
+PostgreSQL database persistence:
+
+1. CRUD AREA 1: PRODUCT MANAGEMENT
+   - Create: POST /api/products (Name, Brand, Model, Serial, Category, Date, Price)
+   - Read: GET /api/products (Paginated list with search, filter, and sort)
+           GET /api/products/:id (Full product specifications and joined entities)
+   - Update: PUT /api/products/:id (Edit specifications and category assignment)
+   - Delete: DELETE /api/products/:id (Deletes product and cascaded documents)
+
+2. CRUD AREA 2: WARRANTY MANAGEMENT
+   - Create: POST /api/warranties (Provider, Type, Start Date, End Date, Coverage)
+   - Read: GET /api/warranties (List all warranties with calculated status)
+           GET /api/warranties/:id (Specific warranty policy terms)
+   - Update: PUT /api/warranties/:id (Extend expiry date, update provider)
+   - Delete: DELETE /api/warranties/:id (Remove warranty policy from product)
+
+3. CRUD AREA 3: SERVICE / REPAIR MANAGEMENT
+   - Create: POST /api/services (Service Center, Date, Description, Cost, Notes)
+   - Read: GET /api/services (List repair logs grouped by product)
+           GET /api/services/:id (Specific service visit details)
+   - Update: PUT /api/services/:id (Update repair findings or final invoice cost)
+   - Delete: DELETE /api/services/:id (Delete historical service entry)
+
+4. CRUD AREA 4: CATEGORY MANAGEMENT (ADMINISTRATIVE)
+   - Create: POST /api/categories (Category Name, Description)
+   - Read: GET /api/categories (Public/user category list with active asset count)
+           GET /api/categories/:id (Single category details)
+   - Update: PUT /api/categories/:id (Edit classification name and description)
+   - Delete: DELETE /api/categories/:id (Removes category; products set to NULL)
+
+
+================================================================================
+7. THE 10 CORE FEATURES EXPLAINED
+================================================================================
+Feature 1  : Product Management
+             Enables users to register their physical purchases with full
+             specifications, serial numbers, purchase prices, and categories.
+
+Feature 2  : Warranty Management
+             Allows assigning warranty terms, coverage boundaries, and warranty
+             providers (Manufacturer, Retailer, Third-party) to any product.
+
+Feature 3  : Service & Repair Management
+             Provides an asset maintenance log to record repairs, service
+             centers, maintenance costs, and technician notes.
+
+Feature 4  : Automatic Warranty Status Tracking
+             Computes warranty validity dynamically without manual status flags.
+             Calculates days remaining from today's system date against end_date.
+
+Feature 5  : Product Search
+             Case-insensitive PostgreSQL search querying product name, brand,
+             model, and serial number, debounced on the React frontend.
+
+Feature 6  : Filtering & Sorting
+             Allows filtering by category, status (Active, Expiring Soon,
+             Expired), and sorting by purchase date, price, or product name.
+
+Feature 7  : Purchase Receipt Upload (Upload 1)
+             Multipart upload of purchase invoices in PDF, JPG, or PNG format
+             with strict backend mime and size verification.
+
+Feature 8  : Warranty Document Upload (Upload 2)
+             Multipart upload of official warranty certificate cards or
+             extended warranty agreements with backend validation.
+
+Feature 9  : Role-Based Authorization & User Management
+             Differentiates Normal Users from System Administrators, providing
+             administrative user tables, role toggles, and catalog management.
+
+Feature 10 : Warranty Expiry Email Reminders
+             Automated Nodemailer email dispatcher sending HTML expiry warnings
+             with product name, provider, days remaining, and direct action links.
+
+
+================================================================================
+8. DUAL FILE UPLOAD SYSTEM & VALIDATION
+================================================================================
+The project strictly satisfies the university dual file upload requirement:
+
+Upload Feature 1: Purchase Receipt Upload
+- Target Endpoint: POST /api/documents/receipts/:productId
+- Storage Directory: backend/uploads/receipts/
+- Associated Entity: products table
+
+Upload Feature 2: Warranty Document Upload
+- Target Endpoint: POST /api/documents/warranties/:warrantyId
+- Storage Directory: backend/uploads/warranties/
+- Associated Entity: warranties table
+
+Security & Backend File Validation:
+- File Types Accepted:
+  * application/pdf (.pdf)
+  * image/jpeg (.jpg, .jpeg)
+  * image/png (.png)
+- File Size Limitation: Maximum 5 MB (5,242,880 bytes).
+- Secure Filenames: Files renamed using crypto-random timestamps and sanitized
+  slugs to prevent directory traversal attacks (e.g., receipt-1727764800000-8472.pdf).
+- Verification: Validation is strictly enforced by Multer on the Express backend;
+  frontend validation serves only as an initial UX guard.
+- Direct Viewing & Download: Endpoints send proper Content-Disposition: inline
+  and Content-Type headers for in-browser PDF and image viewing.
+
+
+================================================================================
+9. AUTOMATED WARRANTY STATUS CALCULATION LOGIC
+================================================================================
+Warranty statuses are calculated dynamically on the fly based on current time:
+
+Formula:
+  Remaining Days = Math.ceil((new Date(warranty.end_date) - new Date()) / (1000 * 60 * 60 * 24))
+
+Status Thresholds:
+1. "Active"        : More than 30 days remaining (daysRemaining > 30).
+                     Displayed with emerald green badge.
+2. "Expiring Soon" : Between 0 and 30 days remaining (0 <= daysRemaining <= 30).
+                     Displayed with amber warning badge.
+3. "Expired"       : Less than 0 days remaining (daysRemaining < 0).
+                     Displayed with rose/red danger badge.
+
+Benefits:
+- Eliminates stale database status flags.
+- When midnight passes, items automatically transition from Active to Expiring
+  Soon or Expired without requiring manual database cron updates.
+
+
+================================================================================
+10. SEARCH, FILTERING, SORTING & PAGINATION
+================================================================================
+Frontend:
+- SearchBar component uses a 300ms debounce timer to prevent excessive API hits.
+- Filter dropdowns trigger immediate reset to page 1 for accurate pagination.
+- Table view and Grid view toggle buttons for flexible UI layout.
+
+Backend SQL:
+- Search:
+  WHERE (name ILIKE $1 OR brand ILIKE $1 OR model ILIKE $1 OR serial_number ILIKE $1)
+- Category Filter:
+  AND category_id = $2
+- Status Filter:
+  AND w.end_date >= CURRENT_DATE (for Active) or < CURRENT_DATE (for Expired)
+- Pagination:
+  LIMIT $limit OFFSET $offset
+- Total record count calculated concurrently to supply totalPages and total items.
+
+
+================================================================================
+11. EMAIL NOTIFICATION & REMINDER SYSTEM
+================================================================================
+- Engine: Nodemailer.
+- Configuration:
+  * Live mode: Connects to specified SMTP credentials (EMAIL_HOST, EMAIL_USER).
+  * Testing/University Grading mode: Automatically creates a simulated Ethereal
+    test account or fallback transport without crashing the server.
+- Template: Professional HTML responsive email containing:
+  * Application header and branding.
+  * Product name, warranty provider, and official expiry date.
+  * Highlighted days remaining alert badge.
+  * Direct action button linking back to the product detail page via FRONTEND_URL.
+- API Trigger: POST /api/warranties/:id/send-reminder
+
+
+================================================================================
+12. ISSUES IDENTIFIED & TECHNICAL SOLUTIONS APPLIED
+================================================================================
+During the audit, three critical issues were identified and fixed:
+
+1. BUG: Category dropdown showed "Select Category" with blank options.
+   - Cause: categoryModel.getAll() grouped only by c.id while selecting c.name.
+     SQL engines returned null for c.name. Additionally, the route was gated
+     behind verifyToken, causing unauthenticated race conditions.
+   - Solution: Rewrote query with a subquery join:
+     SELECT c.id, c.name, COALESCE(p_counts.product_count, 0) AS product_count
+     FROM categories c LEFT JOIN (...) p_counts ON p_counts.category_id = c.id
+     Made GET /api/categories public to guarantee reliable loading.
+
+2. BUG: Admin User Accounts page showed an empty table despite 2 registered users.
+   - Cause: userModel.getAllUsers() used COUNT(DISTINCT p.id) with GROUP BY u.id,
+     which threw a TypeError in the database engine.
+   - Solution: Replaced with a joined subquery grouping products by user_id and
+     coalescing nulls to 0. Added EmptyState and error retry banners to the UI.
+
+3. BUG: Document download links failed with 401 Unauthorized in browser tabs.
+   - Cause: Standard <a href="..." target="_blank"> cannot send HTTP Authorization
+     headers.
+   - Solution: Updated authMiddleware.js to accept token from req.query.token in
+     addition to Bearer headers. Appended active session token to download URLs.
+
+
+================================================================================
+13. AUTOMATED TESTING & TEST SUITES
+================================================================================
+Automated tests are implemented using Jest and Supertest across 6 test suites:
+
+Test Suites:
+1. auth.test.js       -> Registration, login, JWT validation, incorrect passwords
+2. categories.test.js -> Admin category CRUD, duplicate prevention, public read
+3. products.test.js   -> Product CRUD, ownership enforcement, search & filter
+4. warranties.test.js -> Warranty lifecycle, status calculation, expiry checks
+5. services.test.js   -> Service & repair logging, cost parsing, cascade deletes
+6. uploads.test.js    -> File uploads, size rejections, mimetype filtering
+
+Results:
+- Total Suites : 6 passed, 6 total
+- Total Tests  : 42 passed, 42 total (100% PASS RATE)
+- Execution    : Zero open handles, clean teardown.
+
+
+================================================================================
+14. STEP-BY-STEP SETUP & DEMO GUIDE (FOR PROFESSORS/EVALUATORS)
+================================================================================
+Prerequisites:
+- Node.js (v18 or higher recommended)
+- Web Browser (Chrome, Edge, Firefox, or Safari)
+
+Step 1: Start the Backend Server
+  cd backend
+  npm install
+  node server.js
+  -> Starts on port 5000 with automatic in-memory PostgreSQL and seeded accounts.
+
+Step 2: Start the Frontend Application
+  cd frontend
+  npm install
+  npm run dev
+  -> Starts on port 5173.
+
+Step 3: Open in Browser
+  Navigate to: http://localhost:5173
+
+Step 4: Login with Pre-Configured Demo Accounts:
+  A. Administrator Login:
+     - Email    : admin@warranty.com
+     - Password : admin123
+     - Actions  : Inspect Admin Dashboard, view System Analytics, manage User
+                  Accounts, promote/demote roles, manage Category classifications.
+
+  B. Normal User Login:
+     - Email    : user@warranty.com
+     - Password : user123
+     - Actions  : Inspect User Dashboard, view 4 seeded products with warranties,
+                  add a new product, upload a receipt, upload a warranty card,
+                  and log a service repair record.
+
+Step 5: Run Automated Tests
+  cd backend
+  npm test
+  -> Executes all 42 automated tests and prints 100% pass verification.
+
+
+================================================================================
+15. VIVA VOCE / ORAL EXAMINATION QUESTIONS & ANSWERS
+================================================================================
+Q1: Why did you choose JWT over server-side session cookies?
+A1: JWT is stateless and scalable. The server does not need to store active
+    session records in memory. The token carries the user's ID and role securely
+    signed by the server using a secret key, verified on every request.
+
+Q2: How do you prevent a normal user from accessing another user's products?
+A2: We enforce ownership authorization at the database query level in the backend
+    controllers. Every query includes WHERE user_id = req.user.id. Even if an
+    attacker guesses a product ID, the backend returns 404 or 403 Forbidden.
+
+Q3: How does the application calculate whether a warranty is Expiring Soon?
+A3: The calculation is dynamic. We subtract the current date from the warranty's
+    end_date to calculate remaining days. If remaining days is between 0 and 30,
+    it is flagged as 'Expiring Soon' without requiring manual database flags.
+
+Q4: How did you implement file upload security?
+A4: We use Multer middleware on the Express backend. We enforce two checks:
+    1) fileFilter checks the mimetype against an allowed whitelist (PDF, JPEG,
+       PNG). Any executable or unsupported format is rejected immediately.
+    2) limits.fileSize restricts files to a maximum of 5MB. Files are also
+       renamed with unique timestamp prefixes to prevent filesystem overwrites.
+
+Q5: What is the benefit of your branch-based Git workflow?
+A5: We used a GitFlow model with main (production-ready), develop (integration),
+    and isolated feature/* branches for every functional requirement. This
+    ensures clean code separation, easy rollback, and clear revision history.
+================================================================================
+                            END OF PROJECT REPORT
+================================================================================
