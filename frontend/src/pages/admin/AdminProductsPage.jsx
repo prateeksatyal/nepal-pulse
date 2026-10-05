@@ -40,25 +40,25 @@ export default function AdminProductsPage() {
   return (
     <div className="w-full space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-2 border-b border-slate-200/80">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-4 border-b border-[#D9DEDA]">
         <div>
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-purple-50 text-purple-700 border border-purple-200">
-              <Package className="w-3.5 h-3.5 text-purple-600" />
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[11px] font-semibold bg-[#F1F3F1] text-[#0F6B68] border border-[#D9DEDA]">
+              <Package className="w-3.5 h-3.5 text-[#0F6B68]" />
               Global Asset Registry
             </span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-1.5">
+          <h1 className="text-xl sm:text-2xl font-bold text-[#101827] tracking-tight mt-1.5">
             System Products Directory
           </h1>
-          <p className="text-sm text-slate-500 mt-1 max-w-3xl">
+          <p className="text-xs sm:text-sm text-[#4B5563] mt-1 max-w-3xl">
             Supervisory administrative overview of all hardware products and appliances registered across all user accounts.
           </p>
         </div>
       </div>
 
       {/* Search Toolbar */}
-      <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="bg-white p-3.5 rounded-lg border border-[#D9DEDA] flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="w-full sm:max-w-md">
           <SearchBar
             value={search}
@@ -70,7 +70,7 @@ export default function AdminProductsPage() {
           />
         </div>
 
-        <div className="flex items-center gap-2 text-xs font-medium text-slate-500">
+        <div className="flex items-center gap-2 text-xs font-medium text-[#6B7280]">
           <span>Showing {products.length} of {pagination.total || products.length} registered products</span>
         </div>
       </div>
@@ -85,82 +85,82 @@ export default function AdminProductsPage() {
           icon={Package}
         />
       ) : (
-        <div className="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
+        <div className="bg-white rounded-lg border border-[#D9DEDA] overflow-hidden">
           <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse text-sm">
+            <table className="w-full text-left border-collapse text-xs">
               <thead>
-                <tr className="bg-slate-50/80 border-b border-slate-200/80 text-[11px] font-bold text-slate-600 uppercase tracking-wider">
-                  <th className="py-3.5 px-5">Product Details</th>
-                  <th className="py-3.5 px-4">Account Owner</th>
-                  <th className="py-3.5 px-4">Category</th>
-                  <th className="py-3.5 px-4">Purchase Info</th>
-                  <th className="py-3.5 px-4">Warranty Status</th>
-                  <th className="py-3.5 px-5 text-right">Details</th>
+                <tr className="bg-[#F1F3F1] border-b border-[#D9DEDA] text-[11px] font-semibold text-[#4B5563] uppercase tracking-wider">
+                  <th className="py-3 px-4">Product Details</th>
+                  <th className="py-3 px-4">Account Owner</th>
+                  <th className="py-3 px-4">Category</th>
+                  <th className="py-3 px-4">Purchase Info</th>
+                  <th className="py-3 px-4">Warranty Status</th>
+                  <th className="py-3 px-4 text-right">Details</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-[#D9DEDA]">
                 {products.map((p) => (
-                  <tr key={p.id} className="hover:bg-slate-50/70 transition-colors group">
-                    <td className="py-4 px-5">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center font-bold text-xs flex-shrink-0 group-hover:scale-105 transition-transform">
-                          <Package className="w-4 h-4" />
+                  <tr key={p.id} className="hover:bg-[#F7F7F4] transition-colors group">
+                    <td className="py-3 px-4">
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-8 h-8 rounded-md bg-[#F1F3F1] text-[#0F6B68] border border-[#D9DEDA] flex items-center justify-center font-bold text-xs flex-shrink-0">
+                          <Package className="w-3.5 h-3.5" />
                         </div>
                         <div>
                           <Link
                             to={`/products/${p.id}`}
-                            className="font-bold text-slate-900 hover:text-brand-600 transition-colors inline-flex items-center gap-1 group-hover:underline"
+                            className="font-bold text-[#101827] hover:text-[#0F6B68] transition-colors inline-flex items-center gap-1 group-hover:underline"
                           >
                             <span>{p.name}</span>
-                            <ArrowUpRight className="w-3 h-3 text-slate-400 group-hover:text-brand-600" />
+                            <ArrowUpRight className="w-3 h-3 text-[#6B7280] group-hover:text-[#0F6B68]" />
                           </Link>
-                          <span className="text-xs text-slate-500 block">
+                          <span className="text-[11px] text-[#6B7280] block">
                             {p.brand} {p.model ? `• ${p.model}` : ''}
                           </span>
                         </div>
                       </div>
                     </td>
 
-                    <td className="py-4 px-4 whitespace-nowrap">
+                    <td className="py-3 px-4 whitespace-nowrap">
                       <div className="flex items-center gap-2">
-                        <div className="w-7 h-7 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-[11px]">
+                        <div className="w-6 h-6 rounded-full bg-[#F1F3F1] text-[#111827] border border-[#D9DEDA] flex items-center justify-center font-bold text-[10px]">
                           {(p.owner_name || 'U').charAt(0).toUpperCase()}
                         </div>
                         <div>
-                          <span className="font-semibold text-slate-800 text-xs block">{p.owner_name || 'User'}</span>
-                          <span className="text-[11px] text-slate-400">{p.owner_email}</span>
+                          <span className="font-medium text-[#101827] text-xs block">{p.owner_name || 'User'}</span>
+                          <span className="text-[10px] text-[#6B7280]">{p.owner_email}</span>
                         </div>
                       </div>
                     </td>
 
-                    <td className="py-4 px-4 whitespace-nowrap">
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-700">
+                    <td className="py-3 px-4 whitespace-nowrap">
+                      <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-[#F1F3F1] text-[#111827] border border-[#D9DEDA]">
                         {p.category_name || 'Uncategorized'}
                       </span>
                     </td>
 
-                    <td className="py-4 px-4 text-xs text-slate-600 whitespace-nowrap">
+                    <td className="py-3 px-4 text-xs text-[#4B5563] whitespace-nowrap">
                       <div className="flex items-center gap-1">
-                        <Calendar className="w-3.5 h-3.5 text-slate-400" />
+                        <Calendar className="w-3 h-3 text-[#6B7280]" />
                         <span>{formatDate(p.purchase_date)}</span>
                       </div>
                       {p.purchase_price > 0 && (
-                        <span className="text-[11px] font-semibold text-slate-900 block mt-0.5">
+                        <span className="text-[11px] font-semibold text-[#101827] block mt-0.5">
                           {formatCurrency(p.purchase_price)}
                         </span>
                       )}
                     </td>
 
-                    <td className="py-4 px-4 whitespace-nowrap">
+                    <td className="py-3 px-4 whitespace-nowrap">
                       <StatusBadge status={p.warranty_status} daysRemaining={p.days_remaining} />
                     </td>
 
-                    <td className="py-4 px-5 text-right whitespace-nowrap">
+                    <td className="py-3 px-4 text-right whitespace-nowrap">
                       <Link
                         to={`/products/${p.id}`}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-xl border border-slate-200 text-slate-700 hover:bg-brand-50 hover:text-brand-700 hover:border-brand-200 transition-colors shadow-xs"
+                        className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md border border-[#D9DEDA] text-[#111827] bg-[#F1F3F1] hover:bg-[#D9DEDA] transition-colors"
                       >
-                        <Eye className="w-3.5 h-3.5 text-slate-400" />
+                        <Eye className="w-3 h-3 text-[#6B7280]" />
                         <span>Inspect Asset</span>
                       </Link>
                     </td>

@@ -5,7 +5,7 @@ import { formatFileSize } from '../../utils/dateUtils';
 export default function FileUpload({
   onUpload,
   label = 'Upload Document',
-  helperText = 'Supported formats: PDF, JPG, JPEG, PNG (Max 10MB)',
+  helperText = 'PDF, JPG, JPEG, PNG (Max 10MB)',
   accept = '.pdf,.jpg,.jpeg,.png,image/png,image/jpeg,application/pdf',
   maxSizeMB = 10,
   buttonLabel = 'Select File',
@@ -27,13 +27,13 @@ export default function FileUpload({
 
     const ext = file.name.split('.').pop().toLowerCase();
     if (!allowedExtensions.includes(ext)) {
-      setError(`Invalid file type (.${ext}). Only PDF, JPG, JPEG, and PNG files are accepted.`);
+      setError(`Invalid file type (.${ext}). Accepted: PDF, JPG, JPEG, PNG.`);
       return false;
     }
 
     const maxBytes = maxSizeMB * 1024 * 1024;
     if (file.size > maxBytes) {
-      setError(`File size (${formatFileSize(file.size)}) exceeds the maximum allowed limit of ${maxSizeMB}MB.`);
+      setError(`File size (${formatFileSize(file.size)}) exceeds limit of ${maxSizeMB}MB.`);
       return false;
     }
 
@@ -77,7 +77,7 @@ export default function FileUpload({
       setSelectedFile(null);
       if (inputRef.current) inputRef.current.value = '';
     } catch (err) {
-      setError(err.response?.data?.message || err.message || 'Upload failed. Please try again.');
+      setError(err.response?.data?.message || err.message || 'Upload failed.');
     } finally {
       setUploading(false);
     }
@@ -92,8 +92,8 @@ export default function FileUpload({
 
   return (
     <div className="w-full">
-      <div className="flex items-center justify-between mb-2">
-        <label className="text-xs font-bold uppercase tracking-wider text-slate-700">{label}</label>
+      <div className="flex items-center justify-between mb-1.5">
+        <label className="text-xs font-semibold uppercase tracking-wider text-[#101827]">{label}</label>
       </div>
 
       <div
@@ -101,10 +101,10 @@ export default function FileUpload({
         onDragLeave={handleDrag}
         onDragOver={handleDrag}
         onDrop={handleDrop}
-        className={`border-2 border-dashed rounded-2xl p-6 text-center transition-all ${
+        className={`border border-dashed rounded-lg p-5 text-center transition-colors ${
           dragActive
-            ? 'border-brand-500 bg-brand-50/60 ring-4 ring-brand-500/10'
-            : 'border-slate-200/90 bg-slate-50/50 hover:bg-slate-50 hover:border-slate-300'
+            ? 'border-[#0F6B68] bg-[#EAF6F5]'
+            : 'border-[#D9DEDA] bg-white hover:bg-[#F7F7F4]'
         }`}
       >
         <input
@@ -118,14 +118,14 @@ export default function FileUpload({
 
         {!selectedFile ? (
           <div>
-            <div className="w-12 h-12 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center mx-auto mb-2.5 border border-brand-100 shadow-xs">
-              <UploadCloud className="w-6 h-6 stroke-[1.75]" />
+            <div className="w-9 h-9 rounded-md bg-[#F1F3F1] text-slate-600 flex items-center justify-center mx-auto mb-2 border border-[#D9DEDA]">
+              <UploadCloud className="w-5 h-5 text-[#0F6B68]" />
             </div>
-            <p className="text-xs sm:text-sm font-semibold text-slate-800 mb-1">
+            <p className="text-xs font-medium text-[#111827] mb-0.5">
               Drag & drop file here, or{' '}
               <label
                 htmlFor={`file-upload-input-${label.replace(/\s+/g, '-').toLowerCase()}`}
-                className="text-brand-600 hover:text-brand-700 cursor-pointer font-bold underline underline-offset-2"
+                className="text-[#0F6B68] hover:text-[#0B5754] cursor-pointer font-semibold underline underline-offset-2"
               >
                 {buttonLabel}
               </label>
@@ -133,13 +133,13 @@ export default function FileUpload({
             <p className="text-[11px] text-slate-500">{helperText}</p>
           </div>
         ) : (
-          <div className="flex items-center justify-between bg-white p-3.5 rounded-xl border border-slate-200/90 shadow-xs">
-            <div className="flex items-center gap-3 overflow-hidden text-left">
-              <div className="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center flex-shrink-0 border border-brand-100">
-                <File className="w-5 h-5 stroke-[1.75]" />
+          <div className="flex items-center justify-between bg-white p-3 rounded-md border border-[#D9DEDA]">
+            <div className="flex items-center gap-2.5 overflow-hidden text-left">
+              <div className="w-8 h-8 rounded-md bg-[#EAF6F5] text-[#0F6B68] flex items-center justify-center flex-shrink-0">
+                <File className="w-4 h-4" />
               </div>
               <div className="truncate">
-                <p className="text-xs sm:text-sm font-bold text-slate-800 truncate">{selectedFile.name}</p>
+                <p className="text-xs font-semibold text-[#111827] truncate">{selectedFile.name}</p>
                 <p className="text-[11px] text-slate-500 font-mono">{formatFileSize(selectedFile.size)}</p>
               </div>
             </div>
@@ -149,15 +149,15 @@ export default function FileUpload({
                 type="button"
                 onClick={handleTriggerUpload}
                 disabled={uploading}
-                className="px-3.5 py-2 bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold rounded-xl shadow-xs transition-colors disabled:opacity-50"
+                className="px-3 py-1.5 bg-[#0F6B68] hover:bg-[#0B5754] text-white text-xs font-semibold rounded-md transition-colors disabled:opacity-50"
               >
-                {uploading ? 'Uploading...' : 'Confirm Upload'}
+                {uploading ? 'Uploading...' : 'Upload'}
               </button>
               <button
                 type="button"
                 onClick={handleClearSelection}
                 disabled={uploading}
-                className="p-2 text-slate-400 hover:text-slate-600 rounded-xl hover:bg-slate-100 transition-colors"
+                className="p-1.5 text-slate-400 hover:text-slate-600 rounded transition-colors"
                 aria-label="Remove selected file"
               >
                 <X className="w-4 h-4" />
@@ -168,16 +168,16 @@ export default function FileUpload({
       </div>
 
       {error && (
-        <div className="flex items-center gap-1.5 mt-2.5 text-xs font-medium text-rose-600">
-          <AlertCircle className="w-4 h-4 flex-shrink-0" />
+        <div className="flex items-center gap-1.5 mt-2 text-xs font-medium text-[#B42318]">
+          <AlertCircle className="w-3.5 h-3.5 flex-shrink-0" />
           <span>{error}</span>
         </div>
       )}
 
       {uploadSuccess && (
-        <div className="flex items-center gap-1.5 mt-2.5 text-xs font-semibold text-emerald-600">
-          <CheckCircle2 className="w-4 h-4 flex-shrink-0" />
-          <span>File uploaded successfully!</span>
+        <div className="flex items-center gap-1.5 mt-2 text-xs font-medium text-[#15803D]">
+          <CheckCircle2 className="w-3.5 h-3.5 flex-shrink-0" />
+          <span>File uploaded successfully</span>
         </div>
       )}
     </div>

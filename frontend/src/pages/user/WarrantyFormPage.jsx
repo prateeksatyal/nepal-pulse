@@ -119,53 +119,53 @@ export default function WarrantyFormPage() {
   const selectedProduct = products.find((p) => String(p.id) === String(formData.product_id));
 
   return (
-    <div className="space-y-6 sm:space-y-8">
+    <div className="space-y-6">
       {/* Top Header */}
       <div>
         <Link
           to={isEditMode ? `/warranties/${id}` : '/warranties'}
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-slate-800 transition-colors mb-2"
+          className="inline-flex items-center gap-1.5 text-xs font-medium text-[#4B5563] hover:text-[#111827] transition-colors mb-2"
         >
-          <ArrowLeft className="w-4 h-4" />
+          <ArrowLeft className="w-3.5 h-3.5" />
           <span>Back to {isEditMode ? 'Warranty Details' : 'Warranties'}</span>
         </Link>
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+        <h1 className="text-xl sm:text-2xl font-bold text-[#101827] tracking-tight">
           {isEditMode ? 'Edit Warranty Policy' : 'Register New Warranty Policy'}
         </h1>
-        <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
+        <p className="text-xs text-[#6B7280] mt-0.5">
           Specify coverage terms, provider agreement, and validity term dates.
         </p>
       </div>
 
       {error && (
-        <div className="p-4 bg-rose-50 border border-rose-200 rounded-2xl flex items-center gap-2.5 text-xs font-medium text-rose-700 shadow-xs">
+        <div className="p-3.5 bg-rose-50 border border-rose-200 rounded-lg flex items-center gap-2.5 text-xs font-medium text-rose-700">
           <AlertCircle className="w-4 h-4 flex-shrink-0 text-rose-600" />
           <span>{error}</span>
         </div>
       )}
 
       {/* 2-Column Grid: Form (8 cols) + Summary Preview (4 cols) */}
-      <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 sm:gap-8 items-start">
+      <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
         {/* Left: Form Fields (xl:col-span-8) */}
         <div className="xl:col-span-8">
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="bg-white rounded-3xl border border-slate-200/90 shadow-card p-6 sm:p-8 space-y-5">
-              <div className="flex items-center gap-3 pb-4 border-b border-slate-100">
-                <div className="w-9 h-9 rounded-xl bg-brand-50 text-brand-600 border border-brand-100 flex items-center justify-center font-bold">
+            <div className="bg-white rounded-lg border border-[#D9DEDA] p-6 space-y-5">
+              <div className="flex items-center gap-3 pb-4 border-b border-[#D9DEDA]">
+                <div className="w-9 h-9 rounded-md bg-[#F1F3F1] text-[#0F6B68] border border-[#D9DEDA] flex items-center justify-center font-bold">
                   <Shield className="w-4 h-4" />
                 </div>
                 <div>
-                  <h2 className="text-base font-bold text-slate-900 tracking-tight">
+                  <h2 className="text-sm font-bold text-[#101827] tracking-tight">
                     Policy Information & Scope
                   </h2>
-                  <p className="text-xs text-slate-400">Provider details and validity range</p>
+                  <p className="text-xs text-[#6B7280]">Provider details and validity range</p>
                 </div>
               </div>
 
               <div className="space-y-4 text-xs">
                 {/* Associated Product Selector */}
                 <div>
-                  <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                  <label className="block font-semibold text-[#111827] text-xs mb-1.5">
                     Covered Hardware Asset <span className="text-rose-500">*</span>
                   </label>
                   <select
@@ -174,7 +174,7 @@ export default function WarrantyFormPage() {
                     disabled={isEditMode}
                     value={formData.product_id}
                     onChange={handleChange}
-                    className="w-full px-3.5 py-2.5 bg-white text-xs sm:text-sm border border-slate-200/90 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500/20 text-slate-800 font-medium disabled:bg-slate-50 shadow-xs"
+                    className="w-full px-3 py-2 bg-white text-xs border border-[#D9DEDA] rounded-md focus:outline-none focus:ring-1 focus:ring-[#0F6B68] focus:border-[#0F6B68] text-[#111827] font-medium disabled:bg-[#F1F3F1]"
                   >
                     <option value="">Select hardware asset...</option>
                     {products.map((p) => (
@@ -187,7 +187,7 @@ export default function WarrantyFormPage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                    <label className="block font-semibold text-[#111827] text-xs mb-1.5">
                       Warranty Provider <span className="text-rose-500">*</span>
                     </label>
                     <input
@@ -196,20 +196,20 @@ export default function WarrantyFormPage() {
                       required
                       value={formData.provider}
                       onChange={handleChange}
-                      placeholder="e.g. AppleCare+, Sony Official Support"
-                      className="w-full px-3.5 py-2.5 bg-white text-xs sm:text-sm border border-slate-200/90 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500/20 shadow-xs"
+                      placeholder="Provider or manufacturer name"
+                      className="w-full px-3 py-2 bg-white text-xs border border-[#D9DEDA] rounded-md focus:outline-none focus:ring-1 focus:ring-[#0F6B68] focus:border-[#0F6B68] text-[#111827]"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                    <label className="block font-semibold text-[#111827] text-xs mb-1.5">
                       Policy Classification
                     </label>
                     <select
                       name="warranty_type"
                       value={formData.warranty_type}
                       onChange={handleChange}
-                      className="w-full px-3.5 py-2.5 bg-white text-xs sm:text-sm border border-slate-200/90 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500/20 text-slate-800 font-medium shadow-xs"
+                      className="w-full px-3 py-2 bg-white text-xs border border-[#D9DEDA] rounded-md focus:outline-none focus:ring-1 focus:ring-[#0F6B68] focus:border-[#0F6B68] text-[#111827] font-medium"
                     >
                       <option value="Manufacturer Standard">Manufacturer Standard</option>
                       <option value="Manufacturer Extended">Manufacturer Extended</option>
@@ -221,7 +221,7 @@ export default function WarrantyFormPage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                    <label className="block font-semibold text-[#111827] text-xs mb-1.5">
                       Coverage Start Date <span className="text-rose-500">*</span>
                     </label>
                     <input
@@ -230,12 +230,12 @@ export default function WarrantyFormPage() {
                       required
                       value={formData.start_date}
                       onChange={handleChange}
-                      className="w-full px-3.5 py-2.5 bg-white text-xs sm:text-sm border border-slate-200/90 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500/20 text-slate-800 shadow-xs"
+                      className="w-full px-3 py-2 bg-white text-xs border border-[#D9DEDA] rounded-md focus:outline-none focus:ring-1 focus:ring-[#0F6B68] focus:border-[#0F6B68] text-[#111827]"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                    <label className="block font-semibold text-[#111827] text-xs mb-1.5">
                       Coverage Expiry Date <span className="text-rose-500">*</span>
                     </label>
                     <input
@@ -244,13 +244,13 @@ export default function WarrantyFormPage() {
                       required
                       value={formData.end_date}
                       onChange={handleChange}
-                      className="w-full px-3.5 py-2.5 bg-white text-xs sm:text-sm border border-slate-200/90 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500/20 text-slate-800 shadow-xs"
+                      className="w-full px-3 py-2 bg-white text-xs border border-[#D9DEDA] rounded-md focus:outline-none focus:ring-1 focus:ring-[#0F6B68] focus:border-[#0F6B68] text-[#111827]"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                  <label className="block font-semibold text-[#111827] text-xs mb-1.5">
                     Coverage Scope & Inclusions
                   </label>
                   <textarea
@@ -258,8 +258,8 @@ export default function WarrantyFormPage() {
                     rows="3"
                     value={formData.coverage_details}
                     onChange={handleChange}
-                    placeholder="Describe included repairs, parts replacement terms, labor coverage, service center details..."
-                    className="w-full px-3.5 py-2.5 bg-white text-xs sm:text-sm border border-slate-200/90 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500/20 shadow-xs"
+                    placeholder="Enter coverage scope, parts replacement terms, or service terms"
+                    className="w-full px-3 py-2 bg-white text-xs border border-[#D9DEDA] rounded-md focus:outline-none focus:ring-1 focus:ring-[#0F6B68] focus:border-[#0F6B68] text-[#111827]"
                   />
                 </div>
               </div>
@@ -269,14 +269,14 @@ export default function WarrantyFormPage() {
             <div className="flex items-center justify-end gap-3 pt-2">
               <Link
                 to={isEditMode ? `/warranties/${id}` : '/warranties'}
-                className="px-5 py-2.5 text-xs sm:text-sm font-bold text-slate-600 bg-white border border-slate-200 hover:bg-slate-50 rounded-xl shadow-xs transition-colors"
+                className="px-4 py-2 text-xs font-semibold text-[#4B5563] bg-white border border-[#D9DEDA] hover:bg-[#F1F3F1] rounded-md transition-colors"
               >
                 Cancel
               </Link>
               <button
                 type="submit"
                 disabled={submitting}
-                className="px-6 py-2.5 text-xs sm:text-sm font-bold text-white bg-brand-600 hover:bg-brand-700 rounded-xl shadow-sm hover:shadow-md transition-all flex items-center gap-2 disabled:opacity-50"
+                className="px-5 py-2 text-xs font-semibold text-white bg-[#0F6B68] hover:bg-[#0B5754] rounded-md transition-colors flex items-center gap-2 disabled:opacity-50"
               >
                 <Save className="w-4 h-4" />
                 <span>{submitting ? 'Saving Policy...' : isEditMode ? 'Update Warranty' : 'Save Warranty'}</span>
@@ -287,49 +287,49 @@ export default function WarrantyFormPage() {
 
         {/* Right: Live Policy Preview (xl:col-span-4) */}
         <div className="xl:col-span-4 sticky top-24 space-y-5">
-          <div className="bg-white rounded-3xl border border-slate-200/90 shadow-card p-6">
-            <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 mb-4">
+          <div className="bg-white rounded-lg border border-[#D9DEDA] p-6">
+            <div className="flex items-center justify-between pb-3.5 border-b border-[#D9DEDA] mb-4">
               <div className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-brand-600" />
-                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-800">
-                  Live Policy Preview
+                <Sparkles className="w-4 h-4 text-[#0F6B68]" />
+                <h3 className="text-xs font-bold uppercase tracking-wider text-[#101827]">
+                  Policy Summary
                 </h3>
               </div>
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">
-                Card Preview
+              <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-[#F1F3F1] text-[#4B5563] border border-[#D9DEDA]">
+                Preview
               </span>
             </div>
 
             <div className="space-y-4">
               <div>
-                <span className="text-xs font-bold px-2.5 py-0.5 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-200 inline-block mb-2">
+                <span className="text-xs font-semibold px-2 py-0.5 rounded bg-[#EAF6EC] text-[#15803D] border border-[#15803D]/20 inline-block mb-2">
                   {formData.warranty_type}
                 </span>
-                <h4 className="text-lg font-bold text-slate-900 tracking-tight">
+                <h4 className="text-base font-bold text-[#101827] tracking-tight">
                   {formData.provider || 'Provider Name'}
                 </h4>
-                <p className="text-xs text-slate-500 font-medium mt-0.5">
-                  Asset: <strong className="text-slate-800">{selectedProduct?.name || 'Selected Hardware Asset'}</strong>
+                <p className="text-xs text-[#6B7280] font-medium mt-0.5">
+                  Asset: <strong className="text-[#101827]">{selectedProduct?.name || 'Selected Hardware Asset'}</strong>
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-3 py-3 border-y border-slate-100 text-xs">
+              <div className="grid grid-cols-2 gap-3 py-3 border-y border-[#D9DEDA] text-xs">
                 <div>
-                  <span className="text-[11px] text-slate-400 font-medium block">Start Date</span>
-                  <span className="font-bold text-slate-800">
+                  <span className="text-[11px] text-[#6B7280] font-medium block">Start Date</span>
+                  <span className="font-semibold text-[#101827]">
                     {formData.start_date ? formatDate(formData.start_date) : '—'}
                   </span>
                 </div>
                 <div>
-                  <span className="text-[11px] text-slate-400 font-medium block">Expiry Date</span>
-                  <span className="font-bold text-slate-800">
+                  <span className="text-[11px] text-[#6B7280] font-medium block">Expiry Date</span>
+                  <span className="font-semibold text-[#101827]">
                     {formData.end_date ? formatDate(formData.end_date) : '—'}
                   </span>
                 </div>
               </div>
 
               {formData.coverage_details && (
-                <p className="text-[11px] text-slate-600 bg-slate-50 p-3 rounded-2xl border border-slate-100 leading-relaxed font-normal">
+                <p className="text-[11px] text-[#4B5563] bg-[#F1F3F1] p-3 rounded-md border border-[#D9DEDA] leading-relaxed font-normal">
                   {formData.coverage_details}
                 </p>
               )}

@@ -4,18 +4,16 @@ import { Search, X } from 'lucide-react';
 export default function SearchBar({
   value = '',
   onChange,
-  placeholder = 'Search by name, brand, model, or serial number...',
+  placeholder = 'Search...',
   debounceMs = 300,
   className = '',
 }) {
   const [searchTerm, setSearchTerm] = useState(value);
 
-  // Sync internal state if prop changes externally
   useEffect(() => {
     setSearchTerm(value);
   }, [value]);
 
-  // Debounced notification to parent
   useEffect(() => {
     const handler = setTimeout(() => {
       if (searchTerm !== value) {
@@ -33,7 +31,7 @@ export default function SearchBar({
 
   return (
     <div className={`relative w-full ${className}`}>
-      <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
         <Search className="w-4 h-4" />
       </div>
       <input
@@ -41,13 +39,13 @@ export default function SearchBar({
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         placeholder={placeholder}
-        className="w-full pl-10 pr-9 py-2 bg-white text-xs sm:text-sm text-slate-800 placeholder-slate-400 border border-slate-200/90 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all shadow-xs"
+        className="w-full pl-9 pr-8 py-2 bg-white text-xs sm:text-sm text-[#111827] placeholder-slate-400 border border-[#D9DEDA] rounded-md focus:outline-none focus:ring-1 focus:ring-[#0F6B68] focus:border-[#0F6B68] transition-colors"
       />
       {searchTerm && (
         <button
           type="button"
           onClick={handleClear}
-          className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600 transition-colors"
+          className="absolute inset-y-0 right-0 pr-2.5 flex items-center text-slate-400 hover:text-slate-600 transition-colors"
           aria-label="Clear search query"
         >
           <X className="w-4 h-4" />

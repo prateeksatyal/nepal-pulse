@@ -106,13 +106,13 @@ export default function WarrantyDetailPage() {
 
   if (error || !warranty) {
     return (
-      <div className="p-8 bg-white rounded-3xl border border-rose-200 text-center max-w-lg mx-auto shadow-card">
-        <AlertCircle className="w-12 h-12 text-rose-500 mx-auto mb-3" />
-        <h2 className="text-lg font-bold text-slate-900 mb-1">Warranty Record Not Found</h2>
-        <p className="text-xs sm:text-sm text-slate-500 mb-6">{error || 'Unable to locate this policy.'}</p>
+      <div className="p-8 bg-white rounded-lg border border-[#D9DEDA] text-center max-w-lg mx-auto">
+        <AlertCircle className="w-10 h-10 text-rose-500 mx-auto mb-3" />
+        <h2 className="text-base font-bold text-[#101827] mb-1">Warranty Record Not Found</h2>
+        <p className="text-xs text-[#4B5563] mb-6">{error || 'Unable to locate this policy.'}</p>
         <Link
           to="/warranties"
-          className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-xs sm:text-sm font-bold rounded-xl transition-all"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-[#0F6B68] hover:bg-[#0B5754] text-white text-xs font-semibold rounded-md transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Return to Warranties</span>
@@ -132,16 +132,16 @@ export default function WarrantyDetailPage() {
   const documents = warranty.documents || [];
 
   return (
-    <div className="space-y-6 sm:space-y-8">
+    <div className="space-y-6">
       {/* Top Header & Breadcrumb */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <div className="flex items-center gap-2 text-xs font-semibold text-slate-500">
-          <Link to="/warranties" className="hover:text-brand-600 transition-colors flex items-center gap-1">
+        <div className="flex items-center gap-2 text-xs font-medium text-[#4B5563]">
+          <Link to="/warranties" className="hover:text-[#0F6B68] transition-colors flex items-center gap-1">
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Warranties</span>
           </Link>
           <ChevronRight className="w-3.5 h-3.5 text-slate-300" />
-          <span className="text-slate-800 truncate max-w-[200px]">{warranty.provider}</span>
+          <span className="text-[#111827] font-semibold truncate max-w-[200px]">{warranty.provider}</span>
         </div>
 
         <div className="flex items-center gap-2.5">
@@ -149,14 +149,14 @@ export default function WarrantyDetailPage() {
             type="button"
             onClick={handleSendReminder}
             disabled={sendingReminder}
-            className="inline-flex items-center gap-1.5 px-4 py-2 bg-brand-50 hover:bg-brand-100 text-brand-700 text-xs font-bold rounded-xl border border-brand-200/80 shadow-xs transition-colors disabled:opacity-50"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-[#F1F3F1] hover:bg-[#D9DEDA] text-[#101827] text-xs font-semibold rounded-md border border-[#D9DEDA] transition-colors disabled:opacity-50"
           >
-            <Mail className="w-3.5 h-3.5 text-brand-600" />
+            <Mail className="w-3.5 h-3.5 text-[#0F6B68]" />
             <span>{sendingReminder ? 'Sending...' : 'Send Expiry Notice'}</span>
           </button>
           <Link
             to={`/warranties/${id}/edit`}
-            className="inline-flex items-center gap-1.5 px-4 py-2 bg-white border border-slate-200/90 hover:bg-slate-50 text-slate-700 text-xs font-bold rounded-xl shadow-xs transition-colors"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-white border border-[#D9DEDA] hover:bg-[#F1F3F1] text-[#111827] text-xs font-semibold rounded-md transition-colors"
           >
             <Edit2 className="w-3.5 h-3.5" />
             <span>Edit</span>
@@ -164,7 +164,7 @@ export default function WarrantyDetailPage() {
           <button
             type="button"
             onClick={() => setDeleteModalOpen(true)}
-            className="inline-flex items-center gap-1.5 px-4 py-2 bg-white border border-rose-200 hover:bg-rose-50 text-rose-600 text-xs font-bold rounded-xl shadow-xs transition-colors"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-white border border-rose-200 hover:bg-rose-50 text-rose-600 text-xs font-semibold rounded-md transition-colors"
           >
             <Trash2 className="w-3.5 h-3.5" />
             <span>Delete</span>
@@ -173,7 +173,7 @@ export default function WarrantyDetailPage() {
       </div>
 
       {reminderResult && (
-        <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-xs text-emerald-800 flex items-center justify-between shadow-xs">
+        <div className="p-3.5 bg-emerald-50 border border-emerald-200 rounded-lg text-xs text-emerald-800 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
             <span>{reminderResult.message}</span>
@@ -183,7 +183,7 @@ export default function WarrantyDetailPage() {
               href={reminderResult.previewUrl}
               target="_blank"
               rel="noreferrer"
-              className="font-bold underline text-brand-700 ml-2"
+              className="font-bold underline text-[#0F6B68] ml-2"
             >
               Preview Email &rarr;
             </a>
@@ -192,38 +192,38 @@ export default function WarrantyDetailPage() {
       )}
 
       {/* Balanced 2-Column Desktop Grid (7 cols : 5 cols) */}
-      <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 sm:gap-8 items-start">
+      <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
         {/* Left: Main Policy Overview (xl:col-span-7) */}
         <div className="xl:col-span-7 space-y-6">
-          <div className="bg-white rounded-3xl border border-slate-200/90 shadow-card p-6 sm:p-8 space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-6 border-b border-slate-100">
+          <div className="bg-white rounded-lg border border-[#D9DEDA] p-6 space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-5 border-b border-[#D9DEDA]">
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xs font-bold text-slate-600 uppercase tracking-wider bg-slate-100 px-2.5 py-0.5 rounded-lg border border-slate-200/60">
+                  <span className="text-[11px] font-semibold text-[#4B5563] uppercase tracking-wider bg-[#F1F3F1] px-2.5 py-0.5 rounded border border-[#D9DEDA]">
                     {warranty.warranty_type}
                   </span>
                   <StatusBadge status={warranty.status} daysRemaining={warranty.days_remaining} />
                 </div>
-                <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                <h1 className="text-xl sm:text-2xl font-bold text-[#101827] tracking-tight">
                   {warranty.provider}
                 </h1>
-                <p className="text-xs sm:text-sm text-slate-600 mt-1 font-medium">
+                <p className="text-xs sm:text-sm text-[#4B5563] mt-1 font-medium">
                   Covered Product:{' '}
                   <Link
                     to={`/products/${warranty.product_id}`}
-                    className="font-bold text-brand-600 hover:underline inline-flex items-center gap-1"
+                    className="font-semibold text-[#0F6B68] hover:underline inline-flex items-center gap-1"
                   >
                     {warranty.product_name}
-                    <ExternalLink className="w-3 h-3 text-slate-400" />
+                    <ExternalLink className="w-3 h-3 text-[#6B7280]" />
                   </Link>
                 </p>
               </div>
 
-              <div className="text-left sm:text-right bg-slate-50 sm:bg-transparent p-3 sm:p-0 rounded-2xl">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-0.5">
+              <div className="text-left sm:text-right bg-[#F1F3F1] sm:bg-transparent p-3 sm:p-0 rounded-md">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-[#6B7280] block mb-0.5">
                   Remaining Term
                 </span>
-                <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-mono">
+                <span className="text-2xl font-bold text-[#101827] font-mono">
                   {warranty.days_remaining !== null && warranty.days_remaining !== undefined
                     ? `${warranty.days_remaining} days`
                     : 'N/A'}
@@ -232,22 +232,22 @@ export default function WarrantyDetailPage() {
             </div>
 
             {/* Visual Progress Timeline */}
-            <div className="space-y-2.5 bg-slate-50/70 p-4 rounded-2xl border border-slate-200/80">
-              <div className="flex items-center justify-between text-xs font-medium text-slate-500">
-                <span>Start: <strong className="text-slate-800">{formatDate(warranty.start_date)}</strong></span>
-                <span className="font-bold text-slate-800">
+            <div className="space-y-2 bg-[#F1F3F1] p-4 rounded-md border border-[#D9DEDA]">
+              <div className="flex items-center justify-between text-xs font-medium text-[#4B5563]">
+                <span>Start: <strong className="text-[#101827]">{formatDate(warranty.start_date)}</strong></span>
+                <span className="font-semibold text-[#101827]">
                   {warranty.is_expired ? 'Coverage Expired' : `${100 - progressPercent}% Term Remaining`}
                 </span>
-                <span>Expiry: <strong className="text-slate-800">{formatDate(warranty.end_date)}</strong></span>
+                <span>Expiry: <strong className="text-[#101827]">{formatDate(warranty.end_date)}</strong></span>
               </div>
-              <div className="w-full bg-slate-200/80 h-3 rounded-full overflow-hidden">
+              <div className="w-full bg-[#D9DEDA] h-2.5 rounded-full overflow-hidden">
                 <div
                   className={`h-full transition-all duration-500 ${
                     warranty.is_expired
-                      ? 'bg-rose-500'
+                      ? 'bg-[#B42318]'
                       : warranty.is_expiring_soon
-                      ? 'bg-amber-500'
-                      : 'bg-emerald-500'
+                      ? 'bg-[#B7791F]'
+                      : 'bg-[#15803D]'
                   }`}
                   style={{ width: `${progressPercent}%` }}
                 />
@@ -256,10 +256,10 @@ export default function WarrantyDetailPage() {
 
             {/* Coverage Scope */}
             <div>
-              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-[#6B7280] mb-2">
                 Coverage Scope & Policy Terms
               </h3>
-              <div className="p-4 bg-slate-50/70 rounded-2xl border border-slate-200/80 text-xs text-slate-700 leading-relaxed font-normal">
+              <div className="p-4 bg-[#F1F3F1] rounded-md border border-[#D9DEDA] text-xs text-[#111827] leading-relaxed font-normal">
                 {warranty.coverage_details || 'Standard manufacturer terms apply. No additional coverage stipulations recorded.'}
               </div>
             </div>
@@ -269,18 +269,18 @@ export default function WarrantyDetailPage() {
         {/* Right: Covered Product Card & Attached Documents (xl:col-span-5) */}
         <div className="xl:col-span-5 space-y-6">
           {/* Covered Hardware Asset Card */}
-          <div className="bg-white rounded-3xl border border-slate-200/90 shadow-card p-6 space-y-4">
-            <div className="flex items-center gap-3 pb-3 border-b border-slate-100">
-              <div className="w-9 h-9 rounded-xl bg-brand-50 text-brand-600 border border-brand-100 flex items-center justify-center font-bold">
+          <div className="bg-white rounded-lg border border-[#D9DEDA] p-6 space-y-4">
+            <div className="flex items-center gap-3 pb-3 border-b border-[#D9DEDA]">
+              <div className="w-9 h-9 rounded-md bg-[#F1F3F1] text-[#0F6B68] border border-[#D9DEDA] flex items-center justify-center font-bold">
                 <Package className="w-4 h-4" />
               </div>
               <div>
-                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                <h3 className="text-[11px] font-bold uppercase tracking-wider text-[#6B7280]">
                   Linked Hardware Asset
                 </h3>
                 <Link
                   to={`/products/${warranty.product_id}`}
-                  className="text-base font-bold text-slate-900 hover:text-brand-600 transition-colors block truncate"
+                  className="text-sm font-bold text-[#101827] hover:text-[#0F6B68] transition-colors block truncate"
                 >
                   {warranty.product_name}
                 </Link>
@@ -289,18 +289,18 @@ export default function WarrantyDetailPage() {
 
             <div className="grid grid-cols-2 gap-3 text-xs">
               <div>
-                <span className="text-[11px] text-slate-400 block font-medium">Brand</span>
-                <span className="font-bold text-slate-800">{warranty.product_brand || '—'}</span>
+                <span className="text-[11px] text-[#6B7280] block font-medium">Brand</span>
+                <span className="font-semibold text-[#111827]">{warranty.product_brand || '—'}</span>
               </div>
               <div>
-                <span className="text-[11px] text-slate-400 block font-medium">Category</span>
-                <span className="font-bold text-slate-800">{warranty.category_name || 'General'}</span>
+                <span className="text-[11px] text-[#6B7280] block font-medium">Category</span>
+                <span className="font-semibold text-[#111827]">{warranty.category_name || 'General'}</span>
               </div>
             </div>
 
             <Link
               to={`/products/${warranty.product_id}`}
-              className="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 text-xs font-bold text-brand-600 bg-brand-50 hover:bg-brand-100 rounded-xl transition-colors border border-brand-200/60"
+              className="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 text-xs font-semibold text-[#0F6B68] bg-[#F1F3F1] hover:bg-[#D9DEDA] rounded-md transition-colors border border-[#D9DEDA]"
             >
               <span>View Product Detail Page</span>
               <ExternalLink className="w-3.5 h-3.5" />
@@ -308,11 +308,11 @@ export default function WarrantyDetailPage() {
           </div>
 
           {/* Attached Warranty Policy Documents */}
-          <div className="bg-white rounded-3xl border border-slate-200/90 shadow-card p-6 space-y-5">
-            <div className="flex items-center justify-between pb-3.5 border-b border-slate-100">
-              <div className="flex items-center gap-2.5">
-                <FileCheck2 className="w-5 h-5 text-brand-600" />
-                <h3 className="text-sm font-bold text-slate-900">Certificate Documents ({documents.length})</h3>
+          <div className="bg-white rounded-lg border border-[#D9DEDA] p-6 space-y-5">
+            <div className="flex items-center justify-between pb-3 border-b border-[#D9DEDA]">
+              <div className="flex items-center gap-2">
+                <FileCheck2 className="w-4 h-4 text-[#0F6B68]" />
+                <h3 className="text-sm font-bold text-[#101827]">Certificate Documents ({documents.length})</h3>
               </div>
             </div>
 
@@ -321,22 +321,22 @@ export default function WarrantyDetailPage() {
                 {documents.map((doc) => (
                   <div
                     key={doc.id}
-                    className="p-3.5 rounded-2xl bg-slate-50/80 border border-slate-200/80 flex items-center justify-between gap-2 hover:bg-slate-50 transition-colors"
+                    className="p-3 rounded-md bg-[#F1F3F1] border border-[#D9DEDA] flex items-center justify-between gap-2 hover:bg-[#e8ecea] transition-colors"
                   >
-                    <div className="flex items-center gap-3 overflow-hidden">
-                      <Shield className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                    <div className="flex items-center gap-2.5 overflow-hidden">
+                      <Shield className="w-4 h-4 text-[#0F6B68] flex-shrink-0" />
                       <div className="truncate">
-                        <p className="text-xs font-bold text-slate-800 truncate">{doc.file_name}</p>
-                        <p className="text-[10px] text-slate-400 font-mono">{formatFileSize(doc.file_size)}</p>
+                        <p className="text-xs font-medium text-[#111827] truncate">{doc.file_name}</p>
+                        <p className="text-[10px] text-[#6B7280] font-mono">{formatFileSize(doc.file_size)}</p>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-1.5 flex-shrink-0">
+                    <div className="flex items-center gap-1 flex-shrink-0">
                       <a
                         href={`/api/documents/warranties/${doc.id}/download?token=${localStorage.getItem('token')}`}
                         target="_blank"
                         rel="noreferrer"
-                        className="p-1.5 text-slate-600 hover:text-brand-600 rounded-lg hover:bg-white transition-colors"
+                        className="p-1.5 text-[#4B5563] hover:text-[#0F6B68] rounded hover:bg-white transition-colors"
                         title="Download / View"
                       >
                         <Download className="w-4 h-4" />
@@ -344,7 +344,7 @@ export default function WarrantyDetailPage() {
                       <button
                         type="button"
                         onClick={() => handleDeleteDoc(doc.id)}
-                        className="p-1.5 text-slate-400 hover:text-rose-600 rounded-lg hover:bg-white transition-colors"
+                        className="p-1.5 text-[#6B7280] hover:text-rose-600 rounded hover:bg-white transition-colors"
                         title="Delete document"
                       >
                         <Trash2 className="w-4 h-4" />
@@ -354,7 +354,7 @@ export default function WarrantyDetailPage() {
                 ))}
               </div>
             ) : (
-              <p className="text-xs text-slate-400 italic">No warranty policy cards attached yet.</p>
+              <p className="text-xs text-[#6B7280] italic">No warranty policy documents attached yet.</p>
             )}
 
             <div className="pt-2">

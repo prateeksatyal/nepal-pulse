@@ -7,11 +7,7 @@ import {
   Edit2,
   Trash2,
   Mail,
-  CheckCircle2,
-  AlertCircle,
-  Clock,
   ExternalLink,
-  ArrowUpRight,
 } from 'lucide-react';
 import axiosClient from '../../api/axiosClient';
 import StatusBadge from '../../components/common/StatusBadge';
@@ -99,26 +95,26 @@ export default function WarrantiesPage() {
   };
 
   return (
-    <div className="space-y-6 sm:space-y-8">
+    <div className="w-full space-y-5">
       {/* Top Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-2 border-b border-[#D9DEDA]">
         <div>
-          <div className="flex items-center gap-2.5">
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-              Warranty Protection
+          <div className="flex items-center gap-2">
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-[#101827] tracking-tight">
+              Warranties
             </h1>
-            <span className="px-2.5 py-0.5 text-xs font-bold rounded-full bg-brand-50 text-brand-700 border border-brand-200">
-              {pagination.total || warranties.length} Total
+            <span className="px-2 py-0.5 text-xs font-semibold rounded bg-[#F1F3F1] text-slate-700 border border-[#D9DEDA]">
+              {pagination.total || warranties.length}
             </span>
           </div>
-          <p className="text-xs sm:text-sm text-slate-500 mt-1">
-            Real-time status tracking, coverage terms, and automated expiry email reminders.
+          <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
+            Coverage terms, status calculations, and email notification management.
           </p>
         </div>
 
         <Link
           to="/warranties/new"
-          className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-xs sm:text-sm font-bold rounded-xl shadow-xs hover:shadow-md transition-all self-start sm:self-auto"
+          className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-[#0F6B68] hover:bg-[#0B5754] text-white text-xs font-semibold rounded-md transition-colors shadow-xs"
         >
           <Plus className="w-4 h-4" />
           <span>Add Warranty</span>
@@ -126,7 +122,7 @@ export default function WarrantiesPage() {
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="bg-white p-5 rounded-3xl border border-slate-200/90 shadow-card flex flex-col sm:flex-row items-center gap-3">
+      <div className="bg-white p-4 rounded-lg border border-[#D9DEDA] flex flex-col sm:flex-row items-center gap-3">
         <div className="flex-1 w-full">
           <SearchBar
             value={search}
@@ -145,96 +141,95 @@ export default function WarrantiesPage() {
               setStatusFilter(e.target.value);
               setPage(1);
             }}
-            className="w-full sm:w-56 px-3.5 py-2.5 bg-white border border-slate-200/90 rounded-xl text-xs sm:text-sm font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500/20 shadow-xs"
+            className="w-full sm:w-52 px-3 py-2 bg-white border border-[#D9DEDA] rounded-md text-xs font-medium text-slate-700 focus:outline-none focus:ring-1 focus:ring-[#0F6B68]"
           >
             <option value="">All Statuses</option>
-            <option value="active">Active (&gt; 30 days remaining)</option>
-            <option value="expiring soon">Expiring Soon (0–30 days remaining)</option>
-            <option value="expired">Expired Coverage</option>
+            <option value="active">Active</option>
+            <option value="expiring soon">Expiring Soon (&lt; 30d)</option>
+            <option value="expired">Expired</option>
           </select>
         </div>
       </div>
 
       {/* Content */}
       {loading ? (
-        <LoadingSpinner label="Loading warranty policies..." />
+        <LoadingSpinner label="Loading warranties..." />
       ) : warranties.length === 0 ? (
         <EmptyState
           title="No warranties found"
           description={
             search || statusFilter
-              ? "No warranty records matched your selected filter. Try clearing filters to see all policies."
-              : "No warranties have been logged yet. Register a product and attach a warranty to track expiration."
+              ? "No warranties matched your filter criteria."
+              : "No warranty policies recorded yet. Attach a warranty to an equipment item."
           }
           icon={Shield}
           actionButton={
             <Link
               to="/warranties/new"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-xs sm:text-sm font-bold rounded-xl shadow-xs"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-[#0F6B68] hover:bg-[#0B5754] text-white text-xs font-semibold rounded-md transition-colors"
             >
               <Plus className="w-4 h-4" />
-              <span>Add First Warranty</span>
+              <span>Add Warranty</span>
             </Link>
           }
         />
       ) : (
-        <div className="bg-white rounded-3xl border border-slate-200/90 shadow-card overflow-hidden">
+        <div className="bg-white rounded-lg border border-[#D9DEDA] overflow-hidden">
           <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
+            <table className="w-full text-left border-collapse text-xs">
               <thead>
-                <tr className="bg-slate-50/80 border-b border-slate-200/80 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
-                  <th className="py-4 px-5">Associated Hardware Asset</th>
-                  <th className="py-4 px-5">Provider & Policy Type</th>
-                  <th className="py-4 px-5">Term Dates</th>
-                  <th className="py-4 px-5">Warranty Status</th>
-                  <th className="py-4 px-5 text-center">Expiry Alert</th>
-                  <th className="py-4 px-5 text-right">Actions</th>
+                <tr className="bg-[#F1F3F1] border-b border-[#D9DEDA] text-[11px] font-bold text-slate-600 uppercase tracking-wider">
+                  <th className="py-3 px-4">Associated Product</th>
+                  <th className="py-3 px-4">Provider & Policy</th>
+                  <th className="py-3 px-4">Coverage Period</th>
+                  <th className="py-3 px-4">Status</th>
+                  <th className="py-3 px-4 text-center">Expiry Alert</th>
+                  <th className="py-3 px-4 text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 text-sm">
+              <tbody className="divide-y divide-[#D9DEDA]">
                 {warranties.map((w) => (
-                  <tr key={w.id} className="hover:bg-slate-50/70 transition-colors group">
-                    <td className="py-4 px-5">
+                  <tr key={w.id} className="hover:bg-[#F8FAF9] transition-colors">
+                    <td className="py-3 px-4">
                       <Link
                         to={`/products/${w.product_id}`}
-                        className="font-bold text-slate-900 hover:text-brand-600 transition-colors block truncate max-w-xs"
+                        className="font-semibold text-[#101827] hover:text-[#0F6B68] transition-colors block truncate max-w-xs"
                       >
                         {w.product_name}
                       </Link>
-                      <span className="text-xs text-slate-500 font-medium">{w.product_brand}</span>
+                      <span className="text-[11px] text-slate-500">{w.product_brand}</span>
                     </td>
 
-                    <td className="py-4 px-5">
-                      <div className="font-bold text-slate-800 text-xs sm:text-sm">{w.provider}</div>
-                      <span className="text-[11px] text-slate-400 font-medium">{w.warranty_type}</span>
+                    <td className="py-3 px-4">
+                      <div className="font-semibold text-[#101827]">{w.provider}</div>
+                      <span className="text-[11px] text-slate-500">{w.warranty_type}</span>
                     </td>
 
-                    <td className="py-4 px-5 text-xs text-slate-600">
+                    <td className="py-3 px-4 text-slate-600">
                       <div>
-                        Valid until: <span className="font-bold text-slate-900">{formatDate(w.end_date)}</span>
+                        Valid until: <span className="font-semibold text-[#111827]">{formatDate(w.end_date)}</span>
                       </div>
-                      <span className="text-[11px] text-slate-400">Started: {formatDate(w.start_date)}</span>
+                      <span className="text-[10px] text-slate-400">Started: {formatDate(w.start_date)}</span>
                     </td>
 
-                    <td className="py-4 px-5">
-                      <StatusBadge status={w.status} daysRemaining={w.days_remaining} />
+                    <td className="py-3 px-4">
+                      <StatusBadge status={w.status} daysRemaining={w.days_remaining} size="sm" />
                     </td>
 
-                    <td className="py-4 px-5 text-center">
+                    <td className="py-3 px-4 text-center">
                       <div className="inline-flex flex-col items-center gap-1">
                         <button
                           type="button"
                           onClick={() => handleSendReminder(w.id)}
                           disabled={emailStatus[w.id] === 'sending'}
-                          className="px-3 py-1.5 text-xs font-bold rounded-xl border border-slate-200/90 text-slate-700 bg-white hover:bg-slate-50 transition-all shadow-xs inline-flex items-center gap-1.5 disabled:opacity-50"
-                          title="Trigger Nodemailer reminder email"
+                          className="px-2.5 py-1 text-xs font-medium rounded-md border border-[#D9DEDA] text-slate-700 bg-white hover:bg-[#F1F3F1] transition-colors inline-flex items-center gap-1 disabled:opacity-50"
                         >
-                          <Mail className="w-3.5 h-3.5 text-brand-600" />
+                          <Mail className="w-3.5 h-3.5 text-[#0F6B68]" />
                           <span>
                             {emailStatus[w.id] === 'sending'
                               ? 'Sending...'
                               : emailStatus[w.id] === 'sent'
-                              ? 'Alert Sent ✓'
+                              ? 'Sent ✓'
                               : 'Send Alert'}
                           </span>
                         </button>
@@ -243,38 +238,37 @@ export default function WarrantiesPage() {
                             href={emailStatus[`${w.id}_preview`]}
                             target="_blank"
                             rel="noreferrer"
-                            className="text-[11px] font-semibold text-brand-600 hover:underline inline-flex items-center gap-0.5"
+                            className="text-[10px] font-medium text-[#0F6B68] hover:underline"
                           >
-                            <span>Preview</span>
-                            <ArrowUpRight className="w-3 h-3" />
+                            Preview
                           </a>
                         )}
                       </div>
                     </td>
 
-                    <td className="py-4 px-5 text-right">
-                      <div className="inline-flex items-center gap-1.5">
+                    <td className="py-3 px-4 text-right">
+                      <div className="inline-flex items-center gap-1">
                         <Link
                           to={`/warranties/${w.id}`}
-                          className="p-2 text-slate-500 hover:text-brand-600 hover:bg-brand-50 rounded-xl transition-colors"
+                          className="p-1.5 text-slate-600 hover:text-[#0F6B68] hover:bg-[#F1F3F1] rounded transition-colors"
                           title="View details"
                         >
-                          <Eye className="w-4 h-4" />
+                          <Eye className="w-3.5 h-3.5" />
                         </Link>
                         <Link
                           to={`/warranties/${w.id}/edit`}
-                          className="p-2 text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-xl transition-colors"
+                          className="p-1.5 text-slate-600 hover:text-[#101827] hover:bg-[#F1F3F1] rounded transition-colors"
                           title="Edit warranty"
                         >
-                          <Edit2 className="w-4 h-4" />
+                          <Edit2 className="w-3.5 h-3.5" />
                         </Link>
                         <button
                           type="button"
                           onClick={() => handleDeleteClick(w)}
-                          className="p-2 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-xl transition-colors"
+                          className="p-1.5 text-slate-400 hover:text-[#B42318] hover:bg-[#FDECEC] rounded transition-colors"
                           title="Delete warranty"
                         >
-                          <Trash2 className="w-4 h-4" />
+                          <Trash2 className="w-3.5 h-3.5" />
                         </button>
                       </div>
                     </td>
@@ -298,8 +292,8 @@ export default function WarrantiesPage() {
       <ConfirmModal
         isOpen={deleteModalOpen}
         title="Delete Warranty Policy"
-        message={`Are you sure you want to permanently delete the warranty provided by "${warrantyToDelete?.provider}" for "${warrantyToDelete?.product_name}"? Attached certificate documents will also be removed.`}
-        confirmText="Yes, Delete Warranty"
+        message={`Are you sure you want to delete the warranty provided by "${warrantyToDelete?.provider}" for "${warrantyToDelete?.product_name}"?`}
+        confirmText="Delete Warranty"
         loading={deleting}
         onConfirm={handleConfirmDelete}
         onClose={() => setDeleteModalOpen(false)}

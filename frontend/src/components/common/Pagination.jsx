@@ -14,33 +14,33 @@ export default function Pagination({
   const endItem = Math.min(currentPage * pageSize, totalItems);
 
   return (
-    <div className="flex flex-col sm:flex-row items-center justify-between gap-3 py-3.5 px-4 bg-slate-50/60 border-t border-slate-200/80 rounded-b-2xl">
-      <div className="text-xs text-slate-500 font-medium">
-        Showing <span className="font-bold text-slate-800">{startItem}</span>–<span className="font-bold text-slate-800">{endItem}</span> of{' '}
-        <span className="font-bold text-slate-800">{totalItems}</span> entries
+    <div className="flex flex-col sm:flex-row items-center justify-between gap-3 py-3 px-4 bg-[#F1F3F1] border-t border-[#D9DEDA]">
+      <div className="text-xs text-[#4B5563] font-medium">
+        Showing <span className="font-semibold text-[#111827]">{startItem}</span>–<span className="font-semibold text-[#111827]">{endItem}</span> of{' '}
+        <span className="font-semibold text-[#111827]">{totalItems}</span> entries
       </div>
 
       <div className="flex items-center gap-1.5">
         <button
           onClick={() => onPageChange(currentPage - 1)}
           disabled={currentPage <= 1}
-          className="p-1.5 rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 hover:text-slate-900 disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-xs"
+          className="p-1.5 rounded-md border border-[#D9DEDA] bg-white text-slate-600 hover:bg-[#F7F7F4] hover:text-[#111827] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
           aria-label="Previous page"
         >
-          <ChevronLeft className="w-4 h-4" />
+          <ChevronLeft className="w-3.5 h-3.5" />
         </button>
 
-        <span className="px-3 py-1 text-xs font-semibold text-slate-700 bg-white border border-slate-200 rounded-lg shadow-xs">
-          Page {currentPage} of {totalPages}
+        <span className="px-2.5 py-1 text-xs font-medium text-[#111827] bg-white border border-[#D9DEDA] rounded-md">
+          {currentPage} / {totalPages}
         </span>
 
         <button
           onClick={() => onPageChange(currentPage + 1)}
           disabled={currentPage >= totalPages}
-          className="p-1.5 rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 hover:text-slate-900 disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-xs"
+          className="p-1.5 rounded-md border border-[#D9DEDA] bg-white text-slate-600 hover:bg-[#F7F7F4] hover:text-[#111827] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
           aria-label="Next page"
         >
-          <ChevronRight className="w-4 h-4" />
+          <ChevronRight className="w-3.5 h-3.5" />
         </button>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ShieldCheck, User, Mail, Lock, AlertCircle, ArrowRight, Shield, Sparkles, CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, User, Mail, Lock, AlertCircle, ArrowRight, Check } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
 export default function RegisterPage() {
@@ -47,89 +47,91 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50/70 flex flex-col justify-center antialiased selection:bg-brand-500 selection:text-white">
-      <div className="w-full max-w-[1400px] mx-auto p-4 sm:p-6 lg:p-10">
-        <div className="bg-white rounded-3xl border border-slate-200/90 shadow-elevated overflow-hidden grid grid-cols-1 lg:grid-cols-12 min-h-[660px]">
-          {/* Left Hero / Brand Showcase (Desktop 5 cols) */}
-          <div className="lg:col-span-5 bg-gradient-to-br from-slate-900 via-slate-900 to-brand-950 p-8 sm:p-12 text-white flex flex-col justify-between relative overflow-hidden">
-            <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 rounded-full bg-brand-500/10 blur-3xl pointer-events-none" />
-            <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-indigo-500/10 blur-3xl pointer-events-none" />
-
+    <div className="min-h-screen bg-[#F7F7F4] flex flex-col justify-center antialiased selection:bg-[#0F6B68] selection:text-white p-4 sm:p-6 lg:p-8">
+      <div className="w-full max-w-5xl mx-auto">
+        <div className="bg-white rounded-lg border border-[#D9DEDA] shadow-sm overflow-hidden grid grid-cols-1 lg:grid-cols-12 min-h-[600px]">
+          {/* Left Dark Panel: #101827 */}
+          <div className="lg:col-span-5 bg-[#101827] text-white p-8 sm:p-10 flex flex-col justify-between">
             <div>
-              <Link to="/" className="inline-flex items-center gap-3 group mb-8">
-                <div className="w-11 h-11 rounded-2xl bg-brand-600 text-white flex items-center justify-center shadow-md shadow-brand-500/30 group-hover:scale-105 transition-transform">
-                  <ShieldCheck className="w-6 h-6" />
+              <Link to="/" className="inline-flex items-center gap-2.5 mb-8">
+                <div className="w-8 h-8 rounded-md bg-[#0F6B68] text-white flex items-center justify-center font-bold">
+                  <ShieldCheck className="w-5 h-5" />
                 </div>
                 <div className="flex flex-col text-left">
-                  <span className="font-extrabold text-white tracking-tight text-xl leading-tight">
+                  <span className="font-bold text-white tracking-tight text-lg leading-tight">
                     WarrantyFlow
                   </span>
-                  <span className="text-[10px] uppercase font-bold tracking-widest text-slate-400">
-                    Enterprise Suite
+                  <span className="text-[11px] font-medium text-slate-400">
+                    Warranty & Asset Suite
                   </span>
                 </div>
               </Link>
 
-              <div className="space-y-3 max-w-sm">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-brand-300 text-xs font-semibold backdrop-blur-sm border border-white/10">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  Instant Activation
+              <div className="space-y-3">
+                <span className="inline-block text-[11px] font-semibold uppercase tracking-wider text-[#0F6B68] bg-[#172235] px-2.5 py-0.5 rounded">
+                  Account Registration
                 </span>
-                <h1 className="text-3xl font-extrabold text-white tracking-tight leading-tight">
-                  Protect every purchase effortlessly
+                <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug">
+                  Protect every purchase with structured oversight.
                 </h1>
                 <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
-                  Join WarrantyFlow to catalog equipment, store receipts in private cloud storage, and receive timely expiry reminders.
+                  Catalog equipment, store purchase receipts in private cloud storage, and configure automated expiry alerts.
                 </p>
               </div>
 
-              <div className="mt-8 space-y-2.5">
-                <div className="flex items-center gap-3 text-xs text-slate-300">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                  <span>Unlimited product and asset cataloging</span>
+              <div className="mt-8 space-y-2.5 text-xs text-slate-300">
+                <div className="flex items-center gap-2.5">
+                  <span className="w-4 h-4 rounded bg-[#0F6B68]/30 text-[#0F6B68] flex items-center justify-center flex-shrink-0">
+                    <Check className="w-3 h-3 stroke-[2.5]" />
+                  </span>
+                  <span>Unlimited asset inventory cataloging</span>
                 </div>
-                <div className="flex items-center gap-3 text-xs text-slate-300">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                  <span>Private 10MB receipt & certificate uploads</span>
+                <div className="flex items-center gap-2.5">
+                  <span className="w-4 h-4 rounded bg-[#0F6B68]/30 text-[#0F6B68] flex items-center justify-center flex-shrink-0">
+                    <Check className="w-3 h-3 stroke-[2.5]" />
+                  </span>
+                  <span>10MB purchase invoice & certificate uploads</span>
                 </div>
-                <div className="flex items-center gap-3 text-xs text-slate-300">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                  <span>Automated 30-day expiry notifications</span>
+                <div className="flex items-center gap-2.5">
+                  <span className="w-4 h-4 rounded bg-[#0F6B68]/30 text-[#0F6B68] flex items-center justify-center flex-shrink-0">
+                    <Check className="w-3 h-3 stroke-[2.5]" />
+                  </span>
+                  <span>Automated 30-day warranty countdowns</span>
                 </div>
               </div>
             </div>
 
-            <div className="pt-6 mt-8 border-t border-white/10 text-[11px] text-slate-500">
-              Secured with bcrypt password hashing and JWT sessions.
+            <div className="pt-6 mt-6 border-t border-[#172235] text-[11px] text-slate-500">
+              Bcrypt encryption & JWT session authentication.
             </div>
           </div>
 
-          {/* Right Form Column (Desktop 7 cols) */}
-          <div className="lg:col-span-7 p-8 sm:p-12 lg:p-14 flex flex-col justify-center">
+          {/* Right Form Panel: #FFFFFF */}
+          <div className="lg:col-span-7 p-8 sm:p-12 flex flex-col justify-center bg-white">
             <div className="max-w-md w-full mx-auto">
               <div className="mb-6">
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                  Create your account
+                <h2 className="text-2xl font-bold text-[#101827] tracking-tight">
+                  Create Account
                 </h2>
-                <p className="mt-1 text-xs sm:text-sm text-slate-500 font-medium">
-                  Register in seconds to start managing your warranty coverage.
+                <p className="mt-1 text-xs text-slate-500">
+                  Register in seconds to establish your personal workspace.
                 </p>
               </div>
 
               {error && (
-                <div className="mb-5 p-3.5 bg-rose-50 border border-rose-200/90 rounded-2xl flex items-center gap-2.5 text-xs font-medium text-rose-700">
-                  <AlertCircle className="w-4 h-4 flex-shrink-0 text-rose-600" />
+                <div className="mb-4 p-3 bg-[#FDECEC] border border-[#B42318]/30 rounded-md flex items-center gap-2 text-xs text-[#B42318]">
+                  <AlertCircle className="w-4 h-4 flex-shrink-0" />
                   <span>{error}</span>
                 </div>
               )}
 
               <form onSubmit={handleSubmit} className="space-y-3.5">
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-[#101827] mb-1">
                     Full Name
                   </label>
                   <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
                       <User className="w-4 h-4" />
                     </div>
                     <input
@@ -137,18 +139,18 @@ export default function RegisterPage() {
                       required
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      placeholder="e.g. Alex Johnson"
-                      className="w-full pl-10 pr-3.5 py-2.5 bg-white text-xs sm:text-sm border border-slate-200/90 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all shadow-xs"
+                      placeholder="Alex Johnson"
+                      className="w-full pl-9 pr-3.5 py-2 bg-white text-xs sm:text-sm text-[#111827] border border-[#D9DEDA] rounded-md focus:outline-none focus:ring-1 focus:ring-[#0F6B68] focus:border-[#0F6B68] transition-colors"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-[#101827] mb-1">
                     Email Address
                   </label>
                   <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
                       <Mail className="w-4 h-4" />
                     </div>
                     <input
@@ -156,19 +158,19 @@ export default function RegisterPage() {
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="name@example.com"
-                      className="w-full pl-10 pr-3.5 py-2.5 bg-white text-xs sm:text-sm border border-slate-200/90 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all shadow-xs"
+                      placeholder="name@company.com"
+                      className="w-full pl-9 pr-3.5 py-2 bg-white text-xs sm:text-sm text-[#111827] border border-[#D9DEDA] rounded-md focus:outline-none focus:ring-1 focus:ring-[#0F6B68] focus:border-[#0F6B68] transition-colors"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-[#101827] mb-1">
                       Password
                     </label>
                     <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
                         <Lock className="w-4 h-4" />
                       </div>
                       <input
@@ -177,17 +179,17 @@ export default function RegisterPage() {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         placeholder="Min 6 characters"
-                        className="w-full pl-10 pr-3.5 py-2.5 bg-white text-xs sm:text-sm border border-slate-200/90 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all shadow-xs"
+                        className="w-full pl-9 pr-3.5 py-2 bg-white text-xs sm:text-sm text-[#111827] border border-[#D9DEDA] rounded-md focus:outline-none focus:ring-1 focus:ring-[#0F6B68] focus:border-[#0F6B68] transition-colors"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-[#101827] mb-1">
                       Confirm
                     </label>
                     <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
                         <Lock className="w-4 h-4" />
                       </div>
                       <input
@@ -196,7 +198,7 @@ export default function RegisterPage() {
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         placeholder="Repeat password"
-                        className="w-full pl-10 pr-3.5 py-2.5 bg-white text-xs sm:text-sm border border-slate-200/90 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all shadow-xs"
+                        className="w-full pl-9 pr-3.5 py-2 bg-white text-xs sm:text-sm text-[#111827] border border-[#D9DEDA] rounded-md focus:outline-none focus:ring-1 focus:ring-[#0F6B68] focus:border-[#0F6B68] transition-colors"
                       />
                     </div>
                   </div>
@@ -205,23 +207,23 @@ export default function RegisterPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-3 px-4 text-xs sm:text-sm font-bold rounded-xl text-white bg-brand-600 hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 shadow-sm transition-all disabled:opacity-50 flex items-center justify-center gap-2 mt-2"
+                  className="w-full py-2.5 px-4 text-xs sm:text-sm font-semibold rounded-md text-white bg-[#0F6B68] hover:bg-[#0B5754] focus:outline-none focus:ring-2 focus:ring-[#0F6B68]/30 transition-colors disabled:opacity-50 flex items-center justify-center gap-1.5 mt-2 shadow-xs"
                 >
                   {loading ? (
                     'Creating Account...'
                   ) : (
                     <>
                       <span>Complete Registration</span>
-                      <ArrowRight className="w-4 h-4" />
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </>
                   )}
                 </button>
               </form>
 
-              <div className="mt-6 pt-5 border-t border-slate-100 text-center">
+              <div className="mt-6 pt-4 border-t border-[#D9DEDA] text-center">
                 <p className="text-xs text-slate-500">
                   Already registered?{' '}
-                  <Link to="/login" className="font-bold text-brand-600 hover:text-brand-700 underline underline-offset-2">
+                  <Link to="/login" className="font-semibold text-[#0F6B68] hover:underline">
                     Sign in to account
                   </Link>
                 </p>
