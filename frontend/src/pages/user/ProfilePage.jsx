@@ -96,8 +96,8 @@ export default function ProfilePage() {
             <h2 className="text-lg font-bold text-slate-900">{user?.name}</h2>
             <p className="text-xs text-slate-500">{user?.email}</p>
             <div className="mt-1 flex items-center gap-2">
-              <span className="px-2 py-0.5 rounded text-[11px] font-semibold bg-slate-100 text-slate-700 capitalize">
-                Role: {user?.role}
+              <span className="px-2 py-0.5 rounded text-[11px] font-semibold bg-slate-100 text-slate-700">
+                Role: {user?.role === 'admin' ? 'Administrator' : 'Standard User'}
               </span>
               <span className="text-[11px] text-slate-400">
                 Joined: {formatDate(user?.created_at)}

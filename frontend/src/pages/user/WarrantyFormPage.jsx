@@ -182,7 +182,7 @@ export default function WarrantyFormPage() {
               required
               value={formData.provider}
               onChange={handleChange}
-              placeholder="e.g. AppleCare Protection, Dell SupportAssist, Best Buy Geek Squad"
+              placeholder="Warranty provider"
               className="w-full px-3 py-2 bg-white text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500/20"
             />
           </div>
@@ -243,7 +243,7 @@ export default function WarrantyFormPage() {
               rows="3"
               value={formData.coverage_details}
               onChange={handleChange}
-              placeholder="Hardware failure, accidental water damage, screen crack protection, 24/7 hotline..."
+              placeholder="Coverage terms and conditions"
               className="w-full px-3 py-2 bg-white text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500/20"
             />
           </div>

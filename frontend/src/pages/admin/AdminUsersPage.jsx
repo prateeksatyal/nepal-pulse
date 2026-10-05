@@ -40,11 +40,12 @@ export default function AdminUsersPage() {
 
   const handleRoleToggle = async (targetUser) => {
     const newRole = targetUser.role === 'admin' ? 'user' : 'admin';
+    const roleTitle = newRole === 'admin' ? 'Administrator' : 'Standard User';
     if (targetUser.id === currentAdmin.id && newRole === 'user') {
       alert('You cannot demote your own active administrator account.');
       return;
     }
-    if (!window.confirm(`Change role of ${targetUser.name} to "${newRole}"?`)) return;
+    if (!window.confirm(`Change role of ${targetUser.name} to "${roleTitle}"?`)) return;
 
     try {
       await axiosClient.put(`/admin/users/${targetUser.id}/role`, { role: newRole });
@@ -160,7 +161,7 @@ export default function AdminUsersPage() {
                           }`}
                         >
                           {isAdmin ? <Shield className="w-3 h-3" /> : <UserCheck className="w-3 h-3" />}
-                          <span className="capitalize">{u.role}</span>
+                          <span>{isAdmin ? 'Administrator' : 'Standard User'}</span>
                         </span>
                       </td>
 
@@ -179,9 +180,9 @@ export default function AdminUsersPage() {
                             onClick={() => handleRoleToggle(u)}
                             disabled={isCurrent}
                             className="px-2.5 py-1 text-xs font-semibold rounded-md border border-slate-200 text-slate-700 hover:bg-slate-50 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-                            title="Toggle role between user and admin"
+                            title="Toggle role between Standard User and Administrator"
                           >
-                            {isAdmin ? 'Demote to User' : 'Promote to Admin'}
+                            {isAdmin ? 'Make Standard User' : 'Make Administrator'}
                           </button>
                           <button
                             type="button"

@@ -629,7 +629,7 @@ export default function ProductDetailPage() {
                   onChange={(e) =>
                     setServiceForm((prev) => ({ ...prev, service_center: e.target.value }))
                   }
-                  placeholder="e.g. Official Apple Store, Local Electronics Hub"
+                  placeholder="Service center or technician"
                   className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500/20 text-sm"
                 />
               </div>
@@ -645,7 +645,7 @@ export default function ProductDetailPage() {
                   onChange={(e) =>
                     setServiceForm((prev) => ({ ...prev, description: e.target.value }))
                   }
-                  placeholder="Replaced charging port, cleaned cooling fan, diagnostic check..."
+                  placeholder="Describe service or repair work"
                   className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500/20 text-sm"
                 />
               </div>
@@ -677,7 +677,7 @@ export default function ProductDetailPage() {
                   onChange={(e) =>
                     setServiceForm((prev) => ({ ...prev, notes: e.target.value }))
                   }
-                  placeholder="Optional technician notes or warranty claim reference"
+                  placeholder="Additional notes or references"
                   className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500/20 text-sm"
                 />
               </div>

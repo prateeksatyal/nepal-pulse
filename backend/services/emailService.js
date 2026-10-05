@@ -22,7 +22,7 @@ async function getTransporter() {
       },
     });
   } else {
-    // For development, testing, and university grading: create a test Ethereal account
+    // For development, testing, and evaluation: create a test Ethereal account
     try {
       const testAccount = await nodemailer.createTestAccount();
       transporter = nodemailer.createTransport({
@@ -65,7 +65,7 @@ async function sendWarrantyReminder(recipientEmail, recipientName, details) {
   const htmlContent = `
     <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden;">
       <div style="background-color: #0284c7; color: white; padding: 20px; text-align: center;">
-        <h2 style="margin: 0; font-size: 22px;">Warranty Management System</h2>
+        <h2 style="margin: 0; font-size: 22px;">WarrantyFlow</h2>
         <p style="margin: 5px 0 0 0; opacity: 0.9;">Warranty Expiry Notice</p>
       </div>
       <div style="padding: 24px;">
@@ -92,7 +92,7 @@ async function sendWarrantyReminder(recipientEmail, recipientName, details) {
         </p>
       </div>
       <div style="background-color: #f1f5f9; padding: 12px 24px; font-size: 12px; color: #64748b; text-align: center;">
-        Warranty Management System &bull; 3rd Semester Web Development Project
+        WarrantyFlow &bull; Automated Warranty & Asset Notification System
       </div>
     </div>
   `;
@@ -100,12 +100,12 @@ async function sendWarrantyReminder(recipientEmail, recipientName, details) {
   const textContent = `Hello ${recipientName || 'User'},\n\n` +
     `Your warranty for ${productName} (Provider: ${provider}) is expiring on ${endDate} (${daysRemaining} days remaining).\n\n` +
     `View details here: ${productLink}\n\n` +
-    `Warranty Management System`;
+    `WarrantyFlow`;
 
   try {
     const activeTransporter = await getTransporter();
     const mailOptions = {
-      from: process.env.EMAIL_FROM || '"Warranty Management" <no-reply@warrantymanager.local>',
+      from: process.env.EMAIL_FROM || '"WarrantyFlow" <no-reply@warrantyflow.local>',
       to: recipientEmail,
       subject: subject,
       text: textContent,

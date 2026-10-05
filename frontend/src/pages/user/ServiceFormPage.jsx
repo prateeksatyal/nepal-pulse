@@ -205,7 +205,7 @@ export default function ServiceFormPage() {
               required
               value={formData.service_center}
               onChange={handleChange}
-              placeholder="e.g. Authorized Samsung Service Center, Geek Squad"
+              placeholder="Service center or technician"
               className="w-full px-3 py-2 bg-white text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500/20"
             />
           </div>
@@ -220,7 +220,7 @@ export default function ServiceFormPage() {
               required
               value={formData.description}
               onChange={handleChange}
-              placeholder="Replaced cracked screen, cleaned logic board, fan calibration, battery replacement..."
+              placeholder="Describe service work performed"
               className="w-full px-3 py-2 bg-white text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500/20"
             />
           </div>
@@ -234,7 +234,7 @@ export default function ServiceFormPage() {
               rows="2"
               value={formData.notes}
               onChange={handleChange}
-              placeholder="Technician recommendations, ticket ID, or post-repair warranty notes..."
+              placeholder="Additional notes or repair references"
               className="w-full px-3 py-2 bg-white text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500/20"
             />
           </div>

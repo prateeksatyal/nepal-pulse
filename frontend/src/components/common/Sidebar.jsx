@@ -107,14 +107,14 @@ export default function Sidebar({ isOpen, onClose, mode = 'user' }) {
             })}
           </div>
 
-          {/* Quick University Project Footer Note */}
+          {/* Application Status Note */}
           <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 mt-6">
             <div className="flex items-center gap-2 mb-1">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-xs font-semibold text-slate-700">Project Context</span>
+              <span className="w-2 h-2 rounded-full bg-emerald-500" />
+              <span className="text-xs font-semibold text-slate-700">WarrantyFlow</span>
             </div>
             <p className="text-[11px] text-slate-500 leading-relaxed">
-              3rd Semester Web Development project. 4 genuine CRUD areas, REST API, & automatic warranty tracking.
+              Asset tracking, warranty lifecycle, and service records.
             </p>
           </div>
         </div>

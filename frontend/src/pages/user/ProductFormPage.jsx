@@ -193,7 +193,7 @@ export default function ProductFormPage() {
                 required
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="e.g. MacBook Pro 16, Sony Bravia 55 OLED"
+                placeholder="Product name"
                 className="w-full px-3 py-2 bg-white text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500"
               />
             </div>
@@ -208,7 +208,7 @@ export default function ProductFormPage() {
                 required
                 value={formData.brand}
                 onChange={handleChange}
-                placeholder="e.g. Apple, Dell, Samsung, LG"
+                placeholder="Brand or manufacturer"
                 className="w-full px-3 py-2 bg-white text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500"
               />
             </div>
@@ -222,7 +222,7 @@ export default function ProductFormPage() {
                 name="model"
                 value={formData.model}
                 onChange={handleChange}
-                placeholder="e.g. A2485, SM-G998B"
+                placeholder="Model number"
                 className="w-full px-3 py-2 bg-white text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500"
               />
             </div>
@@ -236,7 +236,7 @@ export default function ProductFormPage() {
                 name="serial_number"
                 value={formData.serial_number}
                 onChange={handleChange}
-                placeholder="e.g. C02G80L7MD6R"
+                placeholder="Serial number"
                 className="w-full px-3 py-2 bg-white text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 font-mono"
               />
             </div>
@@ -308,7 +308,7 @@ export default function ProductFormPage() {
                 rows="3"
                 value={formData.notes}
                 onChange={handleChange}
-                placeholder="Any special warranty terms, configuration details, or store details..."
+                placeholder="Additional notes or specifications"
                 className="w-full px-3 py-2 bg-white text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500"
               />
             </div>
@@ -347,7 +347,7 @@ export default function ProductFormPage() {
                       required={includeWarranty}
                       value={warrantyData.provider}
                       onChange={handleWarrantyChange}
-                      placeholder="e.g. AppleCare+, Dell ProSupport"
+                      placeholder="Warranty provider"
                       className="w-full px-3 py-2 bg-white text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500/20"
                     />
                   </div>
@@ -405,7 +405,7 @@ export default function ProductFormPage() {
                       rows="2"
                       value={warrantyData.coverage_details}
                       onChange={handleWarrantyChange}
-                      placeholder="Covers accidental drops, battery replacements, onsite visits..."
+                      placeholder="Coverage terms and conditions"
                       className="w-full px-3 py-2 bg-white text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500/20"
                     />
                   </div>

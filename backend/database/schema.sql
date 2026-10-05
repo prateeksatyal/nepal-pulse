@@ -1,5 +1,4 @@
--- PostgreSQL Schema for Warranty Management System
--- College Requirement: 3rd Semester Web Development Project
+-- PostgreSQL Schema for WarrantyFlow Asset & Warranty Management System
 
 -- Users Table
 CREATE TABLE IF NOT EXISTS users (
