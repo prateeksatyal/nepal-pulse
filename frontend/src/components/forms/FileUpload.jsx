@@ -5,9 +5,9 @@ import { formatFileSize } from '../../utils/dateUtils';
 export default function FileUpload({
   onUpload,
   label = 'Upload Document',
-  helperText = 'Supported formats: PDF, JPG, JPEG, PNG (Max 5MB)',
+  helperText = 'Supported formats: PDF, JPG, JPEG, PNG (Max 10MB)',
   accept = '.pdf,.jpg,.jpeg,.png,image/png,image/jpeg,application/pdf',
-  maxSizeMB = 5,
+  maxSizeMB = 10,
   buttonLabel = 'Select File',
 }) {
   const [selectedFile, setSelectedFile] = useState(null);

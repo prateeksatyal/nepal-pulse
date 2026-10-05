@@ -468,7 +468,7 @@ export default function ProductDetailPage() {
               <FileUpload
                 onUpload={handleUploadReceipt}
                 label="Attach New Purchase Receipt"
-                helperText="Allowed: PDF, JPG, JPEG, PNG (Max 5MB)"
+                helperText="Allowed: PDF, JPG, JPEG, PNG (Max 10MB)"
                 buttonLabel="Select Receipt"
               />
             </div>
@@ -524,7 +524,7 @@ export default function ProductDetailPage() {
                 <FileUpload
                   onUpload={handleUploadWarrantyDoc}
                   label="Attach Warranty Document"
-                  helperText="Upload official warranty policy or warranty card (Max 5MB)"
+                  helperText="Upload official warranty policy or warranty card (Max 10MB)"
                   buttonLabel="Select Document"
                 />
               </div>
