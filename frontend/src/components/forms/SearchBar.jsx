@@ -5,7 +5,7 @@ export default function SearchBar({
   value = '',
   onChange,
   placeholder = 'Search by name, brand, model, or serial number...',
-  debounceMs = 350,
+  debounceMs = 300,
   className = '',
 }) {
   const [searchTerm, setSearchTerm] = useState(value);
@@ -33,7 +33,7 @@ export default function SearchBar({
 
   return (
     <div className={`relative w-full ${className}`}>
-      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+      <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
         <Search className="w-4 h-4" />
       </div>
       <input
@@ -41,7 +41,7 @@ export default function SearchBar({
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         placeholder={placeholder}
-        className="w-full pl-9 pr-9 py-2 bg-white text-sm text-slate-800 placeholder-slate-400 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all shadow-sm"
+        className="w-full pl-10 pr-9 py-2 bg-white text-xs sm:text-sm text-slate-800 placeholder-slate-400 border border-slate-200/90 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all shadow-xs"
       />
       {searchTerm && (
         <button

@@ -6,39 +6,35 @@ export default function StatusBadge({ status, daysRemaining, showDays = true, si
 
   let config = {
     label: 'No Warranty',
-    bg: 'bg-slate-100',
-    text: 'text-slate-700',
-    border: 'border-slate-200',
+    bg: 'bg-slate-100/90 text-slate-700 border-slate-200/90',
     dot: 'bg-slate-400',
     Icon: ShieldOff,
+    animateDot: false,
   };
 
   if (normStatus === 'active') {
     config = {
       label: 'Active',
-      bg: 'bg-emerald-50',
-      text: 'text-emerald-700',
-      border: 'border-emerald-200',
+      bg: 'bg-emerald-50 text-emerald-700 border-emerald-200/80',
       dot: 'bg-emerald-500',
       Icon: CheckCircle2,
+      animateDot: false,
     };
   } else if (normStatus === 'expiring soon') {
     config = {
       label: 'Expiring Soon',
-      bg: 'bg-amber-50',
-      text: 'text-amber-800',
-      border: 'border-amber-200',
+      bg: 'bg-amber-50 text-amber-800 border-amber-200/90',
       dot: 'bg-amber-500',
       Icon: Clock,
+      animateDot: true,
     };
   } else if (normStatus === 'expired') {
     config = {
       label: 'Expired',
-      bg: 'bg-rose-50',
-      text: 'text-rose-700',
-      border: 'border-rose-200',
+      bg: 'bg-rose-50 text-rose-700 border-rose-200/80',
       dot: 'bg-rose-500',
       Icon: AlertTriangle,
+      animateDot: false,
     };
   }
 
@@ -47,16 +43,21 @@ export default function StatusBadge({ status, daysRemaining, showDays = true, si
 
   return (
     <span
-      className={`inline-flex items-center gap-1.5 font-medium rounded-full border ${config.bg} ${config.text} ${config.border} ${
-        isSm ? 'px-2 py-0.5 text-xs' : 'px-2.5 py-1 text-xs'
+      className={`inline-flex items-center gap-1.5 font-semibold rounded-full border transition-all shadow-xs ${config.bg} ${
+        isSm ? 'px-2.5 py-0.5 text-[11px]' : 'px-3 py-1 text-xs'
       }`}
       title={daysRemaining !== undefined && daysRemaining !== null ? `${daysRemaining} days remaining` : config.label}
     >
-      <Icon className={isSm ? 'w-3 h-3' : 'w-3.5 h-3.5'} />
+      <span className="relative flex h-2 w-2">
+        {config.animateDot && (
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
+        )}
+        <span className={`relative inline-flex rounded-full h-2 w-2 ${config.dot}`} />
+      </span>
       <span>{config.label}</span>
       {showDays && daysRemaining !== undefined && daysRemaining !== null && (
-        <span className="opacity-75 font-normal">
-          ({daysRemaining >= 0 ? `${daysRemaining}d` : `${Math.abs(daysRemaining)}d ago`})
+        <span className="text-[11px] opacity-75 font-mono ml-0.5">
+          {daysRemaining >= 0 ? `${daysRemaining}d left` : `${Math.abs(daysRemaining)}d ago`}
         </span>
       )}
     </span>
