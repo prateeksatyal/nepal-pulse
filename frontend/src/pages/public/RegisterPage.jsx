@@ -48,12 +48,12 @@ export default function RegisterPage() {
 
   return (
     <div className="min-h-screen bg-[#F7F7F4] flex flex-col justify-center antialiased selection:bg-[#0F6B68] selection:text-white p-4 sm:p-6 lg:p-8">
-      <div className="w-full max-w-5xl mx-auto">
-        <div className="bg-white rounded-lg border border-[#D9DEDA] shadow-sm overflow-hidden grid grid-cols-1 lg:grid-cols-12 min-h-[600px]">
+      <div className="w-full max-w-5xl lg:max-w-6xl mx-auto">
+        <div className="bg-white rounded-lg border border-[#D9DEDA] shadow-sm overflow-hidden grid grid-cols-1 lg:grid-cols-12 min-h-[580px]">
           {/* Left Dark Panel: #101827 */}
-          <div className="lg:col-span-5 bg-[#101827] text-white p-8 sm:p-10 flex flex-col justify-between">
+          <div className="lg:col-span-5 bg-[#101827] text-white p-8 sm:p-10 lg:p-12 flex flex-col justify-between">
             <div>
-              <Link to="/" className="inline-flex items-center gap-2.5 mb-8">
+              <Link to="/" className="inline-flex items-center gap-2.5 mb-8 lg:mb-10">
                 <div className="w-8 h-8 rounded-md bg-[#0F6B68] text-white flex items-center justify-center font-bold">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
@@ -62,20 +62,20 @@ export default function RegisterPage() {
                     WarrantyFlow
                   </span>
                   <span className="text-[11px] font-medium text-slate-400">
-                    Warranty & Asset Suite
+                    Warranty Management
                   </span>
                 </div>
               </Link>
 
               <div className="space-y-3">
                 <span className="inline-block text-[11px] font-semibold uppercase tracking-wider text-[#0F6B68] bg-[#172235] px-2.5 py-0.5 rounded">
-                  Account Registration
+                  Create Account
                 </span>
                 <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug">
-                  Protect every purchase with structured oversight.
+                  Keep track of all your equipment warranties.
                 </h1>
                 <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
-                  Catalog equipment, store purchase receipts in private cloud storage, and configure automated expiry alerts.
+                  Catalog equipment, store purchase receipts, and set up automated expiration reminders.
                 </p>
               </div>
 
@@ -84,13 +84,13 @@ export default function RegisterPage() {
                   <span className="w-4 h-4 rounded bg-[#0F6B68]/30 text-[#0F6B68] flex items-center justify-center flex-shrink-0">
                     <Check className="w-3 h-3 stroke-[2.5]" />
                   </span>
-                  <span>Unlimited asset inventory cataloging</span>
+                  <span>Equipment and product inventory</span>
                 </div>
                 <div className="flex items-center gap-2.5">
                   <span className="w-4 h-4 rounded bg-[#0F6B68]/30 text-[#0F6B68] flex items-center justify-center flex-shrink-0">
                     <Check className="w-3 h-3 stroke-[2.5]" />
                   </span>
-                  <span>10MB purchase invoice & certificate uploads</span>
+                  <span>Purchase invoice and receipt storage</span>
                 </div>
                 <div className="flex items-center gap-2.5">
                   <span className="w-4 h-4 rounded bg-[#0F6B68]/30 text-[#0F6B68] flex items-center justify-center flex-shrink-0">
@@ -101,13 +101,14 @@ export default function RegisterPage() {
               </div>
             </div>
 
-            <div className="pt-6 mt-6 border-t border-[#172235] text-[11px] text-slate-500">
-              Bcrypt encryption & JWT session authentication.
+            <div className="pt-6 mt-6 border-t border-[#172235] text-[11px] text-slate-500 flex items-center justify-between">
+              <span>WarrantyFlow</span>
+              <span>Account Setup</span>
             </div>
           </div>
 
           {/* Right Form Panel: #FFFFFF */}
-          <div className="lg:col-span-7 p-8 sm:p-12 flex flex-col justify-center bg-white">
+          <div className="lg:col-span-7 p-8 sm:p-12 lg:p-14 flex flex-col justify-center bg-white">
             <div className="max-w-md w-full mx-auto">
               <div className="mb-6">
                 <h2 className="text-2xl font-bold text-[#101827] tracking-tight">

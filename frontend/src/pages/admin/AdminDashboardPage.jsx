@@ -137,14 +137,14 @@ export default function AdminDashboardPage() {
           <div className="flex items-center gap-2">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[11px] font-semibold bg-[#F1F3F1] text-[#0F6B68] border border-[#D9DEDA]">
               <Lock className="w-3.5 h-3.5 text-[#0F6B68]" />
-              Administrative Root
+              Administration
             </span>
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-[#101827] tracking-tight mt-1.5">
-            System Administration Console
+            Admin Dashboard
           </h1>
           <p className="text-xs sm:text-sm text-[#4B5563] mt-1 max-w-3xl">
-            System-wide operational metrics, user accounts, category taxonomies, and multi-tenant audit logs.
+            Overview of system metrics, registered users, categories, and warranty coverage.
           </p>
         </div>
 
@@ -174,7 +174,7 @@ export default function AdminDashboardPage() {
             <span className="text-[11px] font-bold uppercase tracking-wider text-[#6B7280] block">Database</span>
             <div className="flex items-center gap-1.5 text-xs font-semibold text-[#101827]">
               <span className="w-2 h-2 rounded-full bg-[#15803D]" />
-              <span>PostgreSQL Engine Ready</span>
+              <span>Connected &amp; Healthy</span>
             </div>
           </div>
         </div>
@@ -187,7 +187,7 @@ export default function AdminDashboardPage() {
             <span className="text-[11px] font-bold uppercase tracking-wider text-[#6B7280] block">Object Storage</span>
             <div className="flex items-center gap-1.5 text-xs font-semibold text-[#101827]">
               <span className="w-2 h-2 rounded-full bg-[#15803D]" />
-              <span>Supabase Storage Vault (Private)</span>
+              <span>Active &amp; Secure</span>
             </div>
           </div>
         </div>
@@ -197,10 +197,10 @@ export default function AdminDashboardPage() {
             <CheckCircle2 className="w-4 h-4" />
           </div>
           <div>
-            <span className="text-[11px] font-bold uppercase tracking-wider text-[#6B7280] block">RBAC Security</span>
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#6B7280] block">Access Control</span>
             <div className="flex items-center gap-1.5 text-xs font-semibold text-[#101827]">
               <span className="w-2 h-2 rounded-full bg-[#15803D]" />
-              <span>Role-Based Access Enforcement</span>
+              <span>Administrator Verified</span>
             </div>
           </div>
         </div>
@@ -245,7 +245,7 @@ export default function AdminDashboardPage() {
               <Tags className="w-4 h-4 text-[#0F6B68]" />
               <div>
                 <h3 className="text-sm font-bold text-[#101827]">Product Distribution by Category</h3>
-                <p className="text-xs text-[#6B7280]">Inventory share across defined classifications</p>
+                <p className="text-xs text-[#6B7280]">Products organized by category</p>
               </div>
             </div>
             <Link
@@ -308,7 +308,7 @@ export default function AdminDashboardPage() {
         <div className="lg:col-span-5 space-y-4">
           <div className="bg-white rounded-lg border border-[#D9DEDA] p-6 space-y-4">
             <h3 className="text-sm font-bold text-[#101827] pb-2 border-b border-[#D9DEDA]">
-              Administrative Control Centers
+              Administration Shortcuts
             </h3>
 
             <div className="space-y-2.5">
@@ -321,8 +321,8 @@ export default function AdminDashboardPage() {
                     <Users className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-[#101827] group-hover:text-[#0F6B68]">User RBAC Management</h4>
-                    <p className="text-[11px] text-[#6B7280]">Promote administrators, manage credentials</p>
+                    <h4 className="text-xs font-bold text-[#101827] group-hover:text-[#0F6B68]">User Accounts</h4>
+                    <p className="text-[11px] text-[#6B7280]">Manage user roles and account permissions</p>
                   </div>
                 </div>
                 <ArrowRight className="w-4 h-4 text-[#6B7280] group-hover:text-[#0F6B68] group-hover:translate-x-0.5 transition-transform" />
@@ -337,8 +337,8 @@ export default function AdminDashboardPage() {
                     <Tags className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-[#101827] group-hover:text-[#0F6B68]">Category Taxonomy</h4>
-                    <p className="text-[11px] text-[#6B7280]">Add, edit, or clean product classifications</p>
+                    <h4 className="text-xs font-bold text-[#101827] group-hover:text-[#0F6B68]">Categories</h4>
+                    <p className="text-[11px] text-[#6B7280]">Add, edit, and organize product categories</p>
                   </div>
                 </div>
                 <ArrowRight className="w-4 h-4 text-[#6B7280] group-hover:text-[#0F6B68] group-hover:translate-x-0.5 transition-transform" />
@@ -353,8 +353,8 @@ export default function AdminDashboardPage() {
                     <Package className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-[#101827] group-hover:text-[#0F6B68]">System Product Directory</h4>
-                    <p className="text-[11px] text-[#6B7280]">Audit registered hardware across all accounts</p>
+                    <h4 className="text-xs font-bold text-[#101827] group-hover:text-[#0F6B68]">Products Directory</h4>
+                    <p className="text-[11px] text-[#6B7280]">View products across all user accounts</p>
                   </div>
                 </div>
                 <ArrowRight className="w-4 h-4 text-[#6B7280] group-hover:text-[#0F6B68] group-hover:translate-x-0.5 transition-transform" />
@@ -369,8 +369,8 @@ export default function AdminDashboardPage() {
                     <Shield className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-[#101827] group-hover:text-[#0F6B68]">Warranties & Alerts</h4>
-                    <p className="text-[11px] text-[#6B7280]">Trigger expiry notifications and audit terms</p>
+                    <h4 className="text-xs font-bold text-[#101827] group-hover:text-[#0F6B68]">Warranties</h4>
+                    <p className="text-[11px] text-[#6B7280]">View warranties and monitor expiration status</p>
                   </div>
                 </div>
                 <ArrowRight className="w-4 h-4 text-[#6B7280] group-hover:text-[#0F6B68] group-hover:translate-x-0.5 transition-transform" />
@@ -385,8 +385,8 @@ export default function AdminDashboardPage() {
                     <Wrench className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-[#101827] group-hover:text-[#0F6B68]">Service Logs & Costs</h4>
-                    <p className="text-[11px] text-[#6B7280]">Review technician entries and repair history</p>
+                    <h4 className="text-xs font-bold text-[#101827] group-hover:text-[#0F6B68]">Service Records</h4>
+                    <p className="text-[11px] text-[#6B7280]">Review logged repairs and maintenance history</p>
                   </div>
                 </div>
                 <ArrowRight className="w-4 h-4 text-[#6B7280] group-hover:text-[#0F6B68] group-hover:translate-x-0.5 transition-transform" />

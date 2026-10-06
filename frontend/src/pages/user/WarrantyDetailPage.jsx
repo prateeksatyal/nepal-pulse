@@ -152,7 +152,7 @@ export default function WarrantyDetailPage() {
             className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-[#F1F3F1] hover:bg-[#D9DEDA] text-[#101827] text-xs font-semibold rounded-md border border-[#D9DEDA] transition-colors disabled:opacity-50"
           >
             <Mail className="w-3.5 h-3.5 text-[#0F6B68]" />
-            <span>{sendingReminder ? 'Sending...' : 'Send Expiry Notice'}</span>
+            <span>{sendingReminder ? 'Sending...' : 'Send Reminder'}</span>
           </button>
           <Link
             to={`/warranties/${id}/edit`}
@@ -257,10 +257,10 @@ export default function WarrantyDetailPage() {
             {/* Coverage Scope */}
             <div>
               <h3 className="text-xs font-bold uppercase tracking-wider text-[#6B7280] mb-2">
-                Coverage Scope & Policy Terms
+                Coverage Details
               </h3>
               <div className="p-4 bg-[#F1F3F1] rounded-md border border-[#D9DEDA] text-xs text-[#111827] leading-relaxed font-normal">
-                {warranty.coverage_details || 'Standard manufacturer terms apply. No additional coverage stipulations recorded.'}
+                {warranty.coverage_details || 'Standard manufacturer terms apply. No additional coverage details recorded.'}
               </div>
             </div>
           </div>
@@ -276,7 +276,7 @@ export default function WarrantyDetailPage() {
               </div>
               <div>
                 <h3 className="text-[11px] font-bold uppercase tracking-wider text-[#6B7280]">
-                  Linked Hardware Asset
+                  Linked Product
                 </h3>
                 <Link
                   to={`/products/${warranty.product_id}`}

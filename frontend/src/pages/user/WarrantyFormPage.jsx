@@ -130,10 +130,10 @@ export default function WarrantyFormPage() {
           <span>Back to {isEditMode ? 'Warranty Details' : 'Warranties'}</span>
         </Link>
         <h1 className="text-xl sm:text-2xl font-bold text-[#101827] tracking-tight">
-          {isEditMode ? 'Edit Warranty Policy' : 'Register New Warranty Policy'}
+          {isEditMode ? 'Edit Warranty' : 'Add Warranty'}
         </h1>
         <p className="text-xs text-[#6B7280] mt-0.5">
-          Specify coverage terms, provider agreement, and validity term dates.
+          Add warranty provider details, validity period, and coverage terms.
         </p>
       </div>
 

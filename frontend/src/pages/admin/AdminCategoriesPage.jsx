@@ -133,14 +133,14 @@ export default function AdminCategoriesPage() {
           <div className="flex items-center gap-2">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[11px] font-semibold bg-[#F1F3F1] text-[#0F6B68] border border-[#D9DEDA]">
               <Tags className="w-3.5 h-3.5 text-[#0F6B68]" />
-              Taxonomy & Classification
+              Categories
             </span>
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-[#101827] tracking-tight mt-1.5">
             Category Management
           </h1>
           <p className="text-xs sm:text-sm text-[#4B5563] mt-1 max-w-3xl">
-            Create, refine, and maintain system asset categories used to group hardware, appliances, and electronics.
+            Manage product categories used to organize equipment and hardware.
           </p>
         </div>
 
@@ -183,7 +183,7 @@ export default function AdminCategoriesPage() {
           </div>
           <div className="mt-2.5 flex items-baseline justify-between">
             <span className="text-xl font-bold text-[#101827]">{categories.length}</span>
-            <span className="text-[11px] font-medium text-[#6B7280]">Classifications</span>
+            <span className="text-[11px] font-medium text-[#6B7280]">Active Categories</span>
           </div>
         </div>
 
@@ -198,7 +198,7 @@ export default function AdminCategoriesPage() {
           </div>
           <div className="mt-2.5 flex items-baseline justify-between">
             <span className="text-xl font-bold text-[#101827]">{totalAssignedProducts}</span>
-            <span className="text-[11px] font-medium text-[#6B7280]">Assets Tagged</span>
+            <span className="text-[11px] font-medium text-[#6B7280]">Total Products</span>
           </div>
         </div>
 
@@ -241,13 +241,14 @@ export default function AdminCategoriesPage() {
         />
       ) : (
         <div className="bg-white rounded-lg border border-[#D9DEDA] overflow-hidden">
-          <div className="overflow-x-auto">
+          {/* Desktop Table View */}
+          <div className="hidden md:block overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
                 <tr className="bg-[#F1F3F1] border-b border-[#D9DEDA] text-[11px] font-semibold text-[#4B5563] uppercase tracking-wider">
                   <th className="py-3 px-4">Category Name</th>
                   <th className="py-3 px-4">Description</th>
-                  <th className="py-3 px-4 text-center">Associated Products</th>
+                  <th className="py-3 px-4 text-center">Products</th>
                   <th className="py-3 px-4 text-right">Actions</th>
                 </tr>
               </thead>
@@ -301,6 +302,51 @@ export default function AdminCategoriesPage() {
                 })}
               </tbody>
             </table>
+          </div>
+
+          {/* Mobile Stacked Card View */}
+          <div className="block md:hidden divide-y divide-[#D9DEDA]">
+            {categories.map((cat) => {
+              const count = parseInt(cat.product_count, 10) || 0;
+              return (
+                <div key={cat.id} className="p-4 space-y-2.5">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-8 h-8 rounded-md bg-[#F1F3F1] text-[#0F6B68] border border-[#D9DEDA] flex items-center justify-center font-bold text-xs flex-shrink-0">
+                        <Tags className="w-3.5 h-3.5" />
+                      </div>
+                      <span className="font-semibold text-sm text-[#101827]">{cat.name}</span>
+                    </div>
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-[#F1F3F1] text-[#101827] border border-[#D9DEDA] flex-shrink-0">
+                      <Package className="w-3 h-3 text-[#6B7280]" />
+                      <span>{count}</span>
+                    </span>
+                  </div>
+
+                  <p className="text-xs text-[#4B5563]">
+                    {cat.description || <span className="italic text-[#6B7280]">No description provided</span>}
+                  </p>
+
+                  <div className="flex items-center justify-end gap-1.5 pt-2 border-t border-[#F1F3F1]">
+                    <button
+                      type="button"
+                      onClick={() => openEditModal(cat)}
+                      className="px-2.5 py-1 text-xs font-medium text-[#4B5563] hover:text-[#0F6B68] bg-[#F1F3F1] hover:bg-[#D9DEDA] rounded-md transition-colors"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleDeleteClick(cat)}
+                      className="p-1 text-[#6B7280] hover:text-rose-600 hover:bg-rose-50 rounded-md transition-colors"
+                      title="Delete Category"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       )}

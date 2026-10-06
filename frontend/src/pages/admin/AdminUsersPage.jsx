@@ -117,14 +117,14 @@ export default function AdminUsersPage() {
           <div className="flex items-center gap-2">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[11px] font-semibold bg-[#F1F3F1] text-[#0F6B68] border border-[#D9DEDA]">
               <Users className="w-3.5 h-3.5 text-[#0F6B68]" />
-              Role-Based Access Control
+              Users
             </span>
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-[#101827] tracking-tight mt-1.5">
-            User Account Management
+            User Management
           </h1>
           <p className="text-xs sm:text-sm text-[#4B5563] mt-1 max-w-3xl">
-            Audit registered identities, promote or demote administrator privileges, and oversee multi-user asset holdings.
+            View registered users, assign administrator privileges, and manage accounts.
           </p>
         </div>
       </div>
@@ -242,14 +242,15 @@ export default function AdminUsersPage() {
         />
       ) : (
         <div className="bg-white rounded-lg border border-[#D9DEDA] overflow-hidden">
-          <div className="overflow-x-auto">
+          {/* Desktop Table View */}
+          <div className="hidden md:block overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
                 <tr className="bg-[#F1F3F1] border-b border-[#D9DEDA] text-[11px] font-semibold text-[#4B5563] uppercase tracking-wider">
-                  <th className="py-3 px-4">User Identity</th>
-                  <th className="py-3 px-4">Authorization Role</th>
-                  <th className="py-3 px-4 text-center">Owned Assets</th>
-                  <th className="py-3 px-4">Registration Date</th>
+                  <th className="py-3 px-4">User</th>
+                  <th className="py-3 px-4">Role</th>
+                  <th className="py-3 px-4 text-center">Products</th>
+                  <th className="py-3 px-4">Joined Date</th>
                   <th className="py-3 px-4 text-right">Actions</th>
                 </tr>
               </thead>
@@ -341,6 +342,86 @@ export default function AdminUsersPage() {
                 })}
               </tbody>
             </table>
+          </div>
+
+          {/* Mobile Stacked Card View */}
+          <div className="block md:hidden divide-y divide-[#D9DEDA]">
+            {filteredUsers.map((u) => {
+              const isCurrent = u.id === currentAdmin.id;
+              const isAdmin = u.role === 'admin';
+
+              return (
+                <div key={u.id} className="p-4 space-y-3">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-center gap-2.5">
+                      <div className={`w-9 h-9 rounded-md flex items-center justify-center font-bold text-xs flex-shrink-0 border border-[#D9DEDA] ${
+                        isAdmin
+                          ? 'bg-[#EAF6EC] text-[#15803D]'
+                          : 'bg-[#F1F3F1] text-[#111827]'
+                      }`}>
+                        {u.name.charAt(0).toUpperCase()}
+                      </div>
+                      <div>
+                        <div className="font-semibold text-sm text-[#101827] flex items-center gap-1.5">
+                          <span>{u.name}</span>
+                          {isCurrent && (
+                            <span className="text-[10px] bg-[#F1F3F1] text-[#0F6B68] border border-[#D9DEDA] px-1.5 py-0.2 rounded font-semibold">
+                              You
+                            </span>
+                          )}
+                        </div>
+                        <span className="text-xs text-[#6B7280]">{u.email}</span>
+                      </div>
+                    </div>
+                    <span
+                      className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-medium border flex-shrink-0 ${
+                        isAdmin
+                          ? 'bg-[#EAF6EC] text-[#15803D] border-[#15803D]/20'
+                          : 'bg-[#F1F3F1] text-[#4B5563] border-[#D9DEDA]'
+                      }`}
+                    >
+                      {isAdmin ? <Shield className="w-3 h-3" /> : <UserCheck className="w-3 h-3" />}
+                      <span>{isAdmin ? 'Admin' : 'User'}</span>
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2 text-xs pt-1 border-t border-[#F1F3F1]">
+                    <div>
+                      <span className="text-[11px] text-[#6B7280] block">Products Owned</span>
+                      <span className="font-semibold text-[#111827]">{u.product_count || 0}</span>
+                    </div>
+                    <div>
+                      <span className="text-[11px] text-[#6B7280] block">Joined</span>
+                      <span className="font-medium text-[#4B5563]">{formatDate(u.created_at)}</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-end gap-2 pt-2 border-t border-[#F1F3F1]">
+                    <button
+                      type="button"
+                      onClick={() => handleRoleToggle(u)}
+                      disabled={isCurrent}
+                      className={`px-3 py-1.5 text-xs font-medium rounded-md border transition-colors ${
+                        isAdmin
+                          ? 'border-[#D9DEDA] text-[#4B5563] bg-white hover:bg-[#F1F3F1]'
+                          : 'border-[#D9DEDA] text-[#0F6B68] bg-[#F1F3F1] hover:bg-[#D9DEDA]'
+                      } disabled:opacity-40 disabled:cursor-not-allowed`}
+                    >
+                      {isAdmin ? 'Demote to User' : 'Promote to Admin'}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleDeleteClick(u)}
+                      disabled={isCurrent}
+                      className="p-1.5 text-[#6B7280] hover:text-rose-600 hover:bg-rose-50 rounded-md disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                      title="Delete User"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       )}

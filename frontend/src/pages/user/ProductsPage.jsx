@@ -120,7 +120,7 @@ export default function ProductsPage() {
             </span>
           </div>
           <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-            Equipment directory with brand identifiers, purchase dates, warranty status, and attached documents.
+            View and manage registered equipment, purchase dates, and warranty status.
           </p>
         </div>
 
@@ -218,7 +218,7 @@ export default function ProductsPage() {
 
           <div>
             <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-1">
-              Sort Sequence
+              Sort By
             </label>
             <select
               value={`${sortBy}-${order}`}
@@ -263,9 +263,10 @@ export default function ProductsPage() {
           }
         />
       ) : viewMode === 'table' ? (
-        /* High-Density Data Table View */
+        /* Data Table View (Desktop table + Mobile cards) */
         <div className="bg-white rounded-lg border border-[#D9DEDA] overflow-hidden">
-          <div className="overflow-x-auto">
+          {/* Desktop Table View */}
+          <div className="hidden md:block overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
                 <tr className="bg-[#F1F3F1] border-b border-[#D9DEDA] text-[11px] font-bold text-slate-600 uppercase tracking-wider">
@@ -370,6 +371,59 @@ export default function ProductsPage() {
                 ))}
               </tbody>
             </table>
+          </div>
+
+          {/* Mobile Stacked Record View */}
+          <div className="block md:hidden divide-y divide-[#D9DEDA]">
+            {products.map((p) => (
+              <div key={p.id} className="p-4 space-y-2.5 hover:bg-[#F8FAF9] transition-colors">
+                <div className="flex items-start justify-between gap-2">
+                  <div className="min-w-0 flex-1">
+                    <Link
+                      to={`/products/${p.id}`}
+                      className="font-bold text-sm text-[#101827] hover:text-[#0F6B68] truncate block"
+                    >
+                      {p.name}
+                    </Link>
+                    <p className="text-xs text-slate-500 mt-0.5">
+                      {p.brand} {p.category_name ? `· ${p.category_name}` : ''}
+                    </p>
+                  </div>
+                  <StatusBadge status={p.warranty_status} daysRemaining={p.days_remaining} size="sm" />
+                </div>
+
+                <div className="flex items-center justify-between text-xs text-slate-600 pt-1">
+                  <span>
+                    {formatDate(p.purchase_date)}
+                    {p.purchase_price > 0 ? ` · ${formatCurrency(p.purchase_price)}` : ''}
+                  </span>
+                  <div className="flex items-center gap-2">
+                    <Link
+                      to={`/products/${p.id}`}
+                      className="p-1 text-slate-600 hover:text-[#0F6B68]"
+                      title="View"
+                    >
+                      <Eye className="w-4 h-4" />
+                    </Link>
+                    <Link
+                      to={`/products/${p.id}/edit`}
+                      className="p-1 text-slate-600 hover:text-[#101827]"
+                      title="Edit"
+                    >
+                      <Edit2 className="w-4 h-4" />
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={() => handleDeleteClick(p)}
+                      className="p-1 text-slate-400 hover:text-[#B42318]"
+                      title="Delete"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
 
           <Pagination

@@ -87,10 +87,10 @@ export default function ProfilePage() {
             </span>
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-[#101827] tracking-tight mt-1.5">
-            Personal Profile & Credentials
+            Account Profile
           </h1>
           <p className="text-xs sm:text-sm text-[#4B5563] mt-1 max-w-3xl">
-            Manage your personal profile details, account permissions, and security authentication credentials.
+            Manage your personal profile details and password.
           </p>
         </div>
       </div>
@@ -147,33 +147,33 @@ export default function ProfilePage() {
           <div className="bg-white rounded-lg border border-[#D9DEDA] p-5 space-y-3">
             <h3 className="text-xs font-bold uppercase tracking-wider text-[#6B7280] pb-2 border-b border-[#D9DEDA] flex items-center gap-1.5">
               <ShieldCheck className="w-4 h-4 text-[#0F6B68]" />
-              Account Security Status
+              Account Status
             </h3>
 
             <div className="space-y-2.5 text-xs">
               <div className="flex items-center justify-between py-1">
-                <span className="text-[#4B5563]">JWT Authentication</span>
+                <span className="text-[#4B5563]">Authentication</span>
                 <span className="inline-flex items-center gap-1 text-[#15803D] font-semibold bg-[#EAF6EC] px-2 py-0.5 rounded border border-[#15803D]/20">
                   <Check className="w-3 h-3" /> Active
                 </span>
               </div>
 
               <div className="flex items-center justify-between py-1">
-                <span className="text-[#4B5563]">Cloud Storage Access</span>
+                <span className="text-[#4B5563]">Storage Vault</span>
                 <span className="inline-flex items-center gap-1 text-[#15803D] font-semibold bg-[#EAF6EC] px-2 py-0.5 rounded border border-[#15803D]/20">
-                  <Check className="w-3 h-3" /> Authorized
+                  <Check className="w-3 h-3" /> Connected
                 </span>
               </div>
 
               <div className="flex items-center justify-between py-1">
-                <span className="text-[#4B5563]">Email Expiry Reminders</span>
+                <span className="text-[#4B5563]">Expiry Notifications</span>
                 <span className="inline-flex items-center gap-1 text-[#15803D] font-semibold bg-[#EAF6EC] px-2 py-0.5 rounded border border-[#15803D]/20">
                   <Check className="w-3 h-3" /> Enabled
                 </span>
               </div>
 
               <div className="flex items-center justify-between py-1">
-                <span className="text-[#4B5563]">Role Clearance</span>
+                <span className="text-[#4B5563]">Account Role</span>
                 <span className="font-semibold text-[#101827]">
                   {isAdmin ? 'System Administrator' : 'Standard User'}
                 </span>

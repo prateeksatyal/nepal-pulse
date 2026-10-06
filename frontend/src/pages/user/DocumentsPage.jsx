@@ -100,14 +100,14 @@ export default function DocumentsPage() {
           <div className="flex items-center gap-2">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[11px] font-semibold bg-[#F1F3F1] text-[#0F6B68] border border-[#D9DEDA]">
               <FileCheck className="w-3.5 h-3.5 text-[#0F6B68]" />
-              Secure Document Vault
+              Documents
             </span>
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-[#101827] tracking-tight mt-1.5">
             Documents & Receipts
           </h1>
           <p className="text-xs sm:text-sm text-[#4B5563] mt-1 max-w-3xl">
-            Centralized private cloud storage for all purchase invoices, proof-of-purchase receipts, and warranty registration cards.
+            Manage your invoices, receipts, and warranty documents in one place.
           </p>
         </div>
 

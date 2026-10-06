@@ -128,11 +128,11 @@ export default function LandingPage() {
           <div className="lg:col-span-6 space-y-6">
             <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#F1F3F1] border border-[#D9DEDA] text-slate-700 text-xs font-medium">
               <span className="w-1.5 h-1.5 rounded-full bg-[#0F6B68]" />
-              <span>Asset & Warranty Lifecycle Platform</span>
+              <span>Warranty & Asset Management</span>
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#101827] tracking-tight leading-[1.15]">
-              Hardware warranty and maintenance management for serious operations.
+              Manage your products, warranties and repair records in one place.
             </h1>
 
             <p className="text-base text-slate-600 leading-relaxed font-normal">
@@ -157,16 +157,16 @@ export default function LandingPage() {
 
             <div className="pt-4 border-t border-[#D9DEDA] grid grid-cols-3 gap-4 text-xs">
               <div>
-                <p className="font-bold text-[#101827]">PostgreSQL</p>
-                <p className="text-slate-500 text-[11px]">Relational schema</p>
+                <p className="font-bold text-[#101827]">Warranty Tracking</p>
+                <p className="text-slate-500 text-[11px]">Active countdowns</p>
               </div>
               <div>
-                <p className="font-bold text-[#101827]">Supabase Storage</p>
-                <p className="text-slate-500 text-[11px]">Private file vault</p>
+                <p className="font-bold text-[#101827]">Document Vault</p>
+                <p className="text-slate-500 text-[11px]">Receipts & cards</p>
               </div>
               <div>
-                <p className="font-bold text-[#101827]">Automated Alerts</p>
-                <p className="text-slate-500 text-[11px]">Email reminders</p>
+                <p className="font-bold text-[#101827]">Expiration Alerts</p>
+                <p className="text-slate-500 text-[11px]">Advance reminders</p>
               </div>
             </div>
           </div>
@@ -274,10 +274,10 @@ export default function LandingPage() {
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-10">
             <h2 className="text-2xl font-bold text-[#101827] tracking-tight">
-              Functional capabilities designed for complete hardware oversight
+              Everything you need to manage product warranties
             </h2>
             <p className="mt-2 text-sm text-slate-600">
-              WarrantyFlow connects assets, documents, warranties, and repairs without superfluous decoration.
+              Track equipment, coverage periods, repair history, and invoices in one structured system.
             </p>
           </div>
 
@@ -305,7 +305,7 @@ export default function LandingPage() {
       <section className="py-14 sm:py-18 px-4 sm:px-6 lg:px-8 max-w-[1600px] mx-auto w-full">
         <div className="max-w-2xl mb-10">
           <h2 className="text-2xl font-bold text-[#101827] tracking-tight">
-            How WarrantyFlow operates
+            How WarrantyFlow works
           </h2>
           <p className="mt-2 text-sm text-slate-600">
             A three-step lifecycle model from initial purchase to retirement.
@@ -361,7 +361,7 @@ export default function LandingPage() {
             <Link to="/login" className="hover:text-[#101827] transition-colors">Sign In</Link>
             <Link to="/register" className="hover:text-[#101827] transition-colors">Register</Link>
             <span>&bull;</span>
-            <span>PostgreSQL &bull; Supabase Storage</span>
+            <span>Warranty Management Platform</span>
           </div>
         </div>
       </footer>

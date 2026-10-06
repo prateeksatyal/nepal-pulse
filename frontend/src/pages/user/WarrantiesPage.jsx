@@ -108,7 +108,7 @@ export default function WarrantiesPage() {
             </span>
           </div>
           <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-            Coverage terms, status calculations, and email notification management.
+            Track active, expiring, and expired coverage across all products.
           </p>
         </div>
 
@@ -175,7 +175,8 @@ export default function WarrantiesPage() {
         />
       ) : (
         <div className="bg-white rounded-lg border border-[#D9DEDA] overflow-hidden">
-          <div className="overflow-x-auto">
+          {/* Desktop Table View */}
+          <div className="hidden md:block overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
                 <tr className="bg-[#F1F3F1] border-b border-[#D9DEDA] text-[11px] font-bold text-slate-600 uppercase tracking-wider">
@@ -276,6 +277,47 @@ export default function WarrantiesPage() {
                 ))}
               </tbody>
             </table>
+          </div>
+
+          {/* Mobile Stacked Record View */}
+          <div className="block md:hidden divide-y divide-[#D9DEDA]">
+            {warranties.map((w) => (
+              <div key={w.id} className="p-4 space-y-2.5 hover:bg-[#F8FAF9] transition-colors">
+                <div className="flex items-start justify-between gap-2">
+                  <div className="min-w-0 flex-1">
+                    <Link
+                      to={`/products/${w.product_id}`}
+                      className="font-bold text-sm text-[#101827] hover:text-[#0F6B68] truncate block"
+                    >
+                      {w.product_name}
+                    </Link>
+                    <p className="text-xs text-slate-500 mt-0.5">
+                      {w.provider} · {w.warranty_type}
+                    </p>
+                  </div>
+                  <StatusBadge status={w.status} daysRemaining={w.days_remaining} size="sm" />
+                </div>
+
+                <div className="flex items-center justify-between text-xs text-slate-600 pt-1">
+                  <span>Valid until: <strong className="text-[#111827]">{formatDate(w.end_date)}</strong></span>
+                  <div className="flex items-center gap-2">
+                    <Link to={`/warranties/${w.id}`} className="p-1 text-slate-600 hover:text-[#0F6B68]">
+                      <Eye className="w-4 h-4" />
+                    </Link>
+                    <Link to={`/warranties/${w.id}/edit`} className="p-1 text-slate-600 hover:text-[#101827]">
+                      <Edit2 className="w-4 h-4" />
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={() => handleDeleteClick(w)}
+                      className="p-1 text-slate-400 hover:text-[#B42318]"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
 
           <Pagination

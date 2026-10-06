@@ -43,12 +43,12 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen bg-[#F7F7F4] flex flex-col justify-center antialiased selection:bg-[#0F6B68] selection:text-white p-4 sm:p-6 lg:p-8">
-      <div className="w-full max-w-5xl mx-auto">
-        <div className="bg-white rounded-lg border border-[#D9DEDA] shadow-sm overflow-hidden grid grid-cols-1 lg:grid-cols-12 min-h-[580px]">
+      <div className="w-full max-w-5xl lg:max-w-6xl mx-auto">
+        <div className="bg-white rounded-lg border border-[#D9DEDA] shadow-sm overflow-hidden grid grid-cols-1 lg:grid-cols-12 min-h-[560px]">
           {/* Left Dark Panel: #101827 */}
-          <div className="lg:col-span-5 bg-[#101827] text-white p-8 sm:p-10 flex flex-col justify-between">
+          <div className="lg:col-span-5 bg-[#101827] text-white p-8 sm:p-10 lg:p-12 flex flex-col justify-between">
             <div>
-              <Link to="/" className="inline-flex items-center gap-2.5 mb-10">
+              <Link to="/" className="inline-flex items-center gap-2.5 mb-8 lg:mb-10">
                 <div className="w-8 h-8 rounded-md bg-[#0F6B68] text-white flex items-center justify-center font-bold">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
@@ -57,20 +57,20 @@ export default function LoginPage() {
                     WarrantyFlow
                   </span>
                   <span className="text-[11px] font-medium text-slate-400">
-                    Warranty & Asset Suite
+                    Warranty Management
                   </span>
                 </div>
               </Link>
 
               <div className="space-y-3">
                 <span className="inline-block text-[11px] font-semibold uppercase tracking-wider text-[#0F6B68] bg-[#172235] px-2.5 py-0.5 rounded">
-                  Secure Workspace Access
+                  Sign In
                 </span>
                 <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug">
-                  Manage hardware warranties with absolute certainty.
+                  Manage your products, warranties and repair records in one place.
                 </h1>
                 <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
-                  Real-time timeline calculations, private document storage, and maintenance logs in a single system.
+                  Track coverage timelines, store purchase invoices, and log maintenance history.
                 </p>
               </div>
 
@@ -80,38 +80,38 @@ export default function LoginPage() {
                   <span className="w-4 h-4 rounded bg-[#0F6B68]/30 text-[#0F6B68] flex items-center justify-center flex-shrink-0">
                     <Check className="w-3 h-3 stroke-[2.5]" />
                   </span>
-                  <span>Automated 30-day expiration notifications</span>
+                  <span>30-day expiration notifications</span>
                 </div>
                 <div className="flex items-center gap-2.5">
                   <span className="w-4 h-4 rounded bg-[#0F6B68]/30 text-[#0F6B68] flex items-center justify-center flex-shrink-0">
                     <Check className="w-3 h-3 stroke-[2.5]" />
                   </span>
-                  <span>Private encrypted object storage for invoices</span>
+                  <span>Purchase invoice and receipt storage</span>
                 </div>
                 <div className="flex items-center gap-2.5">
                   <span className="w-4 h-4 rounded bg-[#0F6B68]/30 text-[#0F6B68] flex items-center justify-center flex-shrink-0">
                     <Check className="w-3 h-3 stroke-[2.5]" />
                   </span>
-                  <span>Comprehensive technician repair logs & cost audits</span>
+                  <span>Maintenance logs and service history</span>
                 </div>
               </div>
             </div>
 
             <div className="pt-6 mt-6 border-t border-[#172235] text-[11px] text-slate-500 flex items-center justify-between">
-              <span>PostgreSQL & JWT Protected</span>
-              <span>Encrypted Session</span>
+              <span>WarrantyFlow</span>
+              <span>Secure Access</span>
             </div>
           </div>
 
           {/* Right Form Panel: #FFFFFF */}
-          <div className="lg:col-span-7 p-8 sm:p-12 flex flex-col justify-center bg-white">
+          <div className="lg:col-span-7 p-8 sm:p-12 lg:p-14 flex flex-col justify-center bg-white">
             <div className="max-w-md w-full mx-auto">
               <div className="mb-6">
                 <h2 className="text-2xl font-bold text-[#101827] tracking-tight">
                   Sign In
                 </h2>
                 <p className="mt-1 text-xs text-slate-500">
-                  Enter your credentials to access your warranty workspace.
+                  Enter your credentials to access your account.
                 </p>
               </div>
 

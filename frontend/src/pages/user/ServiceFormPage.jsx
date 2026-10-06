@@ -136,10 +136,10 @@ export default function ServiceFormPage() {
             <span>Back to Service History</span>
           </Link>
           <h1 className="text-xl sm:text-2xl font-bold text-[#101827] tracking-tight">
-            {isEditMode ? 'Edit Service Record' : 'Log Maintenance Event'}
+            {isEditMode ? 'Edit Service Record' : 'Log Service Record'}
           </h1>
           <p className="text-xs sm:text-sm text-[#4B5563] mt-1">
-            Record repairs, diagnostic inspections, parts replacements, and associated servicing costs.
+            Record repair details, maintenance costs, and technician notes.
           </p>
         </div>
       </div>

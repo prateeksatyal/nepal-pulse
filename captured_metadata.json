@@ -1,0 +1,704 @@
+[
+  {
+    "num": 1,
+    "category": "Public",
+    "route": "/",
+    "name": "Landing Page",
+    "viewport": "1440x900",
+    "state": "Default view (hero, metrics, features, CTA, footer)",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\public\\01_landing_page.png"
+  },
+  {
+    "num": 2,
+    "category": "Public",
+    "route": "/login",
+    "name": "Sign In Page",
+    "viewport": "1440x900",
+    "state": "Clean authentication form with role indicators",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\public\\02_login_page.png"
+  },
+  {
+    "num": 3,
+    "category": "Public",
+    "route": "/register",
+    "name": "Registration Page",
+    "viewport": "1440x900",
+    "state": "Account registration interface",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\public\\03_register_page.png"
+  },
+  {
+    "num": 4,
+    "category": "Standard User",
+    "route": "/dashboard",
+    "name": "User Dashboard",
+    "viewport": "1440x900",
+    "state": "Active warranties, statistics, expiring alerts & quick actions",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\user\\04_user_dashboard.png"
+  },
+  {
+    "num": 5,
+    "category": "Standard User",
+    "route": "/products",
+    "name": "Products List (Table View)",
+    "viewport": "1440x900",
+    "state": "Assets directory with status badges and filters in table layout",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\user\\05_products_table_view.png"
+  },
+  {
+    "num": 6,
+    "category": "Standard User",
+    "route": "/products",
+    "name": "Products List (Grid View)",
+    "viewport": "1440x900",
+    "state": "Asset cards layout showing hardware details and status",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\user\\06_products_grid_view.png"
+  },
+  {
+    "num": 7,
+    "category": "Standard User",
+    "route": "/products/new",
+    "name": "Add Product Form (Empty)",
+    "viewport": "1440x900",
+    "state": "Initial asset registration form",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\user\\07_add_product_empty.png"
+  },
+  {
+    "num": 8,
+    "category": "Standard User",
+    "route": "/products/new",
+    "name": "Add Product Form (Filled)",
+    "viewport": "1440x900",
+    "state": "Form populated with tablet specifications",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\user\\08_add_product_filled.png"
+  },
+  {
+    "num": 9,
+    "category": "Standard User",
+    "route": "/products/1",
+    "name": "Product Detail Page",
+    "viewport": "1440x900",
+    "state": "Dell XPS 15 asset overview, warranties, and maintenance records",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\user\\09_product_detail.png"
+  },
+  {
+    "num": 10,
+    "category": "Standard User",
+    "route": "/products/1/edit",
+    "name": "Edit Product Page",
+    "viewport": "1440x900",
+    "state": "Pre-populated product update form",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\user\\10_edit_product.png"
+  },
+  {
+    "num": 11,
+    "category": "Standard User",
+    "route": "/warranties",
+    "name": "Warranties List",
+    "viewport": "1440x900",
+    "state": "Active, Expiring Soon, and Expired warranty contracts with status badges",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\user\\11_warranties_list.png"
+  },
+  {
+    "num": 12,
+    "category": "Standard User",
+    "route": "/warranties/new",
+    "name": "Add Warranty Form (Empty)",
+    "viewport": "1440x900",
+    "state": "Initial warranty coverage registration form",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\user\\12_add_warranty_empty.png"
+  },
+  {
+    "num": 13,
+    "category": "Standard User",
+    "route": "/warranties/new",
+    "name": "Add Warranty Form (Filled)",
+    "viewport": "1440x900",
+    "state": "Form populated with warranty contract specifications",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\user\\13_add_warranty_filled.png"
+  },
+  {
+    "num": 14,
+    "category": "Standard User",
+    "route": "/warranties/1",
+    "name": "Warranty Detail Page",
+    "viewport": "1440x900",
+    "state": "Dell Premium Support Plus contract terms, status, and attached documents",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\user\\14_warranty_detail.png"
+  },
+  {
+    "num": 15,
+    "category": "Standard User",
+    "route": "/warranties/1/edit",
+    "name": "Edit Warranty Page",
+    "viewport": "1440x900",
+    "state": "Pre-populated warranty modification interface",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\user\\15_edit_warranty.png"
+  },
+  {
+    "num": 16,
+    "category": "Standard User",
+    "route": "/services",
+    "name": "Service & Repair Records",
+    "viewport": "1440x900",
+    "state": "Maintenance events, repair centers, expenses, and service logs",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\user\\16_services_list.png"
+  },
+  {
+    "num": 17,
+    "category": "Standard User",
+    "route": "/services/new",
+    "name": "Log Service Record Form (Empty)",
+    "viewport": "1440x900",
+    "state": "Maintenance logging form",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\user\\17_log_service_empty.png"
+  },
+  {
+    "num": 18,
+    "category": "Standard User",
+    "route": "/services/new",
+    "name": "Log Service Record Form (Filled)",
+    "viewport": "1440x900",
+    "state": "Populated maintenance record with service center and cost",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\user\\18_log_service_filled.png"
+  },
+  {
+    "num": 19,
+    "category": "Standard User",
+    "route": "/services/1/edit",
+    "name": "Edit Service Record Page",
+    "viewport": "1440x900",
+    "state": "Pre-populated service modification form",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\user\\19_edit_service.png"
+  },
+  {
+    "num": 20,
+    "category": "Standard User",
+    "route": "/documents",
+    "name": "Documents & Receipts Vault (Grid)",
+    "viewport": "1440x900",
+    "state": "Receipts and warranty card files repository in card grid layout",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\user\\20_documents_vault_grid.png"
+  },
+  {
+    "num": 21,
+    "category": "Standard User",
+    "route": "/documents",
+    "name": "Documents & Receipts Vault (Table)",
+    "viewport": "1440x900",
+    "state": "Structured file listing with file type, date, and actions",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\user\\21_documents_vault_table.png"
+  },
+  {
+    "num": 22,
+    "category": "Standard User",
+    "route": "/profile",
+    "name": "User Profile & Security",
+    "viewport": "1440x900",
+    "state": "Alex Johnson account details, security credentials, and stats",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\user\\22_user_profile.png"
+  },
+  {
+    "num": 23,
+    "category": "Administrator",
+    "route": "/admin/dashboard",
+    "name": "Admin Console Dashboard",
+    "viewport": "1440x900",
+    "state": "System-wide metrics, warranty health, user counts, and quick links",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\admin\\23_admin_dashboard.png"
+  },
+  {
+    "num": 24,
+    "category": "Administrator",
+    "route": "/admin/users",
+    "name": "User Management (RBAC)",
+    "viewport": "1440x900",
+    "state": "User accounts directory with roles, registration dates, and actions",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\admin\\24_admin_users.png"
+  },
+  {
+    "num": 25,
+    "category": "Administrator",
+    "route": "/admin/categories",
+    "name": "Category Taxonomy Management",
+    "viewport": "1440x900",
+    "state": "System classifications, product counts, and density metrics",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\admin\\25_admin_categories.png"
+  },
+  {
+    "num": 26,
+    "category": "Administrator",
+    "route": "/admin/categories",
+    "name": "Add Category Modal",
+    "viewport": "1440x900",
+    "state": "Interactive modal overlay for creating a taxonomy category",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\admin\\26_admin_categories_modal.png"
+  },
+  {
+    "num": 27,
+    "category": "Administrator",
+    "route": "/admin/products",
+    "name": "Admin Products Directory",
+    "viewport": "1440x900",
+    "state": "Cross-system asset directory with user ownership and serial numbers",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\admin\\27_admin_products.png"
+  },
+  {
+    "num": 28,
+    "category": "Administrator",
+    "route": "/admin/warranties",
+    "name": "Admin Warranties Directory",
+    "viewport": "1440x900",
+    "state": "Global warranty contracts list with status filtering and expiration",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\admin\\28_admin_warranties.png"
+  },
+  {
+    "num": 29,
+    "category": "Administrator",
+    "route": "/admin/services",
+    "name": "Admin Service & Repair Log",
+    "viewport": "1440x900",
+    "state": "System maintenance records, costs, and repair status",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\admin\\29_admin_services.png"
+  },
+  {
+    "num": 30,
+    "category": "UI State",
+    "route": "/products",
+    "name": "Search Active (Matching)",
+    "viewport": "1440x900",
+    "state": "Filter input filtering products to Dell XPS 15 matching result",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\states\\30_products_search_active.png"
+  },
+  {
+    "num": 31,
+    "category": "UI State",
+    "route": "/products",
+    "name": "Search Empty State",
+    "viewport": "1440x900",
+    "state": "Clean zero-results empty state indicator",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\states\\31_products_search_empty.png"
+  },
+  {
+    "num": 32,
+    "category": "UI State",
+    "route": "/warranties",
+    "name": "Warranties Status Filter",
+    "viewport": "1440x900",
+    "state": "Filtered to expiring soon items with amber warning badges",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\states\\32_warranties_filter_expiring.png"
+  },
+  {
+    "num": 33,
+    "category": "UI State",
+    "route": "/products/new",
+    "name": "Form Validation Errors",
+    "viewport": "1440x900",
+    "state": "Validation alerts and field highlight states on empty submission",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\states\\33_form_validation_product_errors.png"
+  },
+  {
+    "num": 34,
+    "category": "UI State",
+    "route": "/products",
+    "name": "Delete Confirmation Modal",
+    "viewport": "1440x900",
+    "state": "Destructive action confirmation modal overlay with Cancel and Delete actions",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\states\\34_delete_confirm_modal.png"
+  },
+  {
+    "num": 35,
+    "category": "Responsive",
+    "route": "/",
+    "name": "Landing Page (Laptop View)",
+    "viewport": "1280x800",
+    "state": "Responsive presentation at 1280x800",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\35_landing_1280x800.png"
+  },
+  {
+    "num": 36,
+    "category": "Responsive",
+    "route": "/login",
+    "name": "Sign In Page (Laptop View)",
+    "viewport": "1280x800",
+    "state": "Responsive presentation at 1280x800",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\36_login_1280x800.png"
+  },
+  {
+    "num": 37,
+    "category": "Responsive",
+    "route": "/dashboard",
+    "name": "User Dashboard (Laptop View)",
+    "viewport": "1280x800",
+    "state": "Responsive presentation at 1280x800",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\37_user_dashboard_1280x800.png"
+  },
+  {
+    "num": 38,
+    "category": "Responsive",
+    "route": "/products",
+    "name": "Products List (Laptop View)",
+    "viewport": "1280x800",
+    "state": "Responsive presentation at 1280x800",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\38_products_1280x800.png"
+  },
+  {
+    "num": 39,
+    "category": "Responsive",
+    "route": "/warranties",
+    "name": "Warranties List (Laptop View)",
+    "viewport": "1280x800",
+    "state": "Responsive presentation at 1280x800",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\39_warranties_1280x800.png"
+  },
+  {
+    "num": 40,
+    "category": "Responsive",
+    "route": "/services",
+    "name": "Service Records (Laptop View)",
+    "viewport": "1280x800",
+    "state": "Responsive presentation at 1280x800",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\40_services_1280x800.png"
+  },
+  {
+    "num": 41,
+    "category": "Responsive",
+    "route": "/documents",
+    "name": "Documents Vault (Laptop View)",
+    "viewport": "1280x800",
+    "state": "Responsive presentation at 1280x800",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\41_documents_1280x800.png"
+  },
+  {
+    "num": 42,
+    "category": "Responsive",
+    "route": "/profile",
+    "name": "User Profile (Laptop View)",
+    "viewport": "1280x800",
+    "state": "Responsive presentation at 1280x800",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\42_user_profile_1280x800.png"
+  },
+  {
+    "num": 43,
+    "category": "Responsive",
+    "route": "/admin/dashboard",
+    "name": "Admin Dashboard (Laptop View)",
+    "viewport": "1280x800",
+    "state": "Responsive presentation at 1280x800",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\43_admin_dashboard_1280x800.png"
+  },
+  {
+    "num": 44,
+    "category": "Responsive",
+    "route": "/admin/users",
+    "name": "Admin Users (Laptop View)",
+    "viewport": "1280x800",
+    "state": "Responsive presentation at 1280x800",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\44_admin_users_1280x800.png"
+  },
+  {
+    "num": 45,
+    "category": "Responsive",
+    "route": "/admin/categories",
+    "name": "Admin Categories (Laptop View)",
+    "viewport": "1280x800",
+    "state": "Responsive presentation at 1280x800",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\45_admin_categories_1280x800.png"
+  },
+  {
+    "num": 46,
+    "category": "Responsive",
+    "route": "/",
+    "name": "Landing Page (Small Desktop View)",
+    "viewport": "1024x768",
+    "state": "Responsive presentation at 1024x768",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\46_landing_1024x768.png"
+  },
+  {
+    "num": 47,
+    "category": "Responsive",
+    "route": "/login",
+    "name": "Sign In Page (Small Desktop View)",
+    "viewport": "1024x768",
+    "state": "Responsive presentation at 1024x768",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\47_login_1024x768.png"
+  },
+  {
+    "num": 48,
+    "category": "Responsive",
+    "route": "/dashboard",
+    "name": "User Dashboard (Small Desktop View)",
+    "viewport": "1024x768",
+    "state": "Responsive presentation at 1024x768",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\48_user_dashboard_1024x768.png"
+  },
+  {
+    "num": 49,
+    "category": "Responsive",
+    "route": "/products",
+    "name": "Products List (Small Desktop View)",
+    "viewport": "1024x768",
+    "state": "Responsive presentation at 1024x768",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\49_products_1024x768.png"
+  },
+  {
+    "num": 50,
+    "category": "Responsive",
+    "route": "/warranties",
+    "name": "Warranties List (Small Desktop View)",
+    "viewport": "1024x768",
+    "state": "Responsive presentation at 1024x768",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\50_warranties_1024x768.png"
+  },
+  {
+    "num": 51,
+    "category": "Responsive",
+    "route": "/services",
+    "name": "Service Records (Small Desktop View)",
+    "viewport": "1024x768",
+    "state": "Responsive presentation at 1024x768",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\51_services_1024x768.png"
+  },
+  {
+    "num": 52,
+    "category": "Responsive",
+    "route": "/documents",
+    "name": "Documents Vault (Small Desktop View)",
+    "viewport": "1024x768",
+    "state": "Responsive presentation at 1024x768",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\52_documents_1024x768.png"
+  },
+  {
+    "num": 53,
+    "category": "Responsive",
+    "route": "/profile",
+    "name": "User Profile (Small Desktop View)",
+    "viewport": "1024x768",
+    "state": "Responsive presentation at 1024x768",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\53_user_profile_1024x768.png"
+  },
+  {
+    "num": 54,
+    "category": "Responsive",
+    "route": "/admin/dashboard",
+    "name": "Admin Dashboard (Small Desktop View)",
+    "viewport": "1024x768",
+    "state": "Responsive presentation at 1024x768",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\54_admin_dashboard_1024x768.png"
+  },
+  {
+    "num": 55,
+    "category": "Responsive",
+    "route": "/admin/users",
+    "name": "Admin Users (Small Desktop View)",
+    "viewport": "1024x768",
+    "state": "Responsive presentation at 1024x768",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\55_admin_users_1024x768.png"
+  },
+  {
+    "num": 56,
+    "category": "Responsive",
+    "route": "/admin/categories",
+    "name": "Admin Categories (Small Desktop View)",
+    "viewport": "1024x768",
+    "state": "Responsive presentation at 1024x768",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\56_admin_categories_1024x768.png"
+  },
+  {
+    "num": 57,
+    "category": "Responsive",
+    "route": "/",
+    "name": "Landing Page (Tablet Portrait View)",
+    "viewport": "768x1024",
+    "state": "Responsive presentation at 768x1024",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\57_landing_768x1024.png"
+  },
+  {
+    "num": 58,
+    "category": "Responsive",
+    "route": "/login",
+    "name": "Sign In Page (Tablet Portrait View)",
+    "viewport": "768x1024",
+    "state": "Responsive presentation at 768x1024",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\58_login_768x1024.png"
+  },
+  {
+    "num": 59,
+    "category": "Responsive",
+    "route": "/dashboard",
+    "name": "User Dashboard (Tablet Portrait View)",
+    "viewport": "768x1024",
+    "state": "Responsive presentation at 768x1024",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\59_user_dashboard_768x1024.png"
+  },
+  {
+    "num": 60,
+    "category": "Responsive",
+    "route": "/products",
+    "name": "Products List (Tablet Portrait View)",
+    "viewport": "768x1024",
+    "state": "Responsive presentation at 768x1024",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\60_products_768x1024.png"
+  },
+  {
+    "num": 61,
+    "category": "Responsive",
+    "route": "/warranties",
+    "name": "Warranties List (Tablet Portrait View)",
+    "viewport": "768x1024",
+    "state": "Responsive presentation at 768x1024",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\61_warranties_768x1024.png"
+  },
+  {
+    "num": 62,
+    "category": "Responsive",
+    "route": "/services",
+    "name": "Service Records (Tablet Portrait View)",
+    "viewport": "768x1024",
+    "state": "Responsive presentation at 768x1024",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\62_services_768x1024.png"
+  },
+  {
+    "num": 63,
+    "category": "Responsive",
+    "route": "/documents",
+    "name": "Documents Vault (Tablet Portrait View)",
+    "viewport": "768x1024",
+    "state": "Responsive presentation at 768x1024",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\63_documents_768x1024.png"
+  },
+  {
+    "num": 64,
+    "category": "Responsive",
+    "route": "/profile",
+    "name": "User Profile (Tablet Portrait View)",
+    "viewport": "768x1024",
+    "state": "Responsive presentation at 768x1024",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\64_user_profile_768x1024.png"
+  },
+  {
+    "num": 65,
+    "category": "Responsive",
+    "route": "/admin/dashboard",
+    "name": "Admin Dashboard (Tablet Portrait View)",
+    "viewport": "768x1024",
+    "state": "Responsive presentation at 768x1024",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\65_admin_dashboard_768x1024.png"
+  },
+  {
+    "num": 66,
+    "category": "Responsive",
+    "route": "/admin/users",
+    "name": "Admin Users (Tablet Portrait View)",
+    "viewport": "768x1024",
+    "state": "Responsive presentation at 768x1024",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\66_admin_users_768x1024.png"
+  },
+  {
+    "num": 67,
+    "category": "Responsive",
+    "route": "/admin/categories",
+    "name": "Admin Categories (Tablet Portrait View)",
+    "viewport": "768x1024",
+    "state": "Responsive presentation at 768x1024",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\67_admin_categories_768x1024.png"
+  },
+  {
+    "num": 68,
+    "category": "Responsive",
+    "route": "/",
+    "name": "Landing Page (Mobile Portrait View)",
+    "viewport": "390x844",
+    "state": "Responsive presentation at 390x844",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\68_landing_390x844.png"
+  },
+  {
+    "num": 69,
+    "category": "Responsive",
+    "route": "/login",
+    "name": "Sign In Page (Mobile Portrait View)",
+    "viewport": "390x844",
+    "state": "Responsive presentation at 390x844",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\69_login_390x844.png"
+  },
+  {
+    "num": 70,
+    "category": "Responsive",
+    "route": "/dashboard",
+    "name": "User Dashboard (Mobile Portrait View)",
+    "viewport": "390x844",
+    "state": "Responsive presentation at 390x844",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\70_user_dashboard_390x844.png"
+  },
+  {
+    "num": 71,
+    "category": "Responsive",
+    "route": "/products",
+    "name": "Products List (Mobile Portrait View)",
+    "viewport": "390x844",
+    "state": "Responsive presentation at 390x844",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\71_products_390x844.png"
+  },
+  {
+    "num": 72,
+    "category": "Responsive",
+    "route": "/warranties",
+    "name": "Warranties List (Mobile Portrait View)",
+    "viewport": "390x844",
+    "state": "Responsive presentation at 390x844",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\72_warranties_390x844.png"
+  },
+  {
+    "num": 73,
+    "category": "Responsive",
+    "route": "/services",
+    "name": "Service Records (Mobile Portrait View)",
+    "viewport": "390x844",
+    "state": "Responsive presentation at 390x844",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\73_services_390x844.png"
+  },
+  {
+    "num": 74,
+    "category": "Responsive",
+    "route": "/documents",
+    "name": "Documents Vault (Mobile Portrait View)",
+    "viewport": "390x844",
+    "state": "Responsive presentation at 390x844",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\74_documents_390x844.png"
+  },
+  {
+    "num": 75,
+    "category": "Responsive",
+    "route": "/profile",
+    "name": "User Profile (Mobile Portrait View)",
+    "viewport": "390x844",
+    "state": "Responsive presentation at 390x844",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\75_user_profile_390x844.png"
+  },
+  {
+    "num": 76,
+    "category": "Responsive",
+    "route": "/admin/dashboard",
+    "name": "Admin Dashboard (Mobile Portrait View)",
+    "viewport": "390x844",
+    "state": "Responsive presentation at 390x844",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\76_admin_dashboard_390x844.png"
+  },
+  {
+    "num": 77,
+    "category": "Responsive",
+    "route": "/admin/users",
+    "name": "Admin Users (Mobile Portrait View)",
+    "viewport": "390x844",
+    "state": "Responsive presentation at 390x844",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\77_admin_users_390x844.png"
+  },
+  {
+    "num": 78,
+    "category": "Responsive",
+    "route": "/admin/categories",
+    "name": "Admin Categories (Mobile Portrait View)",
+    "viewport": "390x844",
+    "state": "Responsive presentation at 390x844",
+    "file": "C:\\Users\\prate\\OneDrive\\Documents\\NOTES OF BSC COMPUTIN\\Warranty Mangaement\\WarrantyFlow_UI_Screenshots\\responsive\\78_admin_categories_390x844.png"
+  }
+]

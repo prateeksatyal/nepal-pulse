@@ -44,14 +44,14 @@ export default function AdminServicesPage() {
           <div className="flex items-center gap-2">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[11px] font-semibold bg-[#F1F3F1] text-[#0F6B68] border border-[#D9DEDA]">
               <Wrench className="w-3.5 h-3.5 text-[#0F6B68]" />
-              Maintenance Audit
+              All Services
             </span>
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-[#101827] tracking-tight mt-1.5">
-            System Maintenance & Repair Log
+            Service Records
           </h1>
           <p className="text-xs sm:text-sm text-[#4B5563] mt-1 max-w-3xl">
-            Supervisory administrative overview of diagnostic notes, repairs, and maintenance expenditures across all registered products.
+            Review repair history and maintenance costs across all user accounts.
           </p>
         </div>
       </div>
@@ -70,7 +70,7 @@ export default function AdminServicesPage() {
         </div>
 
         <div className="flex items-center gap-2 text-xs font-medium text-[#6B7280]">
-          <span>Showing {services.length} of {pagination.total || services.length} logged repair events</span>
+          <span>Showing {services.length} of {pagination.total || services.length} service records</span>
         </div>
       </div>
 
@@ -85,17 +85,18 @@ export default function AdminServicesPage() {
         />
       ) : (
         <div className="bg-white rounded-lg border border-[#D9DEDA] overflow-hidden">
-          <div className="overflow-x-auto">
+          {/* Desktop Table View */}
+          <div className="hidden md:block overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
                 <tr className="bg-[#F1F3F1] border-b border-[#D9DEDA] text-[11px] font-semibold text-[#4B5563] uppercase tracking-wider">
-                  <th className="py-3 px-4">Target Product</th>
-                  <th className="py-3 px-4">Account Owner</th>
+                  <th className="py-3 px-4">Product</th>
+                  <th className="py-3 px-4">Owner</th>
                   <th className="py-3 px-4">Service Center</th>
                   <th className="py-3 px-4">Date</th>
-                  <th className="py-3 px-4">Work Performed</th>
-                  <th className="py-3 px-4">Repair Cost</th>
-                  <th className="py-3 px-4 text-right">Details</th>
+                  <th className="py-3 px-4">Description</th>
+                  <th className="py-3 px-4">Cost</th>
+                  <th className="py-3 px-4 text-right">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#D9DEDA]">
@@ -162,13 +163,57 @@ export default function AdminServicesPage() {
                         className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md border border-[#D9DEDA] text-[#111827] bg-[#F1F3F1] hover:bg-[#D9DEDA] transition-colors"
                       >
                         <Eye className="w-3 h-3 text-[#6B7280]" />
-                        <span>Inspect</span>
+                        <span>View</span>
                       </Link>
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
+          </div>
+
+          {/* Mobile Stacked Card View */}
+          <div className="block md:hidden divide-y divide-[#D9DEDA]">
+            {services.map((s) => (
+              <div key={s.id} className="p-4 space-y-3">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-9 h-9 rounded-md bg-[#F1F3F1] text-[#0F6B68] border border-[#D9DEDA] flex items-center justify-center font-bold text-xs flex-shrink-0">
+                      <Wrench className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <Link
+                        to={`/products/${s.product_id}`}
+                        className="font-bold text-sm text-[#101827] hover:text-[#0F6B68] transition-colors"
+                      >
+                        {s.product_name}
+                      </Link>
+                      <span className="text-xs text-[#6B7280] block">
+                        {s.service_center} • {formatDate(s.service_date)}
+                      </span>
+                    </div>
+                  </div>
+                  <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-[#F1F3F1] text-[#101827] border border-[#D9DEDA] flex-shrink-0">
+                    {formatCurrency(s.cost)}
+                  </span>
+                </div>
+
+                <p className="text-xs text-[#4B5563] line-clamp-2">
+                  {s.description}
+                </p>
+
+                <div className="flex items-center justify-between pt-2 border-t border-[#F1F3F1] text-xs">
+                  <span className="text-[#6B7280]">{s.owner_name || 'User'}</span>
+                  <Link
+                    to={`/products/${s.product_id}`}
+                    className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold rounded bg-[#F1F3F1] hover:bg-[#D9DEDA] text-[#111827] border border-[#D9DEDA] transition-colors"
+                  >
+                    <Eye className="w-3.5 h-3.5 text-[#6B7280]" />
+                    <span>View Product</span>
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
 
           <Pagination

@@ -100,7 +100,7 @@ export default function ServiceRecordsPage() {
             Service & Repair History
           </h1>
           <p className="text-xs sm:text-sm text-[#4B5563] mt-1 max-w-3xl">
-            Track repair logs, maintenance expenditures, service centers, and technician work summaries across all your registered assets.
+            Track repairs, service centers, and maintenance costs for your equipment.
           </p>
         </div>
 
@@ -109,7 +109,7 @@ export default function ServiceRecordsPage() {
           className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-[#0F6B68] hover:bg-[#0B5754] text-white text-xs font-semibold rounded-md transition-colors"
         >
           <Plus className="w-4 h-4" />
-          <span>Log New Service</span>
+          <span>Log Service</span>
         </Link>
       </div>
 
@@ -226,7 +226,8 @@ export default function ServiceRecordsPage() {
         />
       ) : (
         <div className="bg-white rounded-lg border border-[#D9DEDA] overflow-hidden">
-          <div className="overflow-x-auto">
+          {/* Desktop Table View */}
+          <div className="hidden md:block overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-[#F1F3F1] border-b border-[#D9DEDA] text-[11px] font-semibold text-[#4B5563] uppercase tracking-wider">
@@ -311,6 +312,50 @@ export default function ServiceRecordsPage() {
                 ))}
               </tbody>
             </table>
+          </div>
+
+          {/* Mobile Stacked Record View */}
+          <div className="block md:hidden divide-y divide-[#D9DEDA]">
+            {services.map((s) => (
+              <div key={s.id} className="p-4 space-y-2 hover:bg-[#F8FAF9] transition-colors">
+                <div className="flex items-start justify-between gap-2">
+                  <div className="min-w-0 flex-1">
+                    <Link
+                      to={`/products/${s.product_id}`}
+                      className="font-bold text-sm text-[#101827] hover:text-[#0F6B68] truncate block"
+                    >
+                      {s.product_name}
+                    </Link>
+                    <p className="text-xs text-slate-500 mt-0.5">
+                      {s.service_center} · {formatDate(s.service_date)}
+                    </p>
+                  </div>
+                  <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-[#F1F3F1] text-[#101827] border border-[#D9DEDA]">
+                    {formatCurrency(s.cost)}
+                  </span>
+                </div>
+
+                <p className="text-xs text-slate-700 line-clamp-2">{s.description}</p>
+
+                <div className="flex items-center justify-end gap-2 pt-1">
+                  <Link
+                    to={`/services/${s.id}/edit`}
+                    className="p-1 text-slate-600 hover:text-[#0F6B68]"
+                    title="Edit"
+                  >
+                    <Edit2 className="w-4 h-4" />
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={() => handleDeleteClick(s)}
+                    className="p-1 text-slate-400 hover:text-[#B42318]"
+                    title="Delete"
+                  >
+                    <Trash2 className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
 
           <Pagination

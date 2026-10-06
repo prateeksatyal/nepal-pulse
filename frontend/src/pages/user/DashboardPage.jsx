@@ -118,7 +118,7 @@ export default function DashboardPage() {
             Dashboard
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-            Real-time status for your cataloged equipment, warranty terms, and service logs.
+            Overview of your products, warranties, and maintenance records.
           </p>
         </div>
 
@@ -148,29 +148,29 @@ export default function DashboardPage() {
       </div>
 
       {/* KPI Stats 4-Column Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5">
         {statCards.map((card, idx) => {
           const Icon = card.icon;
           return (
             <Link
               key={idx}
               to={card.link}
-              className={`p-4 rounded-lg bg-white border border-[#D9DEDA] transition-colors hover:border-slate-400 block ${
-                card.highlight ? 'bg-[#FFF5DA]/30' : ''
+              className={`p-3.5 sm:p-4 rounded-lg bg-white border border-[#D9DEDA] transition-colors hover:border-slate-400 block ${
+                card.highlight ? 'bg-[#FFF5DA]/30 border-[#B7791F]/40' : ''
               }`}
             >
-              <div className="flex items-center justify-between mb-2">
+              <div className="flex items-center justify-between mb-1.5">
                 <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                   {card.label}
                 </span>
-                <div className={`w-8 h-8 rounded-md ${card.bg} ${card.color} flex items-center justify-center`}>
-                  <Icon className="w-4 h-4" />
+                <div className={`w-7 h-7 rounded-md ${card.bg} ${card.color} flex items-center justify-center`}>
+                  <Icon className="w-3.5 h-3.5" />
                 </div>
               </div>
-              <div className="text-2xl font-bold text-[#101827] tracking-tight">
+              <div className="text-xl sm:text-2xl font-bold text-[#101827] tracking-tight">
                 {card.value}
               </div>
-              <p className="text-[11px] text-slate-500 mt-1">{card.description}</p>
+              <p className="text-[11px] text-slate-500 mt-0.5">{card.description}</p>
             </Link>
           );
         })}

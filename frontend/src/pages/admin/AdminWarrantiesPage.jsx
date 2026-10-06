@@ -71,14 +71,14 @@ export default function AdminWarrantiesPage() {
           <div className="flex items-center gap-2">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[11px] font-semibold bg-[#F1F3F1] text-[#0F6B68] border border-[#D9DEDA]">
               <Shield className="w-3.5 h-3.5 text-[#0F6B68]" />
-              Global Warranty Registry
+              All Warranties
             </span>
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-[#101827] tracking-tight mt-1.5">
-            System Warranties Directory
+            Warranties Directory
           </h1>
           <p className="text-xs sm:text-sm text-[#4B5563] mt-1 max-w-3xl">
-            Supervisory administrative overview of warranty agreements, coverage calculations, and reminder notification triggers.
+            View and manage warranty coverage and expiry reminders across all accounts.
           </p>
         </div>
       </div>
@@ -124,17 +124,18 @@ export default function AdminWarrantiesPage() {
         />
       ) : (
         <div className="bg-white rounded-lg border border-[#D9DEDA] overflow-hidden">
-          <div className="overflow-x-auto">
+          {/* Desktop Table View */}
+          <div className="hidden md:block overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
                 <tr className="bg-[#F1F3F1] border-b border-[#D9DEDA] text-[11px] font-semibold text-[#4B5563] uppercase tracking-wider">
-                  <th className="py-3 px-4">Covered Product</th>
-                  <th className="py-3 px-4">Account Owner</th>
-                  <th className="py-3 px-4">Provider & Terms</th>
-                  <th className="py-3 px-4">Coverage Period</th>
-                  <th className="py-3 px-4">Coverage Status</th>
-                  <th className="py-3 px-4 text-center">Expiry Alert</th>
-                  <th className="py-3 px-4 text-right">Details</th>
+                  <th className="py-3 px-4">Product</th>
+                  <th className="py-3 px-4">Owner</th>
+                  <th className="py-3 px-4">Provider</th>
+                  <th className="py-3 px-4">Dates</th>
+                  <th className="py-3 px-4">Status</th>
+                  <th className="py-3 px-4 text-center">Reminder</th>
+                  <th className="py-3 px-4 text-right">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#D9DEDA]">
@@ -235,13 +236,81 @@ export default function AdminWarrantiesPage() {
                         className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md border border-[#D9DEDA] text-[#111827] bg-[#F1F3F1] hover:bg-[#D9DEDA] transition-colors"
                       >
                         <Eye className="w-3 h-3 text-[#6B7280]" />
-                        <span>Inspect</span>
+                        <span>View</span>
                       </Link>
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
+          </div>
+
+          {/* Mobile Stacked Card View */}
+          <div className="block md:hidden divide-y divide-[#D9DEDA]">
+            {warranties.map((w) => (
+              <div key={w.id} className="p-4 space-y-3">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-9 h-9 rounded-md bg-[#F1F3F1] text-[#0F6B68] border border-[#D9DEDA] flex items-center justify-center font-bold text-xs flex-shrink-0">
+                      <Shield className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <Link
+                        to={`/warranties/${w.id}`}
+                        className="font-bold text-sm text-[#101827] hover:text-[#0F6B68] transition-colors"
+                      >
+                        {w.product_name}
+                      </Link>
+                      <span className="text-xs text-[#6B7280] block">
+                        {w.provider} • {w.warranty_type}
+                      </span>
+                    </div>
+                  </div>
+                  <StatusBadge status={w.status} daysRemaining={w.days_remaining} />
+                </div>
+
+                <div className="grid grid-cols-2 gap-2 text-xs pt-1 border-t border-[#F1F3F1]">
+                  <div>
+                    <span className="text-[11px] text-[#6B7280] block">Owner</span>
+                    <span className="font-medium text-[#111827]">{w.owner_name || 'User'}</span>
+                  </div>
+                  <div>
+                    <span className="text-[11px] text-[#6B7280] block">Expires</span>
+                    <span className="font-medium text-[#4B5563]">{formatDate(w.end_date)}</span>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between pt-2 border-t border-[#F1F3F1]">
+                  <button
+                    type="button"
+                    onClick={() => handleSendReminder(w.id)}
+                    disabled={emailStatus[w.id] === 'sending'}
+                    className={`px-2.5 py-1 text-xs font-medium rounded-md border transition-colors inline-flex items-center gap-1.5 ${
+                      emailStatus[w.id] === 'sent'
+                        ? 'bg-[#EAF6EC] text-[#15803D] border-[#15803D]/20'
+                        : 'bg-[#F1F3F1] text-[#111827] border-[#D9DEDA] hover:bg-[#D9DEDA]'
+                    } disabled:opacity-50`}
+                  >
+                    <Mail className="w-3 h-3 text-[#0F6B68]" />
+                    <span>
+                      {emailStatus[w.id] === 'sending'
+                        ? 'Sending...'
+                        : emailStatus[w.id] === 'sent'
+                        ? 'Sent ✓'
+                        : 'Send Alert'}
+                    </span>
+                  </button>
+
+                  <Link
+                    to={`/warranties/${w.id}`}
+                    className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold rounded bg-[#F1F3F1] hover:bg-[#D9DEDA] text-[#111827] border border-[#D9DEDA] transition-colors"
+                  >
+                    <Eye className="w-3.5 h-3.5 text-[#6B7280]" />
+                    <span>View</span>
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
 
           <Pagination

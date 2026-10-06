@@ -1,0 +1,559 @@
+===================================================================================================================
+WARRANTYFLOW — COMPLETE UI/UX FRONTEND SCREENSHOT SPECIFICATION INDEX
+===================================================================================================================
+Total Screens Captured: 78
+Standard Resolution: 1440x900 (Desktop)
+Responsive Breakpoints: 1280x800 (Laptop), 1024x768 (Small Desktop), 768x1024 (Tablet), 390x844 (Mobile)
+Roles Evaluated: Public / Guest, Standard User (Alex Johnson), Administrator (System Administrator)
+-------------------------------------------------------------------------------------------------------------------
+#    | CATEGORY       | VIEWPORT   | ROUTE                  | SCREEN NAME                      | FILENAME
+-------------------------------------------------------------------------------------------------------------------
+1    | Public         | 1440x900   | /                      | Landing Page                     | WarrantyFlow_UI_Screenshots/public/01_landing_page.png
+2    | Public         | 1440x900   | /login                 | Sign In Page                     | WarrantyFlow_UI_Screenshots/public/02_login_page.png
+3    | Public         | 1440x900   | /register              | Registration Page                | WarrantyFlow_UI_Screenshots/public/03_register_page.png
+4    | Standard User  | 1440x900   | /dashboard             | User Dashboard                   | WarrantyFlow_UI_Screenshots/user/04_user_dashboard.png
+5    | Standard User  | 1440x900   | /products              | Products List (Table View)       | WarrantyFlow_UI_Screenshots/user/05_products_table_view.png
+6    | Standard User  | 1440x900   | /products              | Products List (Grid View)        | WarrantyFlow_UI_Screenshots/user/06_products_grid_view.png
+7    | Standard User  | 1440x900   | /products/new          | Add Product Form (Empty)         | WarrantyFlow_UI_Screenshots/user/07_add_product_empty.png
+8    | Standard User  | 1440x900   | /products/new          | Add Product Form (Filled)        | WarrantyFlow_UI_Screenshots/user/08_add_product_filled.png
+9    | Standard User  | 1440x900   | /products/1            | Product Detail Page              | WarrantyFlow_UI_Screenshots/user/09_product_detail.png
+10   | Standard User  | 1440x900   | /products/1/edit       | Edit Product Page                | WarrantyFlow_UI_Screenshots/user/10_edit_product.png
+11   | Standard User  | 1440x900   | /warranties            | Warranties List                  | WarrantyFlow_UI_Screenshots/user/11_warranties_list.png
+12   | Standard User  | 1440x900   | /warranties/new        | Add Warranty Form (Empty)        | WarrantyFlow_UI_Screenshots/user/12_add_warranty_empty.png
+13   | Standard User  | 1440x900   | /warranties/new        | Add Warranty Form (Filled)       | WarrantyFlow_UI_Screenshots/user/13_add_warranty_filled.png
+14   | Standard User  | 1440x900   | /warranties/1          | Warranty Detail Page             | WarrantyFlow_UI_Screenshots/user/14_warranty_detail.png
+15   | Standard User  | 1440x900   | /warranties/1/edit     | Edit Warranty Page               | WarrantyFlow_UI_Screenshots/user/15_edit_warranty.png
+16   | Standard User  | 1440x900   | /services              | Service & Repair Records         | WarrantyFlow_UI_Screenshots/user/16_services_list.png
+17   | Standard User  | 1440x900   | /services/new          | Log Service Record Form (Empty)  | WarrantyFlow_UI_Screenshots/user/17_log_service_empty.png
+18   | Standard User  | 1440x900   | /services/new          | Log Service Record Form (Filled) | WarrantyFlow_UI_Screenshots/user/18_log_service_filled.png
+19   | Standard User  | 1440x900   | /services/1/edit       | Edit Service Record Page         | WarrantyFlow_UI_Screenshots/user/19_edit_service.png
+20   | Standard User  | 1440x900   | /documents             | Documents & Receipts Vault (Grid) | WarrantyFlow_UI_Screenshots/user/20_documents_vault_grid.png
+21   | Standard User  | 1440x900   | /documents             | Documents & Receipts Vault (Table) | WarrantyFlow_UI_Screenshots/user/21_documents_vault_table.png
+22   | Standard User  | 1440x900   | /profile               | User Profile & Security          | WarrantyFlow_UI_Screenshots/user/22_user_profile.png
+23   | Administrator  | 1440x900   | /admin/dashboard       | Admin Console Dashboard          | WarrantyFlow_UI_Screenshots/admin/23_admin_dashboard.png
+24   | Administrator  | 1440x900   | /admin/users           | User Management (RBAC)           | WarrantyFlow_UI_Screenshots/admin/24_admin_users.png
+25   | Administrator  | 1440x900   | /admin/categories      | Category Taxonomy Management     | WarrantyFlow_UI_Screenshots/admin/25_admin_categories.png
+26   | Administrator  | 1440x900   | /admin/categories      | Add Category Modal               | WarrantyFlow_UI_Screenshots/admin/26_admin_categories_modal.png
+27   | Administrator  | 1440x900   | /admin/products        | Admin Products Directory         | WarrantyFlow_UI_Screenshots/admin/27_admin_products.png
+28   | Administrator  | 1440x900   | /admin/warranties      | Admin Warranties Directory       | WarrantyFlow_UI_Screenshots/admin/28_admin_warranties.png
+29   | Administrator  | 1440x900   | /admin/services        | Admin Service & Repair Log       | WarrantyFlow_UI_Screenshots/admin/29_admin_services.png
+30   | UI State       | 1440x900   | /products              | Search Active (Matching)         | WarrantyFlow_UI_Screenshots/states/30_products_search_active.png
+31   | UI State       | 1440x900   | /products              | Search Empty State               | WarrantyFlow_UI_Screenshots/states/31_products_search_empty.png
+32   | UI State       | 1440x900   | /warranties            | Warranties Status Filter         | WarrantyFlow_UI_Screenshots/states/32_warranties_filter_expiring.png
+33   | UI State       | 1440x900   | /products/new          | Form Validation Errors           | WarrantyFlow_UI_Screenshots/states/33_form_validation_product_errors.png
+34   | UI State       | 1440x900   | /products              | Delete Confirmation Modal        | WarrantyFlow_UI_Screenshots/states/34_delete_confirm_modal.png
+35   | Responsive     | 1280x800   | /                      | Landing Page (Laptop View)       | WarrantyFlow_UI_Screenshots/responsive/35_landing_1280x800.png
+36   | Responsive     | 1280x800   | /login                 | Sign In Page (Laptop View)       | WarrantyFlow_UI_Screenshots/responsive/36_login_1280x800.png
+37   | Responsive     | 1280x800   | /dashboard             | User Dashboard (Laptop View)     | WarrantyFlow_UI_Screenshots/responsive/37_user_dashboard_1280x800.png
+38   | Responsive     | 1280x800   | /products              | Products List (Laptop View)      | WarrantyFlow_UI_Screenshots/responsive/38_products_1280x800.png
+39   | Responsive     | 1280x800   | /warranties            | Warranties List (Laptop View)    | WarrantyFlow_UI_Screenshots/responsive/39_warranties_1280x800.png
+40   | Responsive     | 1280x800   | /services              | Service Records (Laptop View)    | WarrantyFlow_UI_Screenshots/responsive/40_services_1280x800.png
+41   | Responsive     | 1280x800   | /documents             | Documents Vault (Laptop View)    | WarrantyFlow_UI_Screenshots/responsive/41_documents_1280x800.png
+42   | Responsive     | 1280x800   | /profile               | User Profile (Laptop View)       | WarrantyFlow_UI_Screenshots/responsive/42_user_profile_1280x800.png
+43   | Responsive     | 1280x800   | /admin/dashboard       | Admin Dashboard (Laptop View)    | WarrantyFlow_UI_Screenshots/responsive/43_admin_dashboard_1280x800.png
+44   | Responsive     | 1280x800   | /admin/users           | Admin Users (Laptop View)        | WarrantyFlow_UI_Screenshots/responsive/44_admin_users_1280x800.png
+45   | Responsive     | 1280x800   | /admin/categories      | Admin Categories (Laptop View)   | WarrantyFlow_UI_Screenshots/responsive/45_admin_categories_1280x800.png
+46   | Responsive     | 1024x768   | /                      | Landing Page (Small Desktop View) | WarrantyFlow_UI_Screenshots/responsive/46_landing_1024x768.png
+47   | Responsive     | 1024x768   | /login                 | Sign In Page (Small Desktop View) | WarrantyFlow_UI_Screenshots/responsive/47_login_1024x768.png
+48   | Responsive     | 1024x768   | /dashboard             | User Dashboard (Small Desktop View) | WarrantyFlow_UI_Screenshots/responsive/48_user_dashboard_1024x768.png
+49   | Responsive     | 1024x768   | /products              | Products List (Small Desktop View) | WarrantyFlow_UI_Screenshots/responsive/49_products_1024x768.png
+50   | Responsive     | 1024x768   | /warranties            | Warranties List (Small Desktop View) | WarrantyFlow_UI_Screenshots/responsive/50_warranties_1024x768.png
+51   | Responsive     | 1024x768   | /services              | Service Records (Small Desktop View) | WarrantyFlow_UI_Screenshots/responsive/51_services_1024x768.png
+52   | Responsive     | 1024x768   | /documents             | Documents Vault (Small Desktop View) | WarrantyFlow_UI_Screenshots/responsive/52_documents_1024x768.png
+53   | Responsive     | 1024x768   | /profile               | User Profile (Small Desktop View) | WarrantyFlow_UI_Screenshots/responsive/53_user_profile_1024x768.png
+54   | Responsive     | 1024x768   | /admin/dashboard       | Admin Dashboard (Small Desktop View) | WarrantyFlow_UI_Screenshots/responsive/54_admin_dashboard_1024x768.png
+55   | Responsive     | 1024x768   | /admin/users           | Admin Users (Small Desktop View) | WarrantyFlow_UI_Screenshots/responsive/55_admin_users_1024x768.png
+56   | Responsive     | 1024x768   | /admin/categories      | Admin Categories (Small Desktop View) | WarrantyFlow_UI_Screenshots/responsive/56_admin_categories_1024x768.png
+57   | Responsive     | 768x1024   | /                      | Landing Page (Tablet Portrait View) | WarrantyFlow_UI_Screenshots/responsive/57_landing_768x1024.png
+58   | Responsive     | 768x1024   | /login                 | Sign In Page (Tablet Portrait View) | WarrantyFlow_UI_Screenshots/responsive/58_login_768x1024.png
+59   | Responsive     | 768x1024   | /dashboard             | User Dashboard (Tablet Portrait View) | WarrantyFlow_UI_Screenshots/responsive/59_user_dashboard_768x1024.png
+60   | Responsive     | 768x1024   | /products              | Products List (Tablet Portrait View) | WarrantyFlow_UI_Screenshots/responsive/60_products_768x1024.png
+61   | Responsive     | 768x1024   | /warranties            | Warranties List (Tablet Portrait View) | WarrantyFlow_UI_Screenshots/responsive/61_warranties_768x1024.png
+62   | Responsive     | 768x1024   | /services              | Service Records (Tablet Portrait View) | WarrantyFlow_UI_Screenshots/responsive/62_services_768x1024.png
+63   | Responsive     | 768x1024   | /documents             | Documents Vault (Tablet Portrait View) | WarrantyFlow_UI_Screenshots/responsive/63_documents_768x1024.png
+64   | Responsive     | 768x1024   | /profile               | User Profile (Tablet Portrait View) | WarrantyFlow_UI_Screenshots/responsive/64_user_profile_768x1024.png
+65   | Responsive     | 768x1024   | /admin/dashboard       | Admin Dashboard (Tablet Portrait View) | WarrantyFlow_UI_Screenshots/responsive/65_admin_dashboard_768x1024.png
+66   | Responsive     | 768x1024   | /admin/users           | Admin Users (Tablet Portrait View) | WarrantyFlow_UI_Screenshots/responsive/66_admin_users_768x1024.png
+67   | Responsive     | 768x1024   | /admin/categories      | Admin Categories (Tablet Portrait View) | WarrantyFlow_UI_Screenshots/responsive/67_admin_categories_768x1024.png
+68   | Responsive     | 390x844    | /                      | Landing Page (Mobile Portrait View) | WarrantyFlow_UI_Screenshots/responsive/68_landing_390x844.png
+69   | Responsive     | 390x844    | /login                 | Sign In Page (Mobile Portrait View) | WarrantyFlow_UI_Screenshots/responsive/69_login_390x844.png
+70   | Responsive     | 390x844    | /dashboard             | User Dashboard (Mobile Portrait View) | WarrantyFlow_UI_Screenshots/responsive/70_user_dashboard_390x844.png
+71   | Responsive     | 390x844    | /products              | Products List (Mobile Portrait View) | WarrantyFlow_UI_Screenshots/responsive/71_products_390x844.png
+72   | Responsive     | 390x844    | /warranties            | Warranties List (Mobile Portrait View) | WarrantyFlow_UI_Screenshots/responsive/72_warranties_390x844.png
+73   | Responsive     | 390x844    | /services              | Service Records (Mobile Portrait View) | WarrantyFlow_UI_Screenshots/responsive/73_services_390x844.png
+74   | Responsive     | 390x844    | /documents             | Documents Vault (Mobile Portrait View) | WarrantyFlow_UI_Screenshots/responsive/74_documents_390x844.png
+75   | Responsive     | 390x844    | /profile               | User Profile (Mobile Portrait View) | WarrantyFlow_UI_Screenshots/responsive/75_user_profile_390x844.png
+76   | Responsive     | 390x844    | /admin/dashboard       | Admin Dashboard (Mobile Portrait View) | WarrantyFlow_UI_Screenshots/responsive/76_admin_dashboard_390x844.png
+77   | Responsive     | 390x844    | /admin/users           | Admin Users (Mobile Portrait View) | WarrantyFlow_UI_Screenshots/responsive/77_admin_users_390x844.png
+78   | Responsive     | 390x844    | /admin/categories      | Admin Categories (Mobile Portrait View) | WarrantyFlow_UI_Screenshots/responsive/78_admin_categories_390x844.png
+-------------------------------------------------------------------------------------------------------------------
+
+DETAILED SCREEN DESCRIPTIONS & STATE INVENTORY:
+===================================================================================================================
+[01] Landing Page (Public)
+     Route:       /
+     Viewport:    1440x900
+     State/Notes: Default view (hero, metrics, features, CTA, footer)
+     File:        WarrantyFlow_UI_Screenshots/public/01_landing_page.png
+
+[02] Sign In Page (Public)
+     Route:       /login
+     Viewport:    1440x900
+     State/Notes: Clean authentication form with role indicators
+     File:        WarrantyFlow_UI_Screenshots/public/02_login_page.png
+
+[03] Registration Page (Public)
+     Route:       /register
+     Viewport:    1440x900
+     State/Notes: Account registration interface
+     File:        WarrantyFlow_UI_Screenshots/public/03_register_page.png
+
+[04] User Dashboard (Standard User)
+     Route:       /dashboard
+     Viewport:    1440x900
+     State/Notes: Active warranties, statistics, expiring alerts & quick actions
+     File:        WarrantyFlow_UI_Screenshots/user/04_user_dashboard.png
+
+[05] Products List (Table View) (Standard User)
+     Route:       /products
+     Viewport:    1440x900
+     State/Notes: Assets directory with status badges and filters in table layout
+     File:        WarrantyFlow_UI_Screenshots/user/05_products_table_view.png
+
+[06] Products List (Grid View) (Standard User)
+     Route:       /products
+     Viewport:    1440x900
+     State/Notes: Asset cards layout showing hardware details and status
+     File:        WarrantyFlow_UI_Screenshots/user/06_products_grid_view.png
+
+[07] Add Product Form (Empty) (Standard User)
+     Route:       /products/new
+     Viewport:    1440x900
+     State/Notes: Initial asset registration form
+     File:        WarrantyFlow_UI_Screenshots/user/07_add_product_empty.png
+
+[08] Add Product Form (Filled) (Standard User)
+     Route:       /products/new
+     Viewport:    1440x900
+     State/Notes: Form populated with tablet specifications
+     File:        WarrantyFlow_UI_Screenshots/user/08_add_product_filled.png
+
+[09] Product Detail Page (Standard User)
+     Route:       /products/1
+     Viewport:    1440x900
+     State/Notes: Dell XPS 15 asset overview, warranties, and maintenance records
+     File:        WarrantyFlow_UI_Screenshots/user/09_product_detail.png
+
+[10] Edit Product Page (Standard User)
+     Route:       /products/1/edit
+     Viewport:    1440x900
+     State/Notes: Pre-populated product update form
+     File:        WarrantyFlow_UI_Screenshots/user/10_edit_product.png
+
+[11] Warranties List (Standard User)
+     Route:       /warranties
+     Viewport:    1440x900
+     State/Notes: Active, Expiring Soon, and Expired warranty contracts with status badges
+     File:        WarrantyFlow_UI_Screenshots/user/11_warranties_list.png
+
+[12] Add Warranty Form (Empty) (Standard User)
+     Route:       /warranties/new
+     Viewport:    1440x900
+     State/Notes: Initial warranty coverage registration form
+     File:        WarrantyFlow_UI_Screenshots/user/12_add_warranty_empty.png
+
+[13] Add Warranty Form (Filled) (Standard User)
+     Route:       /warranties/new
+     Viewport:    1440x900
+     State/Notes: Form populated with warranty contract specifications
+     File:        WarrantyFlow_UI_Screenshots/user/13_add_warranty_filled.png
+
+[14] Warranty Detail Page (Standard User)
+     Route:       /warranties/1
+     Viewport:    1440x900
+     State/Notes: Dell Premium Support Plus contract terms, status, and attached documents
+     File:        WarrantyFlow_UI_Screenshots/user/14_warranty_detail.png
+
+[15] Edit Warranty Page (Standard User)
+     Route:       /warranties/1/edit
+     Viewport:    1440x900
+     State/Notes: Pre-populated warranty modification interface
+     File:        WarrantyFlow_UI_Screenshots/user/15_edit_warranty.png
+
+[16] Service & Repair Records (Standard User)
+     Route:       /services
+     Viewport:    1440x900
+     State/Notes: Maintenance events, repair centers, expenses, and service logs
+     File:        WarrantyFlow_UI_Screenshots/user/16_services_list.png
+
+[17] Log Service Record Form (Empty) (Standard User)
+     Route:       /services/new
+     Viewport:    1440x900
+     State/Notes: Maintenance logging form
+     File:        WarrantyFlow_UI_Screenshots/user/17_log_service_empty.png
+
+[18] Log Service Record Form (Filled) (Standard User)
+     Route:       /services/new
+     Viewport:    1440x900
+     State/Notes: Populated maintenance record with service center and cost
+     File:        WarrantyFlow_UI_Screenshots/user/18_log_service_filled.png
+
+[19] Edit Service Record Page (Standard User)
+     Route:       /services/1/edit
+     Viewport:    1440x900
+     State/Notes: Pre-populated service modification form
+     File:        WarrantyFlow_UI_Screenshots/user/19_edit_service.png
+
+[20] Documents & Receipts Vault (Grid) (Standard User)
+     Route:       /documents
+     Viewport:    1440x900
+     State/Notes: Receipts and warranty card files repository in card grid layout
+     File:        WarrantyFlow_UI_Screenshots/user/20_documents_vault_grid.png
+
+[21] Documents & Receipts Vault (Table) (Standard User)
+     Route:       /documents
+     Viewport:    1440x900
+     State/Notes: Structured file listing with file type, date, and actions
+     File:        WarrantyFlow_UI_Screenshots/user/21_documents_vault_table.png
+
+[22] User Profile & Security (Standard User)
+     Route:       /profile
+     Viewport:    1440x900
+     State/Notes: Alex Johnson account details, security credentials, and stats
+     File:        WarrantyFlow_UI_Screenshots/user/22_user_profile.png
+
+[23] Admin Console Dashboard (Administrator)
+     Route:       /admin/dashboard
+     Viewport:    1440x900
+     State/Notes: System-wide metrics, warranty health, user counts, and quick links
+     File:        WarrantyFlow_UI_Screenshots/admin/23_admin_dashboard.png
+
+[24] User Management (RBAC) (Administrator)
+     Route:       /admin/users
+     Viewport:    1440x900
+     State/Notes: User accounts directory with roles, registration dates, and actions
+     File:        WarrantyFlow_UI_Screenshots/admin/24_admin_users.png
+
+[25] Category Taxonomy Management (Administrator)
+     Route:       /admin/categories
+     Viewport:    1440x900
+     State/Notes: System classifications, product counts, and density metrics
+     File:        WarrantyFlow_UI_Screenshots/admin/25_admin_categories.png
+
+[26] Add Category Modal (Administrator)
+     Route:       /admin/categories
+     Viewport:    1440x900
+     State/Notes: Interactive modal overlay for creating a taxonomy category
+     File:        WarrantyFlow_UI_Screenshots/admin/26_admin_categories_modal.png
+
+[27] Admin Products Directory (Administrator)
+     Route:       /admin/products
+     Viewport:    1440x900
+     State/Notes: Cross-system asset directory with user ownership and serial numbers
+     File:        WarrantyFlow_UI_Screenshots/admin/27_admin_products.png
+
+[28] Admin Warranties Directory (Administrator)
+     Route:       /admin/warranties
+     Viewport:    1440x900
+     State/Notes: Global warranty contracts list with status filtering and expiration
+     File:        WarrantyFlow_UI_Screenshots/admin/28_admin_warranties.png
+
+[29] Admin Service & Repair Log (Administrator)
+     Route:       /admin/services
+     Viewport:    1440x900
+     State/Notes: System maintenance records, costs, and repair status
+     File:        WarrantyFlow_UI_Screenshots/admin/29_admin_services.png
+
+[30] Search Active (Matching) (UI State)
+     Route:       /products
+     Viewport:    1440x900
+     State/Notes: Filter input filtering products to Dell XPS 15 matching result
+     File:        WarrantyFlow_UI_Screenshots/states/30_products_search_active.png
+
+[31] Search Empty State (UI State)
+     Route:       /products
+     Viewport:    1440x900
+     State/Notes: Clean zero-results empty state indicator
+     File:        WarrantyFlow_UI_Screenshots/states/31_products_search_empty.png
+
+[32] Warranties Status Filter (UI State)
+     Route:       /warranties
+     Viewport:    1440x900
+     State/Notes: Filtered to expiring soon items with amber warning badges
+     File:        WarrantyFlow_UI_Screenshots/states/32_warranties_filter_expiring.png
+
+[33] Form Validation Errors (UI State)
+     Route:       /products/new
+     Viewport:    1440x900
+     State/Notes: Validation alerts and field highlight states on empty submission
+     File:        WarrantyFlow_UI_Screenshots/states/33_form_validation_product_errors.png
+
+[34] Delete Confirmation Modal (UI State)
+     Route:       /products
+     Viewport:    1440x900
+     State/Notes: Destructive action confirmation modal overlay with Cancel and Delete actions
+     File:        WarrantyFlow_UI_Screenshots/states/34_delete_confirm_modal.png
+
+[35] Landing Page (Laptop View) (Responsive)
+     Route:       /
+     Viewport:    1280x800
+     State/Notes: Responsive presentation at 1280x800
+     File:        WarrantyFlow_UI_Screenshots/responsive/35_landing_1280x800.png
+
+[36] Sign In Page (Laptop View) (Responsive)
+     Route:       /login
+     Viewport:    1280x800
+     State/Notes: Responsive presentation at 1280x800
+     File:        WarrantyFlow_UI_Screenshots/responsive/36_login_1280x800.png
+
+[37] User Dashboard (Laptop View) (Responsive)
+     Route:       /dashboard
+     Viewport:    1280x800
+     State/Notes: Responsive presentation at 1280x800
+     File:        WarrantyFlow_UI_Screenshots/responsive/37_user_dashboard_1280x800.png
+
+[38] Products List (Laptop View) (Responsive)
+     Route:       /products
+     Viewport:    1280x800
+     State/Notes: Responsive presentation at 1280x800
+     File:        WarrantyFlow_UI_Screenshots/responsive/38_products_1280x800.png
+
+[39] Warranties List (Laptop View) (Responsive)
+     Route:       /warranties
+     Viewport:    1280x800
+     State/Notes: Responsive presentation at 1280x800
+     File:        WarrantyFlow_UI_Screenshots/responsive/39_warranties_1280x800.png
+
+[40] Service Records (Laptop View) (Responsive)
+     Route:       /services
+     Viewport:    1280x800
+     State/Notes: Responsive presentation at 1280x800
+     File:        WarrantyFlow_UI_Screenshots/responsive/40_services_1280x800.png
+
+[41] Documents Vault (Laptop View) (Responsive)
+     Route:       /documents
+     Viewport:    1280x800
+     State/Notes: Responsive presentation at 1280x800
+     File:        WarrantyFlow_UI_Screenshots/responsive/41_documents_1280x800.png
+
+[42] User Profile (Laptop View) (Responsive)
+     Route:       /profile
+     Viewport:    1280x800
+     State/Notes: Responsive presentation at 1280x800
+     File:        WarrantyFlow_UI_Screenshots/responsive/42_user_profile_1280x800.png
+
+[43] Admin Dashboard (Laptop View) (Responsive)
+     Route:       /admin/dashboard
+     Viewport:    1280x800
+     State/Notes: Responsive presentation at 1280x800
+     File:        WarrantyFlow_UI_Screenshots/responsive/43_admin_dashboard_1280x800.png
+
+[44] Admin Users (Laptop View) (Responsive)
+     Route:       /admin/users
+     Viewport:    1280x800
+     State/Notes: Responsive presentation at 1280x800
+     File:        WarrantyFlow_UI_Screenshots/responsive/44_admin_users_1280x800.png
+
+[45] Admin Categories (Laptop View) (Responsive)
+     Route:       /admin/categories
+     Viewport:    1280x800
+     State/Notes: Responsive presentation at 1280x800
+     File:        WarrantyFlow_UI_Screenshots/responsive/45_admin_categories_1280x800.png
+
+[46] Landing Page (Small Desktop View) (Responsive)
+     Route:       /
+     Viewport:    1024x768
+     State/Notes: Responsive presentation at 1024x768
+     File:        WarrantyFlow_UI_Screenshots/responsive/46_landing_1024x768.png
+
+[47] Sign In Page (Small Desktop View) (Responsive)
+     Route:       /login
+     Viewport:    1024x768
+     State/Notes: Responsive presentation at 1024x768
+     File:        WarrantyFlow_UI_Screenshots/responsive/47_login_1024x768.png
+
+[48] User Dashboard (Small Desktop View) (Responsive)
+     Route:       /dashboard
+     Viewport:    1024x768
+     State/Notes: Responsive presentation at 1024x768
+     File:        WarrantyFlow_UI_Screenshots/responsive/48_user_dashboard_1024x768.png
+
+[49] Products List (Small Desktop View) (Responsive)
+     Route:       /products
+     Viewport:    1024x768
+     State/Notes: Responsive presentation at 1024x768
+     File:        WarrantyFlow_UI_Screenshots/responsive/49_products_1024x768.png
+
+[50] Warranties List (Small Desktop View) (Responsive)
+     Route:       /warranties
+     Viewport:    1024x768
+     State/Notes: Responsive presentation at 1024x768
+     File:        WarrantyFlow_UI_Screenshots/responsive/50_warranties_1024x768.png
+
+[51] Service Records (Small Desktop View) (Responsive)
+     Route:       /services
+     Viewport:    1024x768
+     State/Notes: Responsive presentation at 1024x768
+     File:        WarrantyFlow_UI_Screenshots/responsive/51_services_1024x768.png
+
+[52] Documents Vault (Small Desktop View) (Responsive)
+     Route:       /documents
+     Viewport:    1024x768
+     State/Notes: Responsive presentation at 1024x768
+     File:        WarrantyFlow_UI_Screenshots/responsive/52_documents_1024x768.png
+
+[53] User Profile (Small Desktop View) (Responsive)
+     Route:       /profile
+     Viewport:    1024x768
+     State/Notes: Responsive presentation at 1024x768
+     File:        WarrantyFlow_UI_Screenshots/responsive/53_user_profile_1024x768.png
+
+[54] Admin Dashboard (Small Desktop View) (Responsive)
+     Route:       /admin/dashboard
+     Viewport:    1024x768
+     State/Notes: Responsive presentation at 1024x768
+     File:        WarrantyFlow_UI_Screenshots/responsive/54_admin_dashboard_1024x768.png
+
+[55] Admin Users (Small Desktop View) (Responsive)
+     Route:       /admin/users
+     Viewport:    1024x768
+     State/Notes: Responsive presentation at 1024x768
+     File:        WarrantyFlow_UI_Screenshots/responsive/55_admin_users_1024x768.png
+
+[56] Admin Categories (Small Desktop View) (Responsive)
+     Route:       /admin/categories
+     Viewport:    1024x768
+     State/Notes: Responsive presentation at 1024x768
+     File:        WarrantyFlow_UI_Screenshots/responsive/56_admin_categories_1024x768.png
+
+[57] Landing Page (Tablet Portrait View) (Responsive)
+     Route:       /
+     Viewport:    768x1024
+     State/Notes: Responsive presentation at 768x1024
+     File:        WarrantyFlow_UI_Screenshots/responsive/57_landing_768x1024.png
+
+[58] Sign In Page (Tablet Portrait View) (Responsive)
+     Route:       /login
+     Viewport:    768x1024
+     State/Notes: Responsive presentation at 768x1024
+     File:        WarrantyFlow_UI_Screenshots/responsive/58_login_768x1024.png
+
+[59] User Dashboard (Tablet Portrait View) (Responsive)
+     Route:       /dashboard
+     Viewport:    768x1024
+     State/Notes: Responsive presentation at 768x1024
+     File:        WarrantyFlow_UI_Screenshots/responsive/59_user_dashboard_768x1024.png
+
+[60] Products List (Tablet Portrait View) (Responsive)
+     Route:       /products
+     Viewport:    768x1024
+     State/Notes: Responsive presentation at 768x1024
+     File:        WarrantyFlow_UI_Screenshots/responsive/60_products_768x1024.png
+
+[61] Warranties List (Tablet Portrait View) (Responsive)
+     Route:       /warranties
+     Viewport:    768x1024
+     State/Notes: Responsive presentation at 768x1024
+     File:        WarrantyFlow_UI_Screenshots/responsive/61_warranties_768x1024.png
+
+[62] Service Records (Tablet Portrait View) (Responsive)
+     Route:       /services
+     Viewport:    768x1024
+     State/Notes: Responsive presentation at 768x1024
+     File:        WarrantyFlow_UI_Screenshots/responsive/62_services_768x1024.png
+
+[63] Documents Vault (Tablet Portrait View) (Responsive)
+     Route:       /documents
+     Viewport:    768x1024
+     State/Notes: Responsive presentation at 768x1024
+     File:        WarrantyFlow_UI_Screenshots/responsive/63_documents_768x1024.png
+
+[64] User Profile (Tablet Portrait View) (Responsive)
+     Route:       /profile
+     Viewport:    768x1024
+     State/Notes: Responsive presentation at 768x1024
+     File:        WarrantyFlow_UI_Screenshots/responsive/64_user_profile_768x1024.png
+
+[65] Admin Dashboard (Tablet Portrait View) (Responsive)
+     Route:       /admin/dashboard
+     Viewport:    768x1024
+     State/Notes: Responsive presentation at 768x1024
+     File:        WarrantyFlow_UI_Screenshots/responsive/65_admin_dashboard_768x1024.png
+
+[66] Admin Users (Tablet Portrait View) (Responsive)
+     Route:       /admin/users
+     Viewport:    768x1024
+     State/Notes: Responsive presentation at 768x1024
+     File:        WarrantyFlow_UI_Screenshots/responsive/66_admin_users_768x1024.png
+
+[67] Admin Categories (Tablet Portrait View) (Responsive)
+     Route:       /admin/categories
+     Viewport:    768x1024
+     State/Notes: Responsive presentation at 768x1024
+     File:        WarrantyFlow_UI_Screenshots/responsive/67_admin_categories_768x1024.png
+
+[68] Landing Page (Mobile Portrait View) (Responsive)
+     Route:       /
+     Viewport:    390x844
+     State/Notes: Responsive presentation at 390x844
+     File:        WarrantyFlow_UI_Screenshots/responsive/68_landing_390x844.png
+
+[69] Sign In Page (Mobile Portrait View) (Responsive)
+     Route:       /login
+     Viewport:    390x844
+     State/Notes: Responsive presentation at 390x844
+     File:        WarrantyFlow_UI_Screenshots/responsive/69_login_390x844.png
+
+[70] User Dashboard (Mobile Portrait View) (Responsive)
+     Route:       /dashboard
+     Viewport:    390x844
+     State/Notes: Responsive presentation at 390x844
+     File:        WarrantyFlow_UI_Screenshots/responsive/70_user_dashboard_390x844.png
+
+[71] Products List (Mobile Portrait View) (Responsive)
+     Route:       /products
+     Viewport:    390x844
+     State/Notes: Responsive presentation at 390x844
+     File:        WarrantyFlow_UI_Screenshots/responsive/71_products_390x844.png
+
+[72] Warranties List (Mobile Portrait View) (Responsive)
+     Route:       /warranties
+     Viewport:    390x844
+     State/Notes: Responsive presentation at 390x844
+     File:        WarrantyFlow_UI_Screenshots/responsive/72_warranties_390x844.png
+
+[73] Service Records (Mobile Portrait View) (Responsive)
+     Route:       /services
+     Viewport:    390x844
+     State/Notes: Responsive presentation at 390x844
+     File:        WarrantyFlow_UI_Screenshots/responsive/73_services_390x844.png
+
+[74] Documents Vault (Mobile Portrait View) (Responsive)
+     Route:       /documents
+     Viewport:    390x844
+     State/Notes: Responsive presentation at 390x844
+     File:        WarrantyFlow_UI_Screenshots/responsive/74_documents_390x844.png
+
+[75] User Profile (Mobile Portrait View) (Responsive)
+     Route:       /profile
+     Viewport:    390x844
+     State/Notes: Responsive presentation at 390x844
+     File:        WarrantyFlow_UI_Screenshots/responsive/75_user_profile_390x844.png
+
+[76] Admin Dashboard (Mobile Portrait View) (Responsive)
+     Route:       /admin/dashboard
+     Viewport:    390x844
+     State/Notes: Responsive presentation at 390x844
+     File:        WarrantyFlow_UI_Screenshots/responsive/76_admin_dashboard_390x844.png
+
+[77] Admin Users (Mobile Portrait View) (Responsive)
+     Route:       /admin/users
+     Viewport:    390x844
+     State/Notes: Responsive presentation at 390x844
+     File:        WarrantyFlow_UI_Screenshots/responsive/77_admin_users_390x844.png
+
+[78] Admin Categories (Mobile Portrait View) (Responsive)
+     Route:       /admin/categories
+     Viewport:    390x844
+     State/Notes: Responsive presentation at 390x844
+     File:        WarrantyFlow_UI_Screenshots/responsive/78_admin_categories_390x844.png
